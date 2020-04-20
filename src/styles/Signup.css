@@ -1,0 +1,41 @@
+.background_image {
+  background-image: url('../img/foto-cochera-2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.form-control  {
+  background: gray;
+  
+}
+
+.form-control::placeholder {
+  color: darkslategray;
+}
+
+.fondito {
+  background: rgba(0, 0, 0, 0.850);
+  padding: 40px;
+  margin-top: 4em;
+}
+
+.container {
+  height: 100vh;
+}
+
+h2 {
+  text-align: center;
+  padding-bottom: 0.8em;
+}
