@@ -10,6 +10,12 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+img {
+  align-content: center;
+  height: 150px;
+  margin-top: -6em;
+}
+
 .form-control  {
   background: gray;
   
@@ -23,23 +29,52 @@ input[type=number] {
   background: rgba(0, 0, 0, 0.750);
   padding: 40px;
   margin-top: 4em;
+  text-align: center;
+  -webkit-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
+  -moz-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
+  box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);  
+}
+
+.signupForm {
+  text-align: left;
 }
 
 h2 {
   text-align: center;
-  padding-bottom: 0.8em;
+  padding-bottom: 0.5em;
 }
 
-.container-fluid {
-  height: 100vh;
+body {
   background-image: url('../img/foto-cochera-2.png');
   background-repeat: no-repeat;
   background-size: cover;
+  padding-bottom: 3em;
 }
 
 @media (max-width: 600px) {
   .container-fluid {
     height: 100%;
-    padding-bottom: 5em;
+    padding: 0;
+    padding-bottom: 2em;
+    margin: 0;
   }
+
+  .form-group {
+    margin:0;
+    padding:0;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .form-label {
+    padding-top:.5em;
+    margin:0;
+  }
+
+  button {
+    margin-top: .5em;
+  }
+
 }

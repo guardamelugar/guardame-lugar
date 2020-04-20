@@ -4,12 +4,13 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import { ValidationForm, TextInput } from 'react-bootstrap4-form-validation';
+import { ValidationForm, TextInput, Checkbox } from 'react-bootstrap4-form-validation';
 import validator from 'validator'
 import '../styles/Signup.css';
 
 class SignupContainer extends Component {
   state = {
+    ...this.state,
     nombre: "",
     apellido: "",
     email: "",
@@ -22,6 +23,12 @@ class SignupContainer extends Component {
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
+    })
+  }
+
+  handleChangeCheck = (e, value) => {
+    this.setState({
+      [e.target.name]: value
     })
   }
 
@@ -43,11 +50,12 @@ class SignupContainer extends Component {
       <Container fluid>
         <Row className="justify-content-center align-items-center">
           <Col className='fondito justify-self-center' md={8}>
+            <img src={require("../img/logo.png")} />
             <h2>Registrate</h2>
-            <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit}>
+            <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="signupForm">
               <Form>
                 <Form.Row>
-                  <Form.Group as={Col} md={6} sm={12} controlId="nombre">
+                  <Form.Group as={Col} controlId="nombre">
                     <Form.Label>Nombre</Form.Label>
                     <TextInput name="nombre" id="nombre" required
                       value={this.state.nombre}
@@ -59,7 +67,7 @@ class SignupContainer extends Component {
                       }}
                     />
                   </Form.Group>
-                  <Form.Group as={Col} md={6} sm={12} controlId="apellido">
+                  <Form.Group as={Col} controlId="apellido">
                     <Form.Label>Apellido</Form.Label>
                     <TextInput name="apellido" id="apellido" required
                       value={this.state.apellido}
@@ -109,7 +117,7 @@ class SignupContainer extends Component {
                     />
                   </Form.Group>
                   <Form.Group as={Col} md={6} sm={12} controlId="confirmPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Confirmar Password</Form.Label>
                     <TextInput name="confirmPassword" id="confirmPassword" type="password" required
                       validator={this.matchPassword}
                       errorMessage={{
@@ -120,12 +128,13 @@ class SignupContainer extends Component {
                       onChange={this.handleChange}
                     />
                   </Form.Group>
-
                 </Form.Row>
-                <Form.Group controlId="soydueno">
-                  <Form.Check type="checkbox" label="Soy dueño de un garage" />
+                <Form.Group>
+                  <Checkbox name="soydueno" id="soydueno" type="checkbox" label="Soy dueño de un garage"
+                    value={this.state.soydueno}
+                    onChange={this.handleChangeCheck} />
                 </Form.Group>
-                <       div className='text-center'>
+                <div className='text-center'>
                   <Button variant="primary" type="submit">
                     Registrarse
                     </Button>
