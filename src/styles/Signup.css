@@ -44,13 +44,6 @@ h2 {
   padding-bottom: 0.5em;
 }
 
-body {
-  background-image: url('../img/foto-cochera-2.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-bottom: 3em;
-}
-
 @media (max-width: 600px) {
   .container-fluid {
     height: 100%;

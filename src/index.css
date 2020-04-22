@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  background-image: url('./img/foto-cochera-2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 3em;
+}

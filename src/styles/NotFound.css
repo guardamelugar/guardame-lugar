@@ -1,0 +1,33 @@
+.notFound {
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: 3em;
+  text-shadow: 4px 2px 3px rgba(150, 150, 150, 0.77);
+}
+
+.notFoundBox {
+  background: white;
+  padding: 2em;
+  margin-top: 15em;
+  text-align: center;
+  -webkit-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
+  -moz-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
+  box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);  
+}
+
+@media (max-width: 600px) {
+  .container-fluid {
+    height: 100vh;
+    padding: 0;
+    padding-bottom: 2em;
+    margin: 0;
+  }
+
+  .notFoundBox {
+    margin-top: 10em;
+  }
+
+  .notFound {
+    font-size: 3em;
+  }
+}

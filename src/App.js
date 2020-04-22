@@ -1,13 +1,18 @@
 import React from 'react';
 import './App.css';
-import SignupContainer from './containers/SignupContainer';
-import './index.css';
+import SignupContainer from './components/SignupContainer';
+import NotFound from './pages/NotFound'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <SignupContainer />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Redirect exact from="/" to="signup" />
+        <Route exact path="/signup" component={SignupContainer} />
+        <Route component={NotFound} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
