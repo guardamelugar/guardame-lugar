@@ -4,11 +4,12 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import { ValidationForm, TextInput, Checkbox } from 'react-bootstrap4-form-validation';
 import validator from 'validator'
 import POSTSignup from './POSTSignup'
 import TransformSignup from './TransformSignup'
-import '../styles/Signup.css';
+import '../styles/Forms.css';
 
 class SignupContainer extends Component {
   state = {
@@ -36,9 +37,9 @@ class SignupContainer extends Component {
 
   handleSubmit = (e, formData) => {
     e.preventDefault();
-    
-      const jsonForm = TransformSignup(formData);
-      POSTSignup(jsonForm);
+
+    const jsonForm = TransformSignup(formData);
+    POSTSignup(jsonForm);
 
   }
 
@@ -88,7 +89,7 @@ class SignupContainer extends Component {
                 <Form.Row>
                   <Form.Group as={Col} md={6} sm={12} controlId="email">
                     <Form.Label>Correo Electrónico</Form.Label>
-                    <TextInput name="email" id="email" type="email"
+                    <TextInput name="email" id="email" type="email" required
                       validator={validator.isEmail}
                       errorMessage={{ validator: "Ingresar un email válido" }}
                       value={this.state.email}
@@ -142,7 +143,12 @@ class SignupContainer extends Component {
                 <div className='text-center'>
                   <Button variant="primary" type="submit">
                     Registrarse
+                  </Button>
+                  <Link to='/'>
+                    <Button variant="primary">
+                      Volver a Login
                     </Button>
+                  </Link>
                 </div>
               </Form>
             </ValidationForm>
