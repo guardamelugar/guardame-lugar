@@ -6,6 +6,8 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { ValidationForm, TextInput, Checkbox } from 'react-bootstrap4-form-validation';
 import validator from 'validator'
+import POSTSignup from './POSTSignup'
+import TransformSignup from './TransformSignup'
 import '../styles/Signup.css';
 
 class SignupContainer extends Component {
@@ -32,9 +34,12 @@ class SignupContainer extends Component {
     })
   }
 
-  handleSubmit = (e, formData, inputs) => {
+  handleSubmit = (e, formData) => {
     e.preventDefault();
-    alert(JSON.stringify(formData, null, 2)); //a cambiar cuando mandemos a backend
+    
+      const jsonForm = TransformSignup(formData);
+      POSTSignup(jsonForm);
+
   }
 
   handleErrorSubmit = (e, formData, errorInputs) => {
