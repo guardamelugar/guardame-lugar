@@ -10,14 +10,12 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-img {
+
+.img-login-normal {
+  margin-bottom: -2em;
   align-content: center;
   height: 150px;
   margin-top: -6em;
-}
-
-.img-login {
-  margin-bottom: -2em;
 }
 
 .form-control  {
@@ -36,7 +34,7 @@ img {
   text-align: center;
   -webkit-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
   -moz-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
-  box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);  
+  box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
 }
 
 .signupForm {
@@ -54,10 +52,15 @@ h2 {
 
 p {
   text-align: left;
+  font-size: 1.05em;
+}
+
+.mision {
+  text-shadow: 4px 4px 0 #2e2e2e;
 }
 
 .guardameLugar {
-  font-family: 'Emblema One', cursive;
+  font-family: 'Goblin One', cursive;
 }
 
 .login-box:hover {
@@ -76,16 +79,20 @@ p {
   display: inline-flex;
 }
 
+.tituloMision {
+  padding-top: 1em;
+}
+
 @media (max-width: 768px) {
+  .img-login-normal {
+    margin: 0em;
+    margin-top: -6em;
+  }
+
   .tituloMision {
     font-size: 2em;
     padding-bottom: 1em;
-  }
-  .container-fluid {
-    height: 100%;
-    padding: 0;
-    padding-bottom: 2em;
-    margin: 0;
+    padding-top: 0em;
   }
 
   .form-group {

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
-import { ValidationForm, TextInput, Checkbox } from 'react-bootstrap4-form-validation';
+import React, { Component } from 'react'
+import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
+import { ValidationForm, TextInput, Checkbox } from 'react-bootstrap4-form-validation'
 import validator from 'validator'
 import POSTSignup from './POSTSignup'
 import TransformSignup from './TransformSignup'
@@ -56,8 +56,8 @@ class SignupContainer extends Component {
       <Container fluid>
         <Row className="justify-content-center align-items-center">
           <Col className='fondito justify-self-center' md={8}>
-            <img src={require("../img/logo.png")} />
-            <h2>Registrate</h2>
+            <img className='img-login-normal' alt="logo" src={require("../img/logo.png")} />
+            <h2 className='pt-4'>Registrate</h2>
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="signupForm">
               <Form>
                 <Form.Row>
@@ -141,14 +141,14 @@ class SignupContainer extends Component {
                     onChange={this.handleChangeCheck} />
                 </Form.Group>
                 <div className='text-center'>
-                  <Button variant="primary" type="submit">
-                    Registrarse
-                  </Button>
-                  <Link to='/'>
-                    <Button variant="primary">
+                <Link to='/'>
+                    <Button variant="danger">
                       Volver a Login
                     </Button>
                   </Link>
+                  <Button variant="primary" type="submit">
+                    Registrarse
+                  </Button>
                 </div>
               </Form>
             </ValidationForm>
