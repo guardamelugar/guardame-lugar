@@ -18,11 +18,11 @@ const MissionStatement = () => {
           <h2 className='guardameLugar tituloMision'>GUARDAME LUGAR</h2>
           <p>La página que te facilita reservar un lugar para tu vehículo. </p>
           <p>Creando rápidamente una cuenta como usuario, ¡podrás reservar tu lugar en el garage que te quede más cómodo!</p>
-          <p>Si tenes uno o mas garages y queres ser parte de <b className='guardameLugar'>GUARDAME LUGAR</b>,
+          <p>Si tenés uno o mas garages y querés ser parte de <b className='guardameLugar'>GUARDAME LUGAR</b>,
             creando una cuenta como cliente podrás publicar tus establecimientos, limitar la cantidad de lugares para reservar
-            e informar sobre los tipos de vehículos que aceptas. </p>
-          <p>Olvidate de dar vueltas buscando donde estacionar, llegar tarde a una reunión o si se aproxima una tormenta.</p>
-          <p>Registrate y empezá a formar parte de la comunidad. </p>
+            e informar sobre los tipos de vehículos que aceptás. </p>
+          <p>Olvidate de dar vueltas buscando donde estacionar, llegar tarde a una reunión, o si se aproxima una tormenta.</p>
+          <p>Registrate y empezá a formar parte de nuestra comunidad. </p>
           <br />
           <p><b>Vos preocupate por manejar, nosotros nos encargamos del resto.</b></p>
         </Col>
@@ -32,15 +32,15 @@ const MissionStatement = () => {
           <h2 className='guardameLugar tituloMision'>GUARDAME LUGAR</h2>
           <p>La página que te facilita reservar un lugar para tu vehículo. </p>
           <p>Creando rápidamente una cuenta como usuario, ¡podrás reservar tu lugar en el garage que te quede más cómodo!</p>
-          <p>Si tenes uno o mas garages y queres ser parte de <b className='guardameLugar'>GUARDAME LUGAR</b>,
+          <p>Si tenés uno o mas garages y querés ser parte de <b className='guardameLugar'>GUARDAME LUGAR</b>,
             creando una cuenta como cliente podrás publicar tus establecimientos, limitar la cantidad de lugares para reservar
-            e informar sobre los tipos de vehículos que aceptas. </p>
-          <p>Olvidate de dar vueltas buscando donde estacionar, llegar tarde a una reunión o si se aproxima una tormenta.</p>
-          <p>Registrate y empezá a formar parte de la comunidad. </p>
+            e informar sobre los tipos de vehículos que aceptás. </p>
+          <p>Olvidate de dar vueltas buscando donde estacionar, llegar tarde a una reunión, o si se aproxima una tormenta.</p>
+          <p>Registrate y empezá a formar parte de nuestra comunidad. </p>
           <br />
           <p><b>Vos preocupate por manejar, nosotros nos encargamos del resto.</b></p>
         </Col>
-        <Col md={5}>
+        <Col>
           <Login />
           <SignupOptions />
         </Col>

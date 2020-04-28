@@ -66,10 +66,10 @@ class SignupContainer extends Component {
                     <TextInput name="nombre" id="nombre" required
                       value={this.state.nombre}
                       onChange={this.handleChange}
-                      pattern="(?=.[a-zA-Z]).{3,}"
+                      pattern="^[^±!@£$%^&*_+§¡€#¢§¶•ªº«\\/<>?:;|=.,0-9]{3,50}$"
                       errorMessage={{
                         required: "El nombre es requerido",
-                        pattern: "El nombre debe tener tres o más letras"
+                        pattern: "El nombre debe tener entre 3 y 50 caracteres"
                       }}
                     />
                   </Form.Group>
@@ -78,10 +78,10 @@ class SignupContainer extends Component {
                     <TextInput name="apellido" id="apellido" required
                       value={this.state.apellido}
                       onChange={this.handleChange}
-                      pattern="(?=.[a-zA-Z]).{3,}"
+                      pattern="^[^±!@£$%^&*_+§¡€#¢§¶•ªº«\\/<>?:;|=.,0-9]{3,50}$"
                       errorMessage={{
                         required: "El apellido es requerido",
-                        pattern: "El apellido debe tener tres o más letras"
+                        pattern: "El apellido debe tener entre 3 y 50 caracteres"
                       }}
                     />
                   </Form.Group>
@@ -91,7 +91,7 @@ class SignupContainer extends Component {
                     <Form.Label>Correo Electrónico</Form.Label>
                     <TextInput name="email" id="email" type="email" required
                       validator={validator.isEmail}
-                      errorMessage={{ validator: "Ingresar un email válido" }}
+                      errorMessage={{ validator: "Ingresar un email válido"}}
                       value={this.state.email}
                       onChange={this.handleChange}
                     />
@@ -101,7 +101,7 @@ class SignupContainer extends Component {
                     <TextInput name="telefono" id="telefono" required
                       value={this.state.telefono}
                       onChange={this.handleChange}
-                      pattern="(?=.[0-9]).{6,}"
+                      pattern="(?=.[0-9]).{5,15}"
                       errorMessage={{
                         required: "El teléfono es requerido es requerido",
                         pattern: "El teléfono sólo admite números"
@@ -116,7 +116,7 @@ class SignupContainer extends Component {
                       pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}"
                       errorMessage={{
                         required: "El password es requerido",
-                        pattern: "El password necesita 8, conteniendo mayúsculas, minúsculas, y números"
+                        pattern: "El password necesita 8 caracteres, conteniendo mayúsculas, minúsculas, y números"
                       }}
                       value={this.state.password}
                       onChange={this.handleChange}
