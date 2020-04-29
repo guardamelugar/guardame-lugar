@@ -1,14 +1,27 @@
 import React from 'react'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import '../styles/socialmedia.css'
 
 const RedesSociales = () => {
   return (
-    <div class="redes_sociales text-muted">
-      Seguinos en nuestras redes:
-      <a href="#" target="_blank" class="btn-social btn-facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" target="_blank" class="btn-social btn-instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" target="_blank" class="btn-social btn-twitter"><i class="fab fa-twitter"></i></a>
-    </div>
+    <>
+    <Row className="redes_sociales">
+      <Col className="mr-2 text-muted">
+        Seguinos en nuestras redes:
+      </Col>
+    </Row>
+    <Row className="redes_sociales">
+      <Col>
+        <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer"
+          class="btn-social btn-facebook"><i className="fab fa-facebook-f"></i></a>
+        <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer"
+          class="btn-social btn-instagram"><i className="fab fa-instagram"></i></a>
+        <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer"
+          class="btn-social btn-twitter"><i className="fab fa-twitter"></i></a>
+      </Col>
+    </Row>
+    </>
   )
 }
 

@@ -10,10 +10,10 @@ const Footer = () => {
     <footer >
       <Container fluid>
         <Row className='align-items-center pt-2'>
-          <Col className='text-footer text-muted ml-2' xs={4}>
+          <Col className='text-footer text-muted ml-2' xs={3}>
             Cocineritos design - 2020
         </Col>
-          <Col className='text-right mr-2' xs={7}>
+          <Col className='text-right' xs={8}>
             <RedesSociales />
           </Col>
         </Row>

@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import GETLogin from './GETLogin'
 import '../styles/Forms.css';
 
 class Login extends Component {
 
   state = {
     ...this.state,
-    password: "",
     mail: "",
+    password: "",
   }
 
   handleChange = (e) => {
@@ -18,13 +19,11 @@ class Login extends Component {
     })
   }
 
-  handleSubmit = (e, formData) => {
+  handleSubmit = (e) => {
     e.preventDefault();
+    const jsonForm = (this.state);
+    GETLogin(jsonForm);
 
-  }
-
-  handleErrorSubmit = (e, formData, errorInputs) => {
-    console.error(errorInputs)
   }
 
   render() {

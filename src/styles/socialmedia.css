@@ -1,4 +1,9 @@
-a.btn-social,
+.redes_sociales {
+  margin: 0;
+  margin-right: -10%;
+} 
+
+  a.btn-social,
 .btn-social
 {
     border-radius: 50%;
@@ -93,5 +98,7 @@ a.btn-social,
 @media (max-width: 768px) {
   .redes_sociales {
     font-size: .8em;
+    margin: 0;
+    margin-right: -15%;
   }
 }

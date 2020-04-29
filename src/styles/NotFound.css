@@ -12,7 +12,12 @@
   text-align: center;
   -webkit-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
   -moz-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
-  box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);  
+  box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
+  margin-bottom: 20em;
+}
+
+footer {
+  position: absolute;
 }
 
 @media (max-width: 768px) {

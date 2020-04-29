@@ -14,41 +14,39 @@ import '../styles/Forms.css';
 class SignupContainer extends Component {
   state = {
     ...this.state,
-    nombre: "",
-    apellido: "",
-    email: "",
-    telefono: "",
-    password: "",
-    confirmPassword: "",
-    soydueno: ""
+    signup: {
+      nombre: "",
+      apellido: "",
+      email: "",
+      telefono: "",
+      password: "",
+      confirmPassword: "",
+      soydueno: "",
+    }
   }
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      ...this.state, "signup": {...this.state.signup, [e.target.name] : e.target.value}
     })
   }
 
   handleChangeCheck = (e, value) => {
     this.setState({
-      [e.target.name]: value
+      ...this.state, "signup": {...this.state.signup, [e.target.name] : value}
     })
   }
 
-  handleSubmit = (e, formData) => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
-    const jsonForm = TransformSignup(formData);
+    const jsonForm = TransformSignup(this.state.signup);
     POSTSignup(jsonForm);
 
   }
 
-  handleErrorSubmit = (e, formData, errorInputs) => {
-    console.error(errorInputs)
-  }
-
   matchPassword = (value) => {
-    return value && value === this.state.password;
+    return value && value === this.state.signup.password;
   }
 
   render() {
@@ -64,7 +62,7 @@ class SignupContainer extends Component {
                   <Form.Group as={Col} controlId="nombre">
                     <Form.Label>Nombre</Form.Label>
                     <TextInput name="nombre" id="nombre" required
-                      value={this.state.nombre}
+                      value={this.state.signup.nombre}
                       onChange={this.handleChange}
                       pattern="^[^±!@£$%^&*_+§¡€#¢§¶•ªº«\\/<>?:;|=.,0-9]{3,50}$"
                       errorMessage={{
@@ -76,7 +74,7 @@ class SignupContainer extends Component {
                   <Form.Group as={Col} controlId="apellido">
                     <Form.Label>Apellido</Form.Label>
                     <TextInput name="apellido" id="apellido" required
-                      value={this.state.apellido}
+                      value={this.state.signup.apellido}
                       onChange={this.handleChange}
                       pattern="^[^±!@£$%^&*_+§¡€#¢§¶•ªº«\\/<>?:;|=.,0-9]{3,50}$"
                       errorMessage={{
@@ -91,20 +89,20 @@ class SignupContainer extends Component {
                     <Form.Label>Correo Electrónico</Form.Label>
                     <TextInput name="email" id="email" type="email" required
                       validator={validator.isEmail}
-                      errorMessage={{ validator: "Ingresar un email válido"}}
-                      value={this.state.email}
+                      errorMessage={{ validator: "Ingresar un email válido" }}
+                      value={this.state.signup.email}
                       onChange={this.handleChange}
                     />
                   </Form.Group>
                   <Form.Group as={Col} md={6} sm={12} controlId="telefono">
                     <Form.Label>Teléfono</Form.Label>
                     <TextInput name="telefono" id="telefono" required
-                      value={this.state.telefono}
+                      value={this.state.signup.telefono}
                       onChange={this.handleChange}
-                      pattern="(?=.[0-9]).{5,15}"
+                      pattern="(?=^[0-9]*$).{5,15}"
                       errorMessage={{
                         required: "El teléfono es requerido es requerido",
-                        pattern: "El teléfono sólo admite números"
+                        pattern: "El teléfono sólo admite números y requiere más de 5 digitos"
                       }}
                     />
                   </Form.Group>
@@ -118,7 +116,7 @@ class SignupContainer extends Component {
                         required: "El password es requerido",
                         pattern: "El password necesita 8 caracteres, conteniendo mayúsculas, minúsculas, y números"
                       }}
-                      value={this.state.password}
+                      value={this.state.signup.password}
                       onChange={this.handleChange}
                     />
                   </Form.Group>
@@ -130,18 +128,18 @@ class SignupContainer extends Component {
                         required: "La confirmación de password es requerida",
                         validator: "El password no concuerda"
                       }}
-                      value={this.state.confirmPassword}
+                      value={this.state.signup.confirmPassword}
                       onChange={this.handleChange}
                     />
                   </Form.Group>
                 </Form.Row>
                 <Form.Group>
                   <Checkbox name="soydueno" id="soydueno" type="checkbox" label="Soy dueño de un garage"
-                    value={this.state.soydueno}
+                    value={this.state.signup.soydueno}
                     onChange={this.handleChangeCheck} />
                 </Form.Group>
                 <div className='text-center'>
-                <Link to='/'>
+                  <Link to='/'>
                     <Button variant="danger">
                       Volver a Login
                     </Button>
