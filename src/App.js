@@ -1,9 +1,9 @@
-import React from 'react';
-import './App.css';
-import SignupContainer from './components/SignupContainer';
-import LoginContainer from './components/LoginContainer';
-import NotFound from './pages/NotFound';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import React from 'react'
+import './App.css'
+import SignupContainer from './components/SignupContainer'
+import LoginContainer from './components/LoginContainer'
+import NotFound from './pages/NotFound'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 class App extends React.Component {
   render() {
