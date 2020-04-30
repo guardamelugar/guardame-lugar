@@ -3,7 +3,7 @@ import LoginContainer from '../components/LoginContainer';
 
 class Login extends React.Component {
   render() {
-    return LoginContainer;
+    return <LoginContainer/>;
   }
 }
 

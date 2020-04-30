@@ -5,10 +5,11 @@ import Cookies from 'universal-cookie';
 
 const GETLogin = props => {
   const urlWData = URL_LOGIN + '/' + props.mail + '/' + props.password
+  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
   const BakeCookies = (props) => {
     const cookies = new Cookies();
-    cookies.set(cookieName+props.data.mail, props.data, { path: '/' });
+    cookies.set(cookieName, props.data, { path: '/' });
     if (props.data.rol === 1) {
       window.location = '/index';
     } else {
