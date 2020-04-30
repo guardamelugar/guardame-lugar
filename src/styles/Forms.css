@@ -99,6 +99,16 @@ footer {
   font-style: italic;
 }
 
+.legendGarage {
+  margin-top: 1em;
+  font-size: 1.3em;
+}
+
+.form-width {
+  max-width: 1000px;
+  
+}
+
 @media (max-width: 768px) {
   .img-login-normal {
     margin: 0em;
