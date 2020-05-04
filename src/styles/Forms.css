@@ -88,10 +88,9 @@ p {
 
 footer {
   background: #2e2e2e;
-  margin-top: 4em;
   position: absolute;
   min-width: 100vw;
-
+  min-height: 5em;
 }
 
 .text-footer {

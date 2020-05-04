@@ -4,47 +4,53 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import { ValidationForm, TextInput, SelectGroup } from 'react-bootstrap4-form-validation'
+import ListadoLocalidades from './ListadoLocalidades'
+import POSTGarage from './DB Connection/POSTGarage'
+import PATCHGarage from './DB Connection/PATCHGarage'
+import TransformGarage from './Transform/TransformGarage'
 import { Link } from 'react-router-dom'
-import { ValidationForm, TextInput } from 'react-bootstrap4-form-validation'
-import POSTSignup from './POSTSignup'
-import TransformSignup from './TransformSignup'
 import '../styles/Forms.css';
 
 class SignupGarage extends Component {
   state = {
     ...this.state,
     formGarage: {
-      nombre_garage: "",
-      direccion: "",
+      altura_maxima: "",
+      coordenadas: "",
+      telefono_garage: "",
+      direccion_garage: "",
       localidad_garage: "",
-      telefono: "",
       lugar_autos: "",
-      lugar_motos: "",
-      lugar_camionetas: "",
       lugar_bicicletas: "",
-      altura_maxima: ""
+      lugar_camionetas: "",
+      lugar_motos: "",
+      nombre_garage: "",
     }
   }
 
   handleChange = (e) => {
     this.setState({
-      ...this.state, "formGarage": { ...this.state.signup, [e.target.name]: e.target.value }
+      ...this.state, "formGarage": { ...this.state.formGarage, [e.target.name]: e.target.value }
     })
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-
-    const jsonForm = TransformSignup(this.state.signup);
-    POSTSignup(jsonForm);
-
+    const jsonForm = TransformGarage(this.state.formGarage);
+    if (this.props.type === "TYPE") {
+      POSTGarage(jsonForm)
+    }
+    else {
+      PATCHGarage(jsonForm)
+    }
   }
 
   render() {
     return (
       <Container fluid>
         <Row className="justify-content-center align-items-center">
-          <Col className='fondito justify-self-center form-width' xl={7} lg={8} md={9} sm ={10}>
+          <Col className='fondito justify-self-center form-width' xl={7} lg={8} md={9} sm={10}>
             <img className='img-login-normal' alt="logo" src={require("../img/logo.png")} />
             <h2 className='pt-4'>{this.props.titulo}</h2>
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="signupForm">
@@ -62,10 +68,10 @@ class SignupGarage extends Component {
                       }}
                     />
                   </Form.Group>
-                  <Form.Group as={Col} controlId="direccion">
+                  <Form.Group as={Col} controlId="direccion_garage">
                     <Form.Label>Dirección</Form.Label>
-                    <TextInput name="direccion" id="direccion" required
-                      value={this.state.formGarage.direccion}
+                    <TextInput name="direccion_garage" id="direccion_garage" required
+                      value={this.state.formGarage.direccion_garage}
                       onChange={this.handleChange}
                       pattern="^[^±£%^&*§€#¢§¶•ªº«\\/<>|=]{3,40}$"
                       errorMessage={{
@@ -77,17 +83,22 @@ class SignupGarage extends Component {
                 </Form.Row>
                 <Form.Row>
 
-                  <Form.Group as={Col} md={6} sm={12} controlId="localidad">
+                  <Form.Group as={Col} md={6} sm={12} controlId="localidad_garage"
+                    value={this.state.formGarage.localidad_garage}>
                     <Form.Label>Localidad</Form.Label>
-                    <TextInput name="localidad" id="localidad" required
-                      value={this.state.formGarage.localidad}
-                      onChange={this.handleChange}
-                    />
+                    <SelectGroup name="localidad_garage" id="localidad_garage"
+                      value={this.state.localidad_garage}
+                      required errorMessage="Por favor elija una localidad"
+                      onChange={this.handleChange}>
+                      <ListadoLocalidades />
+                    </SelectGroup>
+
                   </Form.Group>
+
                   <Form.Group as={Col} md={6} sm={12} controlId="telefono_garage">
                     <Form.Label>Teléfono</Form.Label>
                     <TextInput name="telefono_garage" id="telefono_garage" required
-                      value={this.state.formGarage.telefono}
+                      value={this.state.formGarage.telefono_garage}
                       onChange={this.handleChange}
                       pattern="(?=^[0-9]*$).{5,15}"
                       errorMessage={{
@@ -99,8 +110,8 @@ class SignupGarage extends Component {
                 </Form.Row>
                 <Form.Row>
                   <Col xs={12}>
-                  <legend className="legendGarage">Lugares</legend></Col>
-                  <Form.Group as={Col} xs={6} controlId="lugar_autos">
+                    <legend className="legendGarage">Lugares</legend></Col>
+                  <Form.Group as={Col} sm={3} xs={6} controlId="lugar_autos">
                     <Form.Label>Autos</Form.Label>
                     <TextInput name="lugar_autos" id="lugar_autos" required
                       value={this.state.formGarage.lugar_autos}
@@ -112,7 +123,7 @@ class SignupGarage extends Component {
                       }}
                     />
                   </Form.Group>
-                  <Form.Group as={Col} xs={6} controlId="lugar_camionetas">
+                  <Form.Group as={Col} sm={3} xs={6} controlId="lugar_camionetas">
                     <Form.Label>Camionetas</Form.Label>
                     <TextInput name="lugar_camionetas" id="lugar_camionetas" required
                       value={this.state.formGarage.lugar_camionetas}
@@ -124,7 +135,7 @@ class SignupGarage extends Component {
                       }}
                     />
                   </Form.Group>
-                  <Form.Group as={Col} xs={6} controlId="lugar_motos">
+                  <Form.Group as={Col} sm={3} xs={6} controlId="lugar_motos">
                     <Form.Label>Motos</Form.Label>
                     <TextInput name="lugar_motos" id="lugar_motos" required
                       value={this.state.formGarage.lugar_motos}
@@ -136,7 +147,7 @@ class SignupGarage extends Component {
                       }}
                     />
                   </Form.Group>
-                  <Form.Group as={Col} xs={6} controlId="lugar_bicicletas">
+                  <Form.Group as={Col} sm={3} xs={6} controlId="lugar_bicicletas">
                     <Form.Label>Bicicletas</Form.Label>
                     <TextInput name="lugar_bicicletas" id="lugar_bicicletas" required
                       value={this.state.formGarage.lugar_bicicletas}
@@ -164,6 +175,11 @@ class SignupGarage extends Component {
                   </Form.Group>
                 </Form.Row>
                 <div className='mt-2 text-center'>
+                  <Link to='/indexcliente'>
+                    <Button variant="danger">
+                      Cancelar
+                    </Button>
+                  </Link>
                   <Button variant="primary" type="submit">
                     Guardar
                   </Button>

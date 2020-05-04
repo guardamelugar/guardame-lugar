@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { URL_LOGIN } from '../constants/URL';
-import { cookieName } from '../constants/Cookie'
+import { URL_LOGIN } from '../../constants/URL';
+import { cookieName } from '../../constants/Cookie'
 import Cookies from 'universal-cookie';
 
 const GETLogin = props => {

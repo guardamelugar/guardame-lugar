@@ -3,7 +3,7 @@ import FormGarage from '../components/FormGarage';
 
 class AgregarGaragePage extends React.Component {
   render() {
-    return <FormGarage titulo="Agregar garage"/>;
+    return <FormGarage titulo="Agregar garage" type="INSERT"/>;
   }
 }
 
