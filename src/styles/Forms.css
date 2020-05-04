@@ -70,8 +70,8 @@ p {
   -webkit-box-shadow: 0px 0px 10px 3px rgba(217,214,169,1);
   -moz-box-shadow: 0px 0px 10px 3px rgba(217,214,169,1);
   box-shadow: 0px 0px 10px 3px rgba(217,214,169,1);
-  -webkit-transform: scale(1.02);
-  -moz-transform: scale(1.02);
+  --webkit-transform: scale(1.02);
+  --moz-transform: scale(1.02);
 }
 
 .missionSmall {
@@ -88,15 +88,24 @@ p {
 
 footer {
   background: #2e2e2e;
-  margin-top: 4em;
   position: absolute;
   min-width: 100vw;
-
+  min-height: 5em;
 }
 
 .text-footer {
   font-weight: bold;
   font-style: italic;
+}
+
+.legendGarage {
+  margin-top: 1em;
+  font-size: 1.3em;
+}
+
+.form-width {
+  max-width: 1000px;
+  
 }
 
 @media (max-width: 768px) {

@@ -7,8 +7,8 @@ import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import { ValidationForm, TextInput, Checkbox } from 'react-bootstrap4-form-validation'
 import validator from 'validator'
-import POSTSignup from './POSTSignup'
-import TransformSignup from './TransformSignup'
+import POSTSignup from './DB Connection/POSTSignup'
+import TransformSignup from './Transform/TransformSignup'
 import '../styles/Forms.css';
 
 class SignupContainer extends Component {
@@ -53,13 +53,13 @@ class SignupContainer extends Component {
     return (
       <Container fluid>
         <Row className="justify-content-center align-items-center">
-          <Col className='fondito justify-self-center' md={8}>
+          <Col className='fondito justify-self-center' xl={7} lg={8} md={9} sm={10}>
             <img className='img-login-normal' alt="logo" src={require("../img/logo.png")} />
             <h2 className='pt-4'>Registrate</h2>
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="signupForm">
               <Form>
                 <Form.Row>
-                  <Form.Group as={Col} controlId="nombre">
+                  <Form.Group as={Col} xs='12' md='6' controlId="nombre">
                     <Form.Label>Nombre</Form.Label>
                     <TextInput name="nombre" id="nombre" required
                       value={this.state.signup.nombre}
@@ -71,7 +71,7 @@ class SignupContainer extends Component {
                       }}
                     />
                   </Form.Group>
-                  <Form.Group as={Col} controlId="apellido">
+                  <Form.Group as={Col} xs='12' md='6' controlId="apellido">
                     <Form.Label>Apellido</Form.Label>
                     <TextInput name="apellido" id="apellido" required
                       value={this.state.signup.apellido}

@@ -1,7 +1,8 @@
 import React from 'react'
 import './App.css'
-import SignupContainer from './components/SignupContainer'
-import LoginContainer from './components/LoginContainer'
+import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage'
+import AgregarGarage from './pages/AgregarGaragePage'
 import NotFound from './pages/NotFound'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
@@ -11,8 +12,9 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Redirect exact from="/" to="login" />
-          <Route exact path="/signup" component={SignupContainer} />
-          <Route exact path="/login" component={LoginContainer} />
+          <Route exact path="/signup" component={SignupPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/agregargarage" component={AgregarGarage} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

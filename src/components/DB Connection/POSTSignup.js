@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { URL_SIGNUP } from '../constants/URL';
+import { URL_SIGNUP } from '../../constants/URL';
 
 const POSTSignup = props => {
   axios.post((URL_SIGNUP), JSON.stringify(props), {

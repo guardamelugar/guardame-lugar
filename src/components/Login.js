@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import GETLogin from './GETLogin'
+import GETLogin from './DB Connection/GETLogin'
 import '../styles/Forms.css';
 
 class Login extends Component {
@@ -28,7 +28,7 @@ class Login extends Component {
 
   render() {
     return (
-      <Col className='fondito login-box rounded'>
+      <Col className='fondito login-box rounded ancho-maximo-1000'>
         <h4>Logueate</h4>
         <Form onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="loginForm">
           <Form.Group as={Col}>
