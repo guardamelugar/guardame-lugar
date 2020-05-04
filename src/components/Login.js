@@ -28,7 +28,7 @@ class Login extends Component {
 
   render() {
     return (
-      <Col className='fondito login-box rounded'>
+      <Col className='fondito login-box rounded ancho-maximo-1000'>
         <h4>Logueate</h4>
         <Form onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="loginForm">
           <Form.Group as={Col}>

@@ -6,11 +6,11 @@ import Footer from './components/Footer'
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <body>
+  <>
+    <div className="app-body">
       <App />
-    </body>
+    </div>
       <Footer/>
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );

@@ -24,7 +24,8 @@ class ListadoLocalidades extends React.Component {
       return (
         <>
           <option value="">Elija una localidad...</option>
-          {localidades.map((localidad) => <option value={localidad.localidad_id}>{localidad.nombre_localidad}</option>)}
+          {localidades.map((localidad) => <option value={localidad.localidad_id} 
+                                              key={localidad.localidad_id}>{localidad.nombre_localidad}</option>)}
         </>
       )
     } else {
