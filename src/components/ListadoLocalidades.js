@@ -1,6 +1,5 @@
 import React from 'react'
 import GETLocalidades from './DB Connection/GETLocalidades'
-import '../styles/Forms.css';
 
 class ListadoLocalidades extends React.Component {
 

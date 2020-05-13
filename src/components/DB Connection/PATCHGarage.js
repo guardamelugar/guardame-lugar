@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { URL_REGISTER_GARAGE } from '../../constants/URL';
+import axios from 'axios'
+import { URL_REGISTER_GARAGE } from '../../constants/URL'
 
 const PATCHGarage = props => {
   const salida = JSON.stringify(props);

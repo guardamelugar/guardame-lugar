@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+import React, { Component } from 'react'
+import Form from 'react-bootstrap/Form'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import GETLogin from './DB Connection/GETLogin'
-import '../styles/Forms.css';
 
 class Login extends Component {
 
@@ -30,17 +29,17 @@ class Login extends Component {
     return (
       <Col className='fondito login-box rounded ancho-maximo-1000'>
         <h4>Logueate</h4>
-        <Form onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="loginForm">
+        <Form onSubmit={this.handleSubmit} className="loginForm">
           <Form.Group as={Col}>
             <Form.Label>Email</Form.Label>
-            <Form.Control name="mail" id="mail" type="email"
+            <Form.Control name="mail" id="mail" type="email" autoComplete="username"
               value={this.state.mail}
               onChange={this.handleChange}
             />
           </Form.Group>
           <Form.Group as={Col}>
             <Form.Label>Password</Form.Label>
-            <Form.Control name="password" id="password" type="password"
+            <Form.Control name="password" id="password" type="password" maxLength="15" autoComplete="current-password"
               value={this.state.password}
               onChange={this.handleChange}
             />

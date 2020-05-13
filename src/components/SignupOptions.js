@@ -1,7 +1,7 @@
-import React from 'react';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 
 const SignupOptions = () => {
   return (
