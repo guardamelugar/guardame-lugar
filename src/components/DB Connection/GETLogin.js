@@ -1,7 +1,7 @@
-import axios from 'axios';
-import { URL_LOGIN } from '../../constants/URL';
+import axios from 'axios'
+import { URL_LOGIN } from '../../constants/URL'
 import { cookieName } from '../../constants/Cookie'
-import Cookies from 'universal-cookie';
+import Cookies from 'universal-cookie'
 
 const GETLogin = props => {
   const urlWData = URL_LOGIN + '/' + props.mail + '/' + props.password
@@ -9,11 +9,13 @@ const GETLogin = props => {
 
   const BakeCookies = (props) => {
     const cookies = new Cookies();
+    const date = Date.now() + 2560000000;
     cookies.set(cookieName, props.data, { path: '/' });
+    cookies.set('timeout', date, { path: '/' });
     if (props.data.rol === 1) {
-      window.location = '/index';
+      return(window.location = '/index');
     } else {
-      window.location = '/clientindex';
+      return(window.location = '/clientindex');
     }
 
   }

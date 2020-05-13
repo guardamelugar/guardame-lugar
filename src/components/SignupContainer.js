@@ -9,7 +9,6 @@ import { ValidationForm, TextInput, Checkbox } from 'react-bootstrap4-form-valid
 import validator from 'validator'
 import POSTSignup from './DB Connection/POSTSignup'
 import TransformSignup from './Transform/TransformSignup'
-import '../styles/Forms.css';
 
 class SignupContainer extends Component {
   state = {
@@ -111,10 +110,10 @@ class SignupContainer extends Component {
                   <Form.Group as={Col} md={6} sm={12} controlId="password">
                     <Form.Label>Password</Form.Label>
                     <TextInput name="password" id="password" type="password" required
-                      pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}"
+                      pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,15}"
                       errorMessage={{
                         required: "El password es requerido",
-                        pattern: "El password necesita 8 caracteres, conteniendo mayúsculas, minúsculas, y números"
+                        pattern: "El password necesita entre 8 caracteres, conteniendo mayúsculas, minúsculas, y números"
                       }}
                       value={this.state.signup.password}
                       onChange={this.handleChange}

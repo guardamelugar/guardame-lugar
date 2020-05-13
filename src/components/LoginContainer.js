@@ -1,17 +1,19 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import React from 'react'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 import MissionStatement from './MissionStatement'
-import '../styles/Forms.css';
+import ChequearCookie from './ChequearCookie'
 
 const LoginContainer = () => {
-  return (
+  const salida =
     <Container fluid>
       <Row>
         <MissionStatement />
       </Row>
-    </Container>
-  );
+    </Container>;
+
+  return (ChequearCookie(salida, '/index', '/clientindex'));
+
 }
 
 export default LoginContainer;

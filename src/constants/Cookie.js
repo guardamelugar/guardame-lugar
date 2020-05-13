@@ -1,1 +1,1 @@
-export const cookieName = "guardameLugar|"
+export const cookieName = "guardameLugar|user"

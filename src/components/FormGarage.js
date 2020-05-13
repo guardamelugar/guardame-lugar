@@ -10,7 +10,6 @@ import POSTGarage from './DB Connection/POSTGarage'
 import PATCHGarage from './DB Connection/PATCHGarage'
 import TransformGarage from './Transform/TransformGarage'
 import { Link } from 'react-router-dom'
-import '../styles/Forms.css';
 
 class SignupGarage extends Component {
   state = {

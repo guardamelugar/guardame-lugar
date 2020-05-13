@@ -1,5 +1,5 @@
-import React from 'react';
-import SignupContainer from '../components/SignupContainer';
+import React from 'react'
+import SignupContainer from '../components/SignupContainer'
 
 class Signup extends React.Component {
   render() {
