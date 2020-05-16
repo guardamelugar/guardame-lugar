@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import '../styles/Header.css'
 
-const Footer = () => {
+const Header = () => {
   return (
     <header>
       <Container fluid>
@@ -37,4 +37,4 @@ const Footer = () => {
 
 }
 
-export default Footer
+export default Header
