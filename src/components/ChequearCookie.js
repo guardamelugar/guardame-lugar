@@ -10,7 +10,7 @@ const ChequearCookie = (salida, user_redirect, client_redirect) => {
   const timeout = cookies.get('timeout');
   const date = Date.now();
 
-  if (cookie === undefined || cookie === null || timeout < date || timeout === undefined) {
+  if (cookie === undefined || cookie === null || timeout === undefined) {
     return (
       salida
     );
@@ -23,9 +23,8 @@ const ChequearCookie = (salida, user_redirect, client_redirect) => {
         return(window.location = client_redirect);
       }
     } else {
-      cookies.remove(cookieName, { path: '/' });
       const mail = cookie.mail;
-      const password = cookie.password;
+      const password = cookie.contraseña;
       const jsonForm = {
         'mail': mail,
         'password': password,
