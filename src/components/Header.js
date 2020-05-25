@@ -1,37 +1,23 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 import '../styles/Header.css'
 
 const Header = () => {
   return (
     <header>
-      <Container fluid>
-        <Row className='header-container'>
-          <img alt="logo" className='header-logo' src={require("../img/logo.png")} />
-          <Col className='text-right nav-col'>
-            <ul class="header-nav">
-                <li class="header-nav-item">
-                <div class="search">
-                      <input type="text" class="searchTerm" placeholder="Buscar"/>
-                      <button type="submit" class="searchButton">
-                        <i class="fa fa-search"></i>
-                    </button>
-                  </div>
-                </li>
-                <li class="header-nav-item">
-                  <i class="fas fa-user-circle nav-icon"></i>
-                  <a href="/profile">Perfil</a>
-                </li>
-                <li class="header-nav-item">
-                <i class="fas fa-sign-out-alt nav-icon"></i>
-                  <a href="/login">Cerrar Sesión</a>
-                </li>
-            </ul>
-          </Col>
-        </Row>
-      </Container>
+        <Navbar bg="secondary" expand="sm" className="padding-nav" variant="dark">
+          <Navbar.Brand href="/">
+            <img src={require("../img/logo.png")} className='header-logo' alt="logo"></img>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" bsPrefix="no-margin-top navbar-toggler"/>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto right-align">
+              <Nav.Link href="#profile">Ver Perfil</Nav.Link>
+              <Nav.Link href="/login">Cerrar sesión</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
     </header>
   )
 
