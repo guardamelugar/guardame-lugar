@@ -11,17 +11,17 @@ class GarageSearch extends Component {
   render() {
     return (
       <div className="searchBar">
-        <Container className="form-container">
+        <Container className="form-container-search">
           <Form inline>
-            <Form.Row>
-              <Form.Group controlId="busquedaForm.Region">
-                <Form.Label className="d-none d-md-block">Seleccione Localidad: </Form.Label>
+            <Form.Row className="form-row-search">
+              <Form.Group controlId="busquedaForm.Region" className="form-group-search">
+                <Form.Label className="d-none d-md-block label-search">Seleccione Localidad: </Form.Label>
                 <Form.Control size="sm" as="select">
                   <ListadoLocalidades></ListadoLocalidades>
                 </Form.Control>
               </Form.Group>
-              <Form.Group controlId="busquedaForm.VehicleType">
-                <Form.Label className="d-none d-md-block">Tipo de Vehículo:</Form.Label>
+              <Form.Group controlId="busquedaForm.VehicleType" className="form-group-search">
+                <Form.Label className="d-none d-md-block label-search">Tipo de Vehículo:</Form.Label>
                 <Form.Control size="sm" as="select">
                   <option>Elija tipo de Vehiculo</option>
                   <option>Autos</option>
@@ -30,7 +30,7 @@ class GarageSearch extends Component {
                   <option>Bicicletas</option>
                 </Form.Control>
               </Form.Group>
-              <Form.Group controlId="busquedaForm.submit">
+              <Form.Group controlId="busquedaForm.submit" className="form-group-search">
                 <Button variant="info" type="submit" className="search-btn">
                   Buscar
                 </Button>

@@ -4,15 +4,15 @@
   height: 8vh;
 }
 
-.form-container {
+.form-container-search {
   padding: 2vh 0;
 }
 
-.form-row {
+.form-row-search {
   margin: 0 auto;
 }
 
-.form-group {
+.form-group-search {
   margin: 0 1vw !important;
 }
 
@@ -21,6 +21,6 @@
   height: 4vh;
 }
 
-label {
+.label-search {
   margin-right: 1vh;
 }
