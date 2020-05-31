@@ -3,8 +3,8 @@ import { URL_REGISTER_GARAGE } from '../../constants/URL'
 
 const POSTGarage = props => {
   const salida = JSON.stringify(props);
-  console.log(salida);
-  axios.post((URL_REGISTER_GARAGE), JSON.stringify(props), {
+
+  axios.post((URL_REGISTER_GARAGE), salida, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
