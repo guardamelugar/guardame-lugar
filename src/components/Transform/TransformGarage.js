@@ -21,7 +21,6 @@ const TransformGarage = formData => {
     "lugar_bicicletas": parseInt(formData.lugar_bicicletas,10), 
     "altura_maxima": parseInt(formData.altura_maxima,10), 
   }
-  console.log(transformedForm);
   return transformedForm;
 }
 
