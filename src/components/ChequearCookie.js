@@ -4,23 +4,31 @@ import { cookieName } from '../constants/Cookie'
 import Cookies from 'universal-cookie'
 
 
-const ChequearCookie = (salida, user_redirect, client_redirect) => {
+const ChequearCookie = (salida, user_redirect, client_redirect, landing_redirect) => {
   const cookies = new Cookies();
   const cookie = cookies.get(cookieName);
   const timeout = cookies.get('timeout');
   const date = Date.now();
 
   if (cookie === undefined || cookie === null || timeout === undefined) {
-    return (
-      salida
-    );
+    if(window.location.pathname === landing_redirect){
+      return (
+        salida
+      );
+    } else {
+      return (window.location = landing_redirect)
+    }
   }
   else {
-    if (timeout > date) {
-      if (cookie.rol === 1) {
-        return(window.location = user_redirect);
+    if (timeout > date && (cookie !== undefined || cookie !== null)) {
+      if(window.location.pathname === landing_redirect){
+        if (cookie.rol === 1) {
+          return(window.location = user_redirect);
+        } else {
+          return(window.location = client_redirect);
+        }
       } else {
-        return(window.location = client_redirect);
+        return salida
       }
     } else {
       const mail = cookie.mail;
@@ -33,7 +41,6 @@ const ChequearCookie = (salida, user_redirect, client_redirect) => {
       return (
         <>
         {GETLogin(jsonForm)}
-        {salida}
         </>
       );
     }

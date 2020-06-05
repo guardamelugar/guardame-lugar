@@ -11,7 +11,7 @@ import PATCHGarage from './DB Connection/PATCHGarage'
 import TransformGarage from './Transform/TransformGarage'
 import { Link } from 'react-router-dom'
 
-class SignupGarage extends Component {
+class FormGarage extends Component {
   state = {
     ...this.state,
     formGarage: {
@@ -193,4 +193,4 @@ class SignupGarage extends Component {
   }
 }
 
-export default SignupGarage;
+export default FormGarage;
