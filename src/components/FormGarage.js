@@ -15,6 +15,7 @@ class FormGarage extends Component {
   state = {
     ...this.state,
     formGarage: {
+      garage_id: "",
       altura_maxima: "",
       coordenadas: "",
       telefono_garage: "",
@@ -30,12 +31,13 @@ class FormGarage extends Component {
 
   componentDidMount() {
     if (this.props.type === "UPDATE") {
-      const { altura_maxima, coordenadas, telefono_garage, direccion_garage, localidad_garage, lugar_autos, lugar_bicicletas,
-        lugar_camionetas, lugar_motos, nombre_garage } = this.props.garage_data;
+      const { garage_id, altura_maxima, coordenadas, telefono_garage, direccion_garage, localidad_garage, lugar_autos,
+        lugar_bicicletas, lugar_camionetas, lugar_motos, nombre_garage } = this.props.garage_data;
 
       this.setState({
         ...this.state, "formGarage": {
           ...this.state.formGarage,
+          garage_id: garage_id,
           altura_maxima: altura_maxima,
           coordenadas: coordenadas,
           telefono_garage: telefono_garage,
@@ -59,7 +61,7 @@ class FormGarage extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const jsonForm = TransformGarage(this.state.formGarage);
+    const jsonForm = TransformGarage(this.state.formGarage, this.props.type);
     if (this.props.type === "INSERT") {
       POSTGarage(jsonForm)
     }

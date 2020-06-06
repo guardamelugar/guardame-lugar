@@ -7,6 +7,7 @@ import SignupModGarage from '../components/SignupModGarage'
 Necesita garage_data para funcionar, que vendria desde el componente de garage. La info es toda string:
 i.e. 
 const garage_data = {
+  garage_id: "1",
   altura_maxima: "200",
   coordenadas: "0",
   telefono_garage: "6516542",
