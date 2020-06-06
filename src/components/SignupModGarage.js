@@ -5,12 +5,16 @@ import ChequearCookie from './ChequearCookie'
 class SignupModGarage extends React.Component {
   render() {
 
-    const titulo = this.props.titulo;
-    const type = this.props.type;
+    const {titulo, type, garage_data } = this.props;
 
-    const salida = <FormGarage titulo={titulo} type={type} />
+    const salida = <FormGarage titulo={titulo} type={type} garage_data={garage_data} />
 
-    return (ChequearCookie(salida, '/forbidden', '/agregargarage', '/login'));
+    if (type === "INSERT") {
+      return (ChequearCookie(salida, '/forbidden', '/agregargarage', '/login'));
+    }
+    else {
+      return (ChequearCookie(salida, '/forbidden', '/modificargarage', '/login'));
+    }
   }
 }
 

@@ -28,6 +28,29 @@ class FormGarage extends Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.type === "UPDATE") {
+      const { altura_maxima, coordenadas, telefono_garage, direccion_garage, localidad_garage, lugar_autos, lugar_bicicletas,
+        lugar_camionetas, lugar_motos, nombre_garage } = this.props.garage_data;
+
+      this.setState({
+        ...this.state, "formGarage": {
+          ...this.state.formGarage,
+          altura_maxima: altura_maxima,
+          coordenadas: coordenadas,
+          telefono_garage: telefono_garage,
+          direccion_garage: direccion_garage,
+          localidad_garage: localidad_garage,
+          lugar_autos: lugar_autos,
+          lugar_bicicletas: lugar_bicicletas,
+          lugar_camionetas: lugar_camionetas,
+          lugar_motos: lugar_motos,
+          nombre_garage: nombre_garage,
+        }
+      })
+    }
+  }
+
   handleChange = (e) => {
     this.setState({
       ...this.state, "formGarage": { ...this.state.formGarage, [e.target.name]: e.target.value }
@@ -37,7 +60,7 @@ class FormGarage extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const jsonForm = TransformGarage(this.state.formGarage);
-    if (this.props.type === "TYPE") {
+    if (this.props.type === "INSERT") {
       POSTGarage(jsonForm)
     }
     else {
@@ -58,7 +81,7 @@ class FormGarage extends Component {
                   <Form.Group as={Col} md={6} controlId="nombre_garage">
                     <Form.Label>Nombre Garage</Form.Label>
                     <TextInput name="nombre_garage" id="nombre_garage" required
-                      value={this.state.formGarage.nombre}
+                      value={this.state.formGarage.nombre_garage}
                       onChange={this.handleChange}
                       pattern="^[^±£%^&*§€#¢§¶•ªº«\\/<>|=]{3,40}$"
                       errorMessage={{
@@ -82,14 +105,13 @@ class FormGarage extends Component {
                 </Form.Row>
                 <Form.Row>
 
-                  <Form.Group as={Col} md={6} sm={12} controlId="localidad_garage"
-                    value={this.state.formGarage.localidad_garage}>
+                  <Form.Group as={Col} md={6} sm={12} controlId="localidad_garage">
                     <Form.Label>Localidad</Form.Label>
                     <SelectGroup name="localidad_garage" id="localidad_garage"
-                      value={this.state.localidad_garage}
+                      value={this.state.formGarage.localidad_garage}
                       required errorMessage="Por favor elija una localidad"
                       onChange={this.handleChange}>
-                      <ListadoLocalidades />
+                      <ListadoLocalidades selected={this.state.formGarage.localidad_garage}/>
                     </SelectGroup>
 
                   </Form.Group>
