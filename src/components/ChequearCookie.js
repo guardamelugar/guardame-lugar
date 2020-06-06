@@ -27,8 +27,18 @@ const ChequearCookie = (salida, user_redirect, client_redirect, landing_redirect
         } else {
           return(window.location = client_redirect);
         }
-      } else {
-        return salida
+      } else if (window.location.pathname === user_redirect){
+        if (cookie.rol === 1) {
+          return salida;
+        } else {
+          return(window.location = client_redirect);
+        }
+      } else if (window.location.pathname === client_redirect){
+        if (cookie.rol === 2) {
+          return salida;
+        } else {
+          return (window.location = user_redirect);
+        }
       }
     } else {
       const mail = cookie.mail;

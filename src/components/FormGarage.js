@@ -174,7 +174,7 @@ class FormGarage extends Component {
                   </Form.Group>
                 </Form.Row>
                 <div className='mt-2 text-center'>
-                  <Link to='/indexcliente'>
+                  <Link to='/clientindex'>
                     <Button variant="danger">
                       Cancelar
                     </Button>

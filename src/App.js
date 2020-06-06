@@ -16,6 +16,7 @@ class App extends React.Component {
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/index" component={IndexPage} />
+          <Route exact path="/clientindex" component={IndexPage} />
           <Route exact path="/agregargarage" component={AgregarGarage} />
           <Route component={NotFound} />
         </Switch>

@@ -1,0 +1,16 @@
+.cliente-navbar {
+  background-color: #375a7f;
+  width: 100vw;
+  height: 8vh;
+}
+
+.client-nav-wrapper {
+  margin: 0 auto;
+  height: -webkit-fill-available;
+  text-align: center;
+  padding: 2vh;
+}
+
+.hidden {
+   display: none;
+}
