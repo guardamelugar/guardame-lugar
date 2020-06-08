@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import { ValidationForm, TextInput, SelectGroup } from 'react-bootstrap4-form-validation'
 import ListadoLocalidades from './ListadoLocalidades'
 import POSTGarage from './DB Connection/POSTGarage'
-import PATCHGarage from './DB Connection/PATCHGarage'
+import PUTGarage from './DB Connection/PUTGarage'
 import TransformGarage from './Transform/TransformGarage'
 import { Link } from 'react-router-dom'
 
@@ -15,6 +15,7 @@ class FormGarage extends Component {
   state = {
     ...this.state,
     formGarage: {
+      garage_id: "",
       altura_maxima: "",
       coordenadas: "",
       telefono_garage: "",
@@ -28,6 +29,30 @@ class FormGarage extends Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.type === "UPDATE") {
+      const { garage_id, altura_maxima, coordenadas, telefono_garage, direccion_garage, localidad_garage, lugar_autos,
+        lugar_bicicletas, lugar_camionetas, lugar_motos, nombre_garage } = this.props.garage_data;
+
+      this.setState({
+        ...this.state, "formGarage": {
+          ...this.state.formGarage,
+          garage_id: garage_id,
+          altura_maxima: altura_maxima,
+          coordenadas: coordenadas,
+          telefono_garage: telefono_garage,
+          direccion_garage: direccion_garage,
+          localidad_garage: localidad_garage,
+          lugar_autos: lugar_autos,
+          lugar_bicicletas: lugar_bicicletas,
+          lugar_camionetas: lugar_camionetas,
+          lugar_motos: lugar_motos,
+          nombre_garage: nombre_garage,
+        }
+      })
+    }
+  }
+
   handleChange = (e) => {
     this.setState({
       ...this.state, "formGarage": { ...this.state.formGarage, [e.target.name]: e.target.value }
@@ -36,12 +61,12 @@ class FormGarage extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const jsonForm = TransformGarage(this.state.formGarage);
-    if (this.props.type === "TYPE") {
+    const jsonForm = TransformGarage(this.state.formGarage, this.props.type);
+    if (this.props.type === "INSERT") {
       POSTGarage(jsonForm)
     }
     else {
-      PATCHGarage(jsonForm)
+      PUTGarage(jsonForm)
     }
   }
 
@@ -58,7 +83,7 @@ class FormGarage extends Component {
                   <Form.Group as={Col} md={6} controlId="nombre_garage">
                     <Form.Label>Nombre Garage</Form.Label>
                     <TextInput name="nombre_garage" id="nombre_garage" required
-                      value={this.state.formGarage.nombre}
+                      value={this.state.formGarage.nombre_garage}
                       onChange={this.handleChange}
                       pattern="^[^±£%^&*§€#¢§¶•ªº«\\/<>|=]{3,40}$"
                       errorMessage={{
@@ -82,14 +107,13 @@ class FormGarage extends Component {
                 </Form.Row>
                 <Form.Row>
 
-                  <Form.Group as={Col} md={6} sm={12} controlId="localidad_garage"
-                    value={this.state.formGarage.localidad_garage}>
+                  <Form.Group as={Col} md={6} sm={12} controlId="localidad_garage">
                     <Form.Label>Localidad</Form.Label>
                     <SelectGroup name="localidad_garage" id="localidad_garage"
-                      value={this.state.localidad_garage}
+                      value={this.state.formGarage.localidad_garage}
                       required errorMessage="Por favor elija una localidad"
                       onChange={this.handleChange}>
-                      <ListadoLocalidades />
+                      <ListadoLocalidades selected={this.state.formGarage.localidad_garage}/>
                     </SelectGroup>
 
                   </Form.Group>
@@ -174,7 +198,7 @@ class FormGarage extends Component {
                   </Form.Group>
                 </Form.Row>
                 <div className='mt-2 text-center'>
-                  <Link to='/clientindex'>
+                  <Link to='/index'>
                     <Button variant="danger">
                       Cancelar
                     </Button>
