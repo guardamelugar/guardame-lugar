@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import { ValidationForm, TextInput, SelectGroup } from 'react-bootstrap4-form-validation'
 import ListadoLocalidades from './ListadoLocalidades'
 import POSTGarage from './DB Connection/POSTGarage'
-import PATCHGarage from './DB Connection/PATCHGarage'
+import PUTGarage from './DB Connection/PUTGarage'
 import TransformGarage from './Transform/TransformGarage'
 import { Link } from 'react-router-dom'
 
@@ -66,7 +66,7 @@ class FormGarage extends Component {
       POSTGarage(jsonForm)
     }
     else {
-      PATCHGarage(jsonForm)
+      PUTGarage(jsonForm)
     }
   }
 
@@ -198,7 +198,7 @@ class FormGarage extends Component {
                   </Form.Group>
                 </Form.Row>
                 <div className='mt-2 text-center'>
-                  <Link to='/clientindex'>
+                  <Link to='/index'>
                     <Button variant="danger">
                       Cancelar
                     </Button>

@@ -26,7 +26,7 @@ const TransformGarage = (formData, type) => {
     }
   } else {
     transformedForm = {
-      "garage_id": formData.garage_id,
+      "garage_id": parseInt(formData.garage_id,10),
       "nombre_garage": formData.nombre_garage,
       "direccion": formData.direccion_garage,
       "coordenadas": formData.coordenadas,

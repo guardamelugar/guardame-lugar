@@ -1,34 +1,32 @@
 import React from 'react'
-import Header from '../components/Header'
 import SignupModGarage from '../components/SignupModGarage'
 
-    
 /* 
-Necesita garage_data para funcionar, que vendria desde el componente de garage. La info es toda string:
+garage_data={garage_data}
+
+Necesita garage_data para funcionar, que vendria desde el componente de garage --> MODIFICAR. La info es toda string:
 i.e. 
+return <SignupModGarage titulo="Modificar garage" type="UPDATE" garage_data={garage_data}/>
+
+con garage_data:
+
 const garage_data = {
-  garage_id: "1",
-  altura_maxima: "200",
-  coordenadas: "0",
-  telefono_garage: "6516542",
+  garage_id: "2",
+  altura_maxima: "999",
+  coordenadas: "999",
+  telefono_garage: "55555555",
   direccion_garage: "San Pedrito 269",
-  localidad_garage: "11",
-  lugar_autos: "6",
-  lugar_bicicletas: "1",
-  lugar_camionetas: "2",
-  lugar_motos: "111",
-  nombre_garage: "Garage de prueba",
+  localidad_garage: "12",
+  lugar_autos: "77",
+  lugar_bicicletas: "78",
+  lugar_camionetas: "79",
+  lugar_motos: "80",
+  nombre_garage: "Garage de prueba PUT",
 } */
 
 class ModificarGaragePage extends React.Component {
   render() {
-    
-    return (
-      <div>
-        <Header/>
-        <SignupModGarage titulo="Modificar garage" type="UPDATE" garage_data={this.props.garage_data}/>;
-      </div>
-    )
+    return <SignupModGarage titulo="Modificar garage" type="UPDATE" garage_data={this.props.garage_data}/>;
   }
 }
 
