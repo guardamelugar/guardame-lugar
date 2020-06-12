@@ -4,7 +4,8 @@ import SignupModGarage from '../components/SignupModGarage'
 /* 
 garage_data={garage_data}
 
-Necesita garage_data para funcionar, que vendria desde el componente de garage --> MODIFICAR. La info es toda string:
+Necesita una cookie activa (chequeada por TransformGarage.js) y garage_data para funcionar, que vendria desde el 
+componente de garage --> MODIFICAR. La info es toda string:
 i.e. 
 return <SignupModGarage titulo="Modificar garage" type="UPDATE" garage_data={garage_data}/>
 
