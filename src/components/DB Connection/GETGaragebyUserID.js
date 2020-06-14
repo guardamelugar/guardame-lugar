@@ -11,15 +11,6 @@ props = {
 
 i.e. <GETGaragebyUserID user_id='7' />
 
-i.e.
-  
-  const datos = 
-    {
-      user_id: '7',
-    }
-  
-  const salida = GETGaragebyUserID(datos);  // devuelve el array de garages
-
 */
 
 const GETGaragebyUserID = props => {
