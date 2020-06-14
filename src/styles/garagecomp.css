@@ -19,3 +19,12 @@
 .valor_campo {
     font-style: italic;
 }
+
+.main-modal {
+    min-width: 90%;
+}
+
+.modal-content {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+}

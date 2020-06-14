@@ -40,6 +40,10 @@ html {
   box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
 }
 
+.fondito-modal {
+  background-image: radial-gradient(circle, rgba(80, 80, 80, 1), rgba(40, 40, 40, 1), rgba(0, 0, 0, 1));
+}
+
 .signupForm {
   text-align: left;
 }

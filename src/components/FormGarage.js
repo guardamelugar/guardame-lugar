@@ -8,8 +8,8 @@ import { ValidationForm, TextInput, SelectGroup } from 'react-bootstrap4-form-va
 import ListadoLocalidades from './ListadoLocalidades'
 import POSTGarage from './DB Connection/POSTGarage'
 import PUTGarage from './DB Connection/PUTGarage'
+import GETGaragebyID from './DB Connection/GETGaragebyID'
 import TransformGarage from './Transform/TransformGarage'
-import { Link } from 'react-router-dom'
 
 class FormGarage extends Component {
   state = {
@@ -29,10 +29,12 @@ class FormGarage extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     if (this.props.type === "UPDATE") {
-      const { garage_id, altura_maxima, coordenadas, telefono_garage, direccion_garage, localidad_garage, lugar_autos,
-        lugar_bicicletas, lugar_camionetas, lugar_motos, nombre_garage } = this.props.garage_data;
+      const garage = await GETGaragebyID(parseInt(this.props.garage_id,10));
+
+      const { garage_id, altura_maxima, coordenadas, telefono, direccion, localidad_garage, lugar_autos,
+        lugar_bicicletas, lugar_camionetas, lugar_motos, nombre_garage } = garage;
 
       this.setState({
         ...this.state, "formGarage": {
@@ -40,8 +42,8 @@ class FormGarage extends Component {
           garage_id: garage_id,
           altura_maxima: altura_maxima,
           coordenadas: coordenadas,
-          telefono_garage: telefono_garage,
-          direccion_garage: direccion_garage,
+          telefono_garage: telefono,
+          direccion_garage: direccion,
           localidad_garage: localidad_garage,
           lugar_autos: lugar_autos,
           lugar_bicicletas: lugar_bicicletas,
@@ -74,7 +76,7 @@ class FormGarage extends Component {
     return (
       <Container fluid>
         <Row className="justify-content-center align-items-center">
-          <Col className='fondito justify-self-center form-width' xl={7} lg={8} md={9} sm={10}>
+          <Col className='fondito fondito-modal justify-self-center form-width' xl={7} lg={8} md={9} sm={10}>
             <img className='img-login-normal' alt="logo" src={require("../img/logo.png")} />
             <h2 className='pt-4'>{this.props.titulo}</h2>
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="signupForm">
@@ -198,11 +200,9 @@ class FormGarage extends Component {
                   </Form.Group>
                 </Form.Row>
                 <div className='mt-2 text-center'>
-                  <Link to='/index'>
-                    <Button variant="danger">
+                    <Button variant="danger" onClick={this.props.handleClose}>
                       Cancelar
                     </Button>
-                  </Link>
                   <Button variant="primary" type="submit">
                     Guardar
                   </Button>

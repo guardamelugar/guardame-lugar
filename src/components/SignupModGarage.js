@@ -6,9 +6,9 @@ import FormGarage from './FormGarage'
 class SignupModGarage extends React.Component {
   render() {
 
-    const {titulo, type, garage_data } = this.props;
+    const {titulo, type, garage_id, handleClose } = this.props;
 
-    return <FormGarage titulo={titulo} type={type} garage_data={garage_data} />
+    return <FormGarage titulo={titulo} type={type} garage_id={garage_id} handleClose={handleClose}/>
 
 /*     if (type === "INSERT") {
       return (ChequearCookie(salida, '/forbidden', '/agregargarage', '/login'));
