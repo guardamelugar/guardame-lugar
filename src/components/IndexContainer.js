@@ -3,6 +3,7 @@ import Header from './Header'
 import GarageSearch from './GarageSearch'
 import ClienteNavBar from './ClienteNavBar'
 import ChequearCookie from './ChequearCookie'
+import GaragesContainer from './GaragesContainer'
 
 const IndexContainer = () => {
   const salidaUser =
@@ -15,6 +16,7 @@ const IndexContainer = () => {
   <section>
     <Header />
     <ClienteNavBar />
+    <GaragesContainer />
   </section>
   
   if(window.location.pathname === '/index'){

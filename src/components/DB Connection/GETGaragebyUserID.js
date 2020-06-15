@@ -21,7 +21,6 @@ const GETGaragebyUserID = props => {
   return axios.get(url_final)
     .then(res => {
       if (res.status === 200) {
-        console.log(res.data.result);
         return res.data.result;
       }
     })
