@@ -31,7 +31,7 @@ const GarageContainer = (props) => {
 
     const handleClose = () => setShow(false);
 
-    return (<Col className="mr-2 garagecomp" lg={5} id={props.garage_data.garage_id}>
+    return (<Col className="mr-2 mt-3 garagecomp" lg={5} id={props.garage_data.garage_id}>
         <Row className='ml-2'><Col className='nombreGarage' id="nombre_garage">{props.garage_data.nombre_garage}</Col></Row>
         <Row className='ml-2 mt-3'>
             <Col md={6} id="telefono_garage"><span>Teléfono: </span><span className="valor_campo text-muted">{props.garage_data.telefono_garage}</span></Col>
@@ -67,19 +67,5 @@ const GarageContainer = (props) => {
         </Row>
     </Col>)
 };
-
-/* const garage_data = {
-    garage_id: "2",
-    altura_maxima: "999",
-    coordenadas: "999",
-    telefono_garage: "55555555",
-    direccion_garage: "San Pedrito 269",
-    localidad_garage: "12",
-    lugar_autos: "77",
-    lugar_bicicletas: "78",
-    lugar_camionetas: "79",
-    lugar_motos: "80",
-    nombre_garage: "Garage de prueba PUT",
-  } */
 
 export default GarageContainer;
