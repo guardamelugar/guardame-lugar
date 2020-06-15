@@ -12,7 +12,7 @@ const LoginContainer = () => {
       </Row>
     </Container>;
 
-  return (ChequearCookie(salida, '/index', '/clientindex'));
+  return (ChequearCookie(salida, '/index', '/clientindex', '/login'));
 
 }
 
