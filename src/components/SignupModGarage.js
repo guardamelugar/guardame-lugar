@@ -1,16 +1,21 @@
 import React from 'react'
 import FormGarage from './FormGarage'
-import ChequearCookie from './ChequearCookie'
+/* import ChequearCookie from './ChequearCookie' */
+/* El uso de la cookie esta comentado si no se usa el componente en su propia pagina sino embebido */
 
 class SignupModGarage extends React.Component {
   render() {
 
-    const titulo = this.props.titulo;
-    const type = this.props.type;
+    const {titulo, type, garage_id, handleClose } = this.props;
 
-    const salida = <FormGarage titulo={titulo} type={type} />
+    return <FormGarage titulo={titulo} type={type} garage_id={garage_id} handleClose={handleClose}/>
 
-    return (ChequearCookie(salida, '/forbidden', '/agregargarage', '/login'));
+/*     if (type === "INSERT") {
+      return (ChequearCookie(salida, '/forbidden', '/agregargarage', '/login'));
+    }
+    else {
+      return (ChequearCookie(salida, '/forbidden', '/modificargarage', '/login'));
+    } */
   }
 }
 
