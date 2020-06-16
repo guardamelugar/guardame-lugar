@@ -10,6 +10,7 @@ const IndexContainer = () => {
   <section>
     <Header />
     <GarageSearch />
+    <GaragesContainer />
   </section>
 
   const salidaCliente =

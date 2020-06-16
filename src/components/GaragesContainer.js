@@ -5,8 +5,10 @@ import Row from 'react-bootstrap/Row'
 import { cookieName } from '../constants/Cookie'
 import Cookies from 'universal-cookie'
 import GETGaragebyUserID from './DB Connection/GETGaragebyUserID'
+import GETGarages from './DB Connection/GETGarages';
 import TransformGarageData from './Transform/TransformGarageData'
 import '../styles/garagecomp.css'
+
 
 class GaragesContainer extends React.Component {
 
@@ -24,7 +26,13 @@ class GaragesContainer extends React.Component {
   async componentDidMount() {
 
     if (parseInt(this.cookie.rol, 10) === 1) {
-      
+      const garages = await GETGarages(this.user_id);
+
+      this.setState({
+        ...this.state, "garages": garages
+      });
+
+      console.log(garages);
     }
     else {
       if (parseInt(this.cookie.rol, 10) === 2) {
