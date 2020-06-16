@@ -69,13 +69,16 @@ class GaragesContainer extends React.Component {
 
       } else {
 
-        const garages = await GETGaragesFiltered(this.props);
-      
-          this.setState({
-            ...this.state, "garages": garages
-          });
-      
-          console.log(garages);
+        /* uso GETgarages por el momento porque las props no pueden ser nulleables 
+        ni el backend intercepta valores distintos a int -- responde 400 */
+
+        const garages = await GETGarages(this.user_id);
+
+        this.setState({
+          ...this.state, "garages": garages
+        });
+
+        console.log(garages);
 
       }
     }

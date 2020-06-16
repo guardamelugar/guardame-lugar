@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import ListadoLocalidades from './ListadoLocalidades'
 import '../styles/GarageSearch.css'
@@ -27,7 +26,7 @@ class GarageSearch extends Component {
     return (
       <div className="searchBar">
         <Container className="form-container-search">
-          <Form onSubmit={this.handleSubmit} inline>
+          <Form inline>
             <Form.Row className="form-row-search">
               <Form.Group controlId="busquedaForm.Region" className="form-group-search">
                 <Form.Label className="d-none d-md-block label-search">Seleccione Localidad: </Form.Label>
