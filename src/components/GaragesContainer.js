@@ -6,34 +6,38 @@ import { cookieName } from '../constants/Cookie'
 import Cookies from 'universal-cookie'
 import GETGaragebyUserID from './DB Connection/GETGaragebyUserID'
 import GETGarages from './DB Connection/GETGarages';
+import GETGaragesFiltered from './DB Connection/GETGaragesFiltered'
 import TransformGarageData from './Transform/TransformGarageData'
 import '../styles/garagecomp.css'
 
 
 class GaragesContainer extends React.Component {
 
-  state = {
-    ...this.state,
-    "garages": null,
-    "garage_data": null,
+  constructor(props){
+    super(props);
+    this.state = {
+      "garages": null,
+      "garage_data": null
+    }
   }
-
 
   cookies = new Cookies();
   cookie = this.cookies.get(cookieName);
   user_id = { "user_id": this.cookie.user_id };
+  
 
   async componentDidMount() {
 
     if (parseInt(this.cookie.rol, 10) === 1) {
-      const garages = await GETGarages(this.user_id);
+        const garages = await GETGarages(this.user_id);
 
-      this.setState({
-        ...this.state, "garages": garages
-      });
+        this.setState({
+          ...this.state, "garages": garages
+        });
 
-      console.log(garages);
-    }
+        console.log(garages);
+      
+    } 
     else {
       if (parseInt(this.cookie.rol, 10) === 2) {
         const garages = await GETGaragebyUserID(this.user_id);
@@ -50,6 +54,33 @@ class GaragesContainer extends React.Component {
       }
     }
   }
+
+  async componentDidUpdate(prevProps) {
+      if(this.props.localidad !== prevProps.localidad || this.props.vehicle_type !== prevProps.vehicle_type){
+        if(this.props.filtered === "filtrado" && this.props.localidad !== "") {
+          
+          const garages = await GETGaragesFiltered(this.props);
+      
+          this.setState({
+            ...this.state, "garages": garages
+          });
+      
+          console.log(garages);
+
+      } else {
+
+        const garages = await GETGaragesFiltered(this.props);
+      
+          this.setState({
+            ...this.state, "garages": garages
+          });
+      
+          console.log(garages);
+
+      }
+    }
+  }
+
 
   render() {
 
