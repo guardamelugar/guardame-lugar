@@ -12,6 +12,8 @@
     "react-bootstrap": "^1.0.0",
     "react-bootstrap4-form-validation": "^1.0.10",
     "react-dom": "^16.13.1",
+    "react-loader-spinner": "^3.1.14",
+    "react-promise-tracker": "^2.1.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "redux-devtools-extension": "^2.13.8",

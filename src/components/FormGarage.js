@@ -10,6 +10,7 @@ import POSTGarage from './DB Connection/POSTGarage'
 import PUTGarage from './DB Connection/PUTGarage'
 import GETGaragebyID from './DB Connection/GETGaragebyID'
 import TransformGarage from './Transform/TransformGarage'
+import LoadingIndicator from './LoadingIndicator'
 
 class FormGarage extends Component {
   state = {
@@ -80,6 +81,7 @@ class FormGarage extends Component {
             <img className='img-login-normal' alt="logo" src={require("../img/logo.png")} />
             <h2 className='pt-4'>{this.props.titulo}</h2>
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="signupForm">
+            <LoadingIndicator />
               <Form>
                 <Form.Row>
                   <Form.Group as={Col} md={6} controlId="nombre_garage">

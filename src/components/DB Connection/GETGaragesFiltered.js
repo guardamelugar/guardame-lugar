@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { URL_GARAGES } from '../../constants/URL'
+import { trackPromise } from 'react-promise-tracker';
+
 
 const GETGaragesFiltered = props => {
   axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -19,14 +21,14 @@ const GETGaragesFiltered = props => {
   }
   
 
-  return axios.get(url_final)
+  return trackPromise(axios.get(url_final)
     .then(res => {
       if (res.status === 200 && res.data.total !== 0){
         return res.data.result;
       } else {
         return "No Results"
       }
-    })
+    }))
     .catch(function (err) {
       if (err.response) {
         if (err.response.status !== 500) {

@@ -8,8 +8,8 @@ import GETGaragebyUserID from './DB Connection/GETGaragebyUserID'
 import GETGarages from './DB Connection/GETGarages';
 import GETGaragesFiltered from './DB Connection/GETGaragesFiltered'
 import TransformGarageData from './Transform/TransformGarageData'
+import LoadingIndicator from './LoadingIndicator'
 import '../styles/garagecomp.css'
-
 
 class GaragesContainer extends React.Component {
 
@@ -17,14 +17,14 @@ class GaragesContainer extends React.Component {
     super(props);
     this.state = {
       "garages": null,
-      "garage_data": null
+      "garage_data": null,
+      "loaded": false,
     }
   }
 
   cookies = new Cookies();
   cookie = this.cookies.get(cookieName);
   user_id = { "user_id": this.cookie.user_id };
-
 
   async componentDidMount() {
 
@@ -76,9 +76,13 @@ class GaragesContainer extends React.Component {
 
     if (this.state.garages !== undefined && this.state.garages !== null && this.state.garages !== "No Results") {
       const garages = this.state.garages;
+      if (this.state.loaded === false) {
+        this.setState({ ...this.state, "loaded": true })
+      }
       return (
         <Container fluid>
           <Row className="ml-md-5 mr-md-5 justify-content-between">
+            <LoadingIndicator />
             {
               garages.map((garage) => {
                 const transformed_data = TransformGarageData(garage, this.cookie.rol);
@@ -90,13 +94,21 @@ class GaragesContainer extends React.Component {
       )
     }
     else {
-      return (
-        <Row className="ml-5 mr-5 mt-3 garagecomp lg={5} justify-content-between">
-          <div>
-            <h4>El filtro seleccionado no ha arrojado resultados, inténtelo nuevamente.</h4>
-          </div>
-        </Row>
-      )
+      if (this.state.loaded === false) {
+        return (<LoadingIndicator />)
+      }
+      else {
+        return (
+          <>
+            <LoadingIndicator />
+            <Row className="ml-5 mr-5 mt-3 garagecomp lg={5} justify-content-between">
+              <div>
+                <h4>El filtro seleccionado no ha arrojado resultados, inténtelo nuevamente.</h4>
+              </div>
+            </Row>
+          </>
+        )
+      }
     }
   }
 
