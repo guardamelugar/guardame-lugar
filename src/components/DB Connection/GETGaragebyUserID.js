@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { URL_GARAGE_USUARIO } from '../../constants/URL'
+import { trackPromise } from 'react-promise-tracker';
 
 /*
 
@@ -18,12 +19,12 @@ const GETGaragebyUserID = props => {
 
   const url_final = URL_GARAGE_USUARIO + parseInt(props.user_id, 10);
 
-  return axios.get(url_final)
+  return trackPromise(axios.get(url_final)
     .then(res => {
       if (res.status === 200) {
         return res.data.result;
       }
-    })
+    }))
     .catch(function (err) {
       if (err.response) {
         if (err.response.status !== 500) {
