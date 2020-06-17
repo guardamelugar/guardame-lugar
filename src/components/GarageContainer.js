@@ -31,7 +31,7 @@ const GarageContainer = (props) => {
 
     const handleClose = () => setShow(false);
 
-    return (<Col className="mr-2 mt-3 garagecomp" lg={5} id={props.garage_data.garage_id}>
+    return (<Col className="mr-md-2 mt-3 garagecomp" lg={5} id={props.garage_data.garage_id}>
         <Row className='ml-2'><Col className='nombreGarage' id="nombre_garage">{props.garage_data.nombre_garage}</Col></Row>
         <Row className='ml-2 mt-3'>
             <Col md={6} id="telefono_garage"><span>Teléfono: </span><span className="valor_campo text-muted">{props.garage_data.telefono_garage}</span></Col>

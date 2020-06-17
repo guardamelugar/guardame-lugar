@@ -3,13 +3,13 @@ import Header from './Header'
 import ClienteNavBar from './ClienteNavBar'
 import ChequearCookie from './ChequearCookie'
 import GaragesContainer from './GaragesContainer'
-import ClientContainer from './ClientContainer'
+import UserContainer from './UserContainer'
 
 const IndexContainer = () => {
   const salidaUser =
   <section>
     <Header />
-    <ClientContainer/>
+    <UserContainer/>
   </section>
 
   const salidaCliente =

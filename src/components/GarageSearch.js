@@ -37,7 +37,7 @@ class GarageSearch extends Component {
               <Form.Group controlId="busquedaForm.VehicleType" className="form-group-search">
                 <Form.Label className="d-none d-md-block label-search">Tipo de Vehículo:</Form.Label>
                 <Form.Control size="sm" as="select" onChange={this.handleVehicleChange}>
-                  <option>Elija tipo de Vehiculo</option>
+                  <option value="">Elija tipo de Vehiculo</option>
                   <option value="autos">Autos</option>
                   <option value="motos">Motos</option>
                   <option value="camionetas">Camionetas</option>

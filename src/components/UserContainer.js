@@ -4,7 +4,7 @@ import GaragesContainer from './GaragesContainer'
 import '../styles/GarageSearch.css'
 
 
-class ClientContainer extends Component {
+class UserContainer extends Component {
   
   constructor(props) {
     super(props);
@@ -43,4 +43,4 @@ class ClientContainer extends Component {
   }
 
 }
-export default ClientContainer
+export default UserContainer
