@@ -5,7 +5,7 @@ class AgregarGaragePage extends React.Component {
   render() {
     
     return (
-        <SignupModGarage titulo="Agregar garage" type="INSERT"/>
+        <SignupModGarage titulo="Agregar garage" type="INSERT" handleClose={this.props.handleClose}/>
     )
   }
 }
