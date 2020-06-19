@@ -13,6 +13,7 @@ const POSTGarage = props => {
     .then(function (res) {
       if (res.status === 200) {
         alert("El garage se guardó con éxito");
+        window.location = '/clientindex';
       }
     })
     .catch(function (err) {

@@ -1,20 +1,22 @@
 import React from 'react'
 import Header from './Header'
-import GarageSearch from './GarageSearch'
 import ClienteNavBar from './ClienteNavBar'
 import ChequearCookie from './ChequearCookie'
+import GaragesContainer from './GaragesContainer'
+import UserContainer from './UserContainer'
 
 const IndexContainer = () => {
   const salidaUser =
   <section>
     <Header />
-    <GarageSearch />
+    <UserContainer/>
   </section>
 
   const salidaCliente =
   <section>
     <Header />
     <ClienteNavBar />
+    <GaragesContainer />
   </section>
   
   if(window.location.pathname === '/index'){

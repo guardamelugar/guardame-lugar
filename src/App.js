@@ -3,7 +3,6 @@ import './App.css'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import IndexPage from './pages/IndexPage'
-import AgregarGarage from './pages/AgregarGaragePage'
 import NotFound from './pages/NotFound'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
@@ -17,7 +16,6 @@ class App extends React.Component {
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/index" component={IndexPage} />
           <Route exact path="/clientindex" component={IndexPage} />
-          <Route exact path="/agregargarage" component={AgregarGarage} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

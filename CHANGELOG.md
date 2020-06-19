@@ -2,6 +2,18 @@
 
 **Notas de Versión**
 
+### Versión 0.3 - Release 3
+
+**18/06/2020**
+
+### Cambios:
+
+#### Añadido:
+- Vista de garages propios cliente
+- Búsqueda de garages con filtro localidad/vehículo para usuario
+- Modificar garage propio
+- Páginas modificar garage y agregar garage son ahora Modales
+
 ### Versión 0.2 - Release 2
 
 **05/06/2020**

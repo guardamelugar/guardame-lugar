@@ -1,11 +1,10 @@
 import axios from 'axios'
-import { URL_REGISTER_GARAGE } from '../../constants/URL'
+import { URL_UPDATE_GARAGE } from '../../constants/URL'
 
-const PATCHGarage = props => {
+const PUTGarage = props => {
   const salida = JSON.stringify(props);
-  console.log(salida);
-  axios.post((URL_REGISTER_GARAGE), JSON.stringify(props), {
-    method: 'POST',
+  axios.put((URL_UPDATE_GARAGE), salida, {
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     }
@@ -13,6 +12,7 @@ const PATCHGarage = props => {
     .then(function (res) {
       if (res.status === 200) {
         alert("El garage se guardó con éxito");
+        window.location = '/clientindex';
       }
     })
     .catch(function (err) {
@@ -26,4 +26,4 @@ const PATCHGarage = props => {
     })
 }
 
-export default PATCHGarage;
+export default PUTGarage;

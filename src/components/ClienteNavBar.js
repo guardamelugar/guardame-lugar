@@ -1,25 +1,32 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
+import Modal from 'react-bootstrap/Modal'
 import '../styles/ClienteNavBar.css'
-import { Link } from 'react-router-dom'
+import AgregarGaragePage from '../pages/AgregarGaragePage';
 
-class ClienteNavBar extends Component {
-  
-  render() {
-    return (
+    
+const ClienteNavBar = (props) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+
+  return (
       <div className="cliente-navbar">
         <Container className="client-nav-wrapper">
-          <Link to='/agregargarage'>
-            <Button variant="info" id="agregar-garage" type="submit" className="search-btn" >
-                Agregar Garage
-            </Button>
-          </Link>
+          <Button className="search-btn" variant="info" onClick={() => setShow(true)}>Agregar Garage</Button>
+          <Modal
+                show={show}
+                onHide={() => setShow(false)}
+                dialogClassName="main-modal"
+            >
+                <AgregarGaragePage handleClose={handleClose}/>
+          </Modal>
         </Container>
       </div>
     )
   }
   
-}
+
 
 export default ClienteNavBar
