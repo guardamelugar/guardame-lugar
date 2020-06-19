@@ -5,7 +5,6 @@ import { trackPromise } from 'react-promise-tracker';
 
 const GETGaragesFiltered = props => {
   axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded';
-  console.log(props);
   let url_final = ""
   if(props.localidad === "" && props.vehicle_type !== ""){
     url_final = URL_GARAGES+"?vehiculo="+props.vehicle_type;
