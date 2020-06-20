@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header'
 import ClienteNavBar from './ClienteNavBar'
 import ChequearCookie from './ChequearCookie'
 import GaragesContainer from './GaragesContainer'
@@ -8,13 +7,11 @@ import UserContainer from './UserContainer'
 const IndexContainer = () => {
   const salidaUser =
   <section>
-    <Header />
     <UserContainer/>
   </section>
 
   const salidaCliente =
   <section>
-    <Header />
     <ClienteNavBar />
     <GaragesContainer />
   </section>
