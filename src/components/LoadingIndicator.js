@@ -4,7 +4,6 @@ import Loader from 'react-loader-spinner';
 
 const LoadingIndicator = props => {
   const { promiseInProgress } = usePromiseTracker();
-  console.log(promiseInProgress)
   return (
     promiseInProgress &&
     <div
