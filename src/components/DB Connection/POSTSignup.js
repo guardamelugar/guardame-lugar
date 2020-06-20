@@ -17,7 +17,6 @@ const POSTSignup = props => {
     .catch(function (err) {
       if (err.response) {
         if (err.response.status === 400) {
-          console.log(err);
           alert("El email ya existe en nuestros registros");
         } else {
           alert("No se puede conectar con la base de datos")
