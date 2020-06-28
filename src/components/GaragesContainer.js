@@ -2,6 +2,7 @@ import React from 'react';
 import GarageContainer from './GarageContainer'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
+import Col from 'react-bootstrap/Col'
 import { cookieName } from '../constants/Cookie'
 import Cookies from 'universal-cookie'
 import GETGaragebyUserID from './DB Connection/GETGaragebyUserID'
@@ -79,9 +80,10 @@ class GaragesContainer extends React.Component {
       if (this.state.loaded === false) {
         this.setState({ ...this.state, "loaded": true })
       }
-      return (
-        <Container fluid>
-          <Row className="ml-md-5 mr-md-5 justify-content-between">
+      if(garages.length%2 !== 0){
+        return (
+          <Container fluid>
+          <Row className="ml-md-5 mr-md-5 justify-content-around">
             <LoadingIndicator />
             {
               garages.map((garage) => {
@@ -89,9 +91,26 @@ class GaragesContainer extends React.Component {
                 return (<GarageContainer garage_data={transformed_data} />)
               })
             }
+            <Col className="mr-md-2 mt-4 garagecomp invisible" lg={5} ></Col>
           </Row>
         </Container>
-      )
+        )
+      } else {
+        return (
+          <Container fluid>
+            <Row className="ml-md-5 mr-md-5 justify-content-around">
+              <LoadingIndicator />
+              {
+                garages.map((garage) => {
+                  const transformed_data = TransformGarageData(garage, this.cookie.rol);
+                  return (<GarageContainer garage_data={transformed_data} />)
+                })
+              }
+            </Row>
+          </Container>
+        )
+      }
+      
     }
     else {
       if (this.state.loaded === false) {
@@ -101,7 +120,7 @@ class GaragesContainer extends React.Component {
         return (
           <>
             <LoadingIndicator />
-            <Row className="ml-5 mr-5 mt-3 garagecomp lg={5} justify-content-between">
+            <Row className="mt-3 garagecomp lg={5} mx-auto">
               <div>
                 <h4>El filtro seleccionado no ha arrojado resultados, inténtelo nuevamente.</h4>
               </div>
