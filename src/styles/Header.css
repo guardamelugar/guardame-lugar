@@ -46,9 +46,20 @@ header {
 
 /* BOOTSTRAP OVERRIDES */
 
+
+
+.navbar-brand {
+  font-size: 20pt;
+  font-family: "Montserrat", sans-serif !important;
+}
+
 @media (max-width: 576px) {
   .navbar-nav {
     margin-bottom: 2vh;
+  }
+
+  .navbar-brand {
+    font-size: 14pt;
   }
 }
 

@@ -32,8 +32,9 @@ const GarageContainer = (props) => {
 
     const handleClose = () => setShow(false);
 
-    return (<Col className="mr-md-2 mt-3 garagecomp" lg={5} id={props.garage_data.garage_id}>
+    return (<Col className="mr-md-2 mt-4 garagecomp" lg={5} id={props.garage_data.garage_id}>
         <Row className='ml-2'><Col className='nombreGarage' id="nombre_garage">{props.garage_data.nombre_garage}</Col></Row>
+        <hr></hr>
         <Row className='ml-2 mt-3'>
             <Col md={6} id="telefono_garage"><span>Teléfono: </span><span className="valor_campo text-muted">{props.garage_data.telefono_garage}</span></Col>
             <Col md={6}><span>Localidad: </span><span className="valor_campo text-muted">{props.garage_data.localidad_garage_texto}</span></Col>
@@ -53,6 +54,7 @@ const GarageContainer = (props) => {
             <Col id="altura_maxima"><span>Altura máxima: </span><span className="valor_campo text-muted">{props.garage_data.altura_maxima}</span></Col>
         </Row>
         <Row className='mt-3 justify-content-center'>
+            
             {parseInt(props.garage_data.rol, 10) === 2 &&
                 <>
                     <Button variant="primary" onClick={() => setShow(true)}>Modificar Garage</Button>
