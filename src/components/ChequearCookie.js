@@ -1,5 +1,5 @@
 import React from 'react'
-import GETLogin from './DB Connection/GETLogin'
+import POSTLogin from './DB Connection/POSTLogin'
 import { cookieName } from '../constants/Cookie'
 import Cookies from 'universal-cookie'
 
@@ -50,7 +50,7 @@ const ChequearCookie = (salida, user_redirect, client_redirect, landing_redirect
 
       return (
         <>
-        {GETLogin(jsonForm)}
+        {POSTLogin(jsonForm)}
         </>
       );
     }

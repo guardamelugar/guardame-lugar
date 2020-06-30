@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
-import GETLogin from './DB Connection/GETLogin'
+import POSTLogin from './DB Connection/POSTLogin'
 
 class Login extends Component {
 
@@ -21,7 +21,7 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const jsonForm = (this.state);
-    GETLogin(jsonForm);
+    POSTLogin(jsonForm);
 
   }
 
