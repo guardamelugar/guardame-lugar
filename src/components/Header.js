@@ -26,13 +26,11 @@ class Header extends Component {
       <header>
         <Navbar bg="secondary" expand="sm" className="padding-nav" variant="dark">
           <Navbar.Brand href="/">
-            <img src={require("../img/logo.png")} className='header-logo' alt="logo"></img>
-            Guardame Lugar
+            <img src={require("../img/guardamelugar-h.png")} className='header-logo' alt="logo"></img>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" bsPrefix="no-margin-top navbar-toggler"/>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto right-align">
-              <Nav.Link href="#profile">Ver Perfil</Nav.Link>
               {rol === 1 && <Nav.Link href="/reservas">Ver reservas</Nav.Link>}
               <Nav.Link href="#" onClick={this.clearUserCookies} >Cerrar sesión</Nav.Link>
             </Nav>
