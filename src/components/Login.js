@@ -28,18 +28,19 @@ class Login extends Component {
   render() {
     return (
       <Col className='fondito login-box rounded ancho-maximo-1000'>
+        <img alt="logo" className='img-login-normal' src={require("../img/guardamelugar-iso.png")} />
         <h4>Logueate</h4>
         <Form onSubmit={this.handleSubmit} className="loginForm">
           <Form.Group as={Col}>
             <Form.Label>Email</Form.Label>
-            <Form.Control name="mail" id="mail" type="email" autoComplete="username"
+            <Form.Control name="mail" id="mail" type="email" autoComplete="username" required
               value={this.state.mail}
               onChange={this.handleChange}
             />
           </Form.Group>
           <Form.Group as={Col}>
             <Form.Label>Password</Form.Label>
-            <Form.Control name="password" id="password" type="password" maxLength="15" autoComplete="current-password"
+            <Form.Control name="password" id="password" type="password" maxLength="15" autoComplete="current-password" required
               value={this.state.password}
               onChange={this.handleChange}
             />

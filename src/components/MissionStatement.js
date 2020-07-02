@@ -7,8 +7,8 @@ import Col from 'react-bootstrap/Col'
 
 const MissionStatement = () => {
   return (
-    <Container className='fondito'>
-      <img alt="logo" className='img-login-normal' src={require("../img/logo.png")} />
+    <Container className='fondito-vacio'>
+      <img alt="logo" className='img-login-mobile' src={require("../img/guardamelugar-iso.png")} />
       <Row className="missionNormal align-items-center">
         <Col md={5}>
           <Login />
