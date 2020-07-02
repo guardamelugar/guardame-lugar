@@ -28,7 +28,7 @@ header {
 }
 
 .header-logo {
-  height: 10vh;
+  height: 12vh;
   margin-left: 5vw;
 }
 
@@ -54,6 +54,11 @@ header {
 }
 
 @media (max-width: 576px) {
+  .header-logo {
+    height: 7vh;
+    margin-left: 0vw;
+  }
+
   .navbar-nav {
     margin-bottom: 2vh;
   }
