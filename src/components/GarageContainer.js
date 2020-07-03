@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import ModificarGaragePage from '../pages/ModificarGaragePage';
+import GuardameLugar from './GuardameLugar'
 import '../styles/garagecomp.css'
 
 /* El componente necesita que se le manden estos datos.
@@ -54,7 +55,7 @@ const GarageContainer = (props) => {
             <Col id="altura_maxima"><span>Altura máxima: </span><span className="valor_campo text-muted">{props.garage_data.altura_maxima}</span></Col>
         </Row>
         <Row className='mt-3 justify-content-center'>
-            
+
             {parseInt(props.garage_data.rol, 10) === 2 &&
                 <>
                     <Button variant="primary" onClick={() => setShow(true)}>Modificar Garage</Button>
@@ -65,13 +66,27 @@ const GarageContainer = (props) => {
                     >
                         <ModificarGaragePage garage_id={props.garage_data.garage_id} handleClose={handleClose} />
                     </Modal>
-                    
-                {/* uso de state en link para pasar garage_id como propiedad a /reservascliente */}
 
-                    <Link to={{pathname:'/reservascliente', state:{garage_id:props.garage_data.garage_id}}} 
-                    className='search-btn'>
+                    {/* uso de state en link para pasar garage_id como propiedad a /reservascliente */}
+
+                    <Link to={{ pathname: '/reservascliente', state: { garage_id: props.garage_data.garage_id } }}
+                        className='search-btn'>
                         <Button className="link_button" variant="primary">Ver reservas Garage</Button>
                     </Link>
+                </>
+            }
+
+            {parseInt(props.garage_data.rol, 10) === 1 &&
+                <>
+                    <Button variant="primary" onClick={() => setShow(true)}>Reservar lugar</Button>
+                    <Modal
+                        show={show}
+                        onHide={() => setShow(false)}
+                        dialogClassName="main-modal"
+                    >
+                        <GuardameLugar garage_id={props.garage_data.garage_id} nombre_garage={props.garage_data.nombre_garage}
+                        handleClose={handleClose} />
+                    </Modal>
                 </>
             }
         </Row>

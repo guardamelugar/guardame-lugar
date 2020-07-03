@@ -5,6 +5,13 @@
   max-width: 50em;
 }
 
+.reservacomp {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 2em;
+  max-width: 80em;
+}
+
 .nombreGarage {
   font-size: 1.5em;
 }
@@ -28,6 +35,11 @@
 .modal-content {
   background: rgba(0, 0, 0, 0);
   border: none;
+}
+
+.datos_reserva {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 hr {

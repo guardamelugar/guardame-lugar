@@ -14,14 +14,14 @@ class ReservasContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        "reservas": undefined,
-        "loaded": false,
+      "reservas": undefined,
+      "loaded": false,
     }
   }
 
   cookies = new Cookies();
   cookie = this.cookies.get(cookieName);
-  data = {"user_id": this.cookie.user_id, "rol": this.cookie.rol}
+  data = { "user_id": this.cookie.user_id, "rol": this.cookie.rol }
 
   goBack() {
     window.history.back();
@@ -30,7 +30,7 @@ class ReservasContainer extends React.Component {
   async componentDidMount() {
 
     if (parseInt(this.cookie.rol, 10) === 1) {
-        const reservas = await GETReservas(this.data);
+      const reservas = await GETReservas(this.data);
       this.setState({
         ...this.state, "reservas": reservas
       });
@@ -38,12 +38,11 @@ class ReservasContainer extends React.Component {
     else {
       if (parseInt(this.cookie.rol, 10) === 2) {
 
-        const data_garage = {"garage_id": this.props.garage_id, "rol": this.cookie.rol};
+        const data_garage = { "garage_id": this.props.garage_id, "rol": this.cookie.rol };
         const reservas = await GETReservas(data_garage);
-        console.log("LA RESERVA ES: ", reservas)
-      this.setState({
-        ...this.state, "reservas": reservas
-      });
+        this.setState({
+          ...this.state, "reservas": reservas
+        });
       }
       else {
         return (window.location = '/index');
@@ -52,24 +51,24 @@ class ReservasContainer extends React.Component {
   }
 
   async componentDidUpdate(prevProps) {
-/*     if (this.props.localidad !== prevProps.localidad || this.props.vehicle_type !== prevProps.vehicle_type) {
-      if (this.props.filtered === "filtrado") {
-
-        const garages = await GETGaragesFiltered(this.props);
-        this.setState({
-          ...this.state, "garages": garages
-        });
-
-      } else {
-
-        const garages = await GETGarages(this.user_id);
-
-        this.setState({
-          ...this.state, "garages": garages
-        });
-
-      }
-    } */
+    /*     if (this.props.localidad !== prevProps.localidad || this.props.vehicle_type !== prevProps.vehicle_type) {
+          if (this.props.filtered === "filtrado") {
+    
+            const garages = await GETGaragesFiltered(this.props);
+            this.setState({
+              ...this.state, "garages": garages
+            });
+    
+          } else {
+    
+            const garages = await GETGarages(this.user_id);
+    
+            this.setState({
+              ...this.state, "garages": garages
+            });
+    
+          }
+        } */
   }
 
 
@@ -80,37 +79,37 @@ class ReservasContainer extends React.Component {
       if (this.state.loaded === false) {
         this.setState({ ...this.state, "loaded": true })
       }
-      if(reservas.length%2 !== 0){
+      if (reservas.length % 2 !== 0) {
         return (
-            <Container fluid>
-              <Row className="ml-md-5 mr-md-5 justify-content-around">
-                <LoadingIndicator />
-                {
-                  reservas.map((reserva) => {
-                    const transformed_data = TransformReservaData(reserva, this.cookie.rol);
-                    return (<ReservaContainer reserva_data={transformed_data} />)
-                  })
-                }
-                <Col className="mr-md-2 mt-4 garagecomp invisible" lg={5} ></Col>
-              </Row>
-            </Container>
-          )
+          <Container fluid>
+            <Row className="ml-md-5 mr-md-5 justify-content-around">
+              <LoadingIndicator />
+              {
+                reservas.map((reserva) => {
+                  const transformed_data = TransformReservaData(reserva, this.cookie.rol);
+                  return (<ReservaContainer reserva_data={transformed_data} />)
+                })
+              }
+              <Col className="mr-md-2 mt-4 garagecomp invisible" lg={5} ></Col>
+            </Row>
+          </Container>
+        )
       } else {
         return (
-            <Container fluid>
-              <Row className="ml-md-5 mr-md-5 justify-content-around">
-                <LoadingIndicator />
-                {
-                  reservas.map((reserva) => {
-                    const transformed_data = TransformReservaData(reserva, this.cookie.rol);
-                    return (<ReservaContainer reserva_data={transformed_data} />)
-                  })
-                }
-              </Row>
-            </Container>
-          )
+          <Container fluid>
+            <Row className="ml-md-5 mr-md-5 justify-content-around">
+              <LoadingIndicator />
+              {
+                reservas.map((reserva) => {
+                  const transformed_data = TransformReservaData(reserva, this.cookie.rol);
+                  return (<ReservaContainer reserva_data={transformed_data} />)
+                })
+              }
+            </Row>
+          </Container>
+        )
       }
-      
+
     }
     else {
       if (this.state.loaded === false && this.state.reservas !== "No Results") {
@@ -120,11 +119,22 @@ class ReservasContainer extends React.Component {
         return (
 
           <>
-            <Row className="mt-3 mx-auto garagecomp lg={5}">
-              <div>
-                <h4>El garage seleccionado no registra reservas a la fecha.</h4>
-              </div>
-            </Row>
+            {
+              (parseInt(this.data.rol,10) === 1) &&
+              <Row className="mt-3 mx-auto garagecomp lg={5}">
+                <div>
+                  <h4>No registrás reservas a la fecha.</h4>
+                </div>
+              </Row>
+            }
+            {
+              (parseInt(this.data.rol,10) === 2) &&
+              <Row className="mt-3 mx-auto garagecomp lg={5}">
+                <div>
+                  <h4>El garage seleccionado no registra reservas a la fecha.</h4>
+                </div>
+              </Row>
+            }
           </>
         )
       }
