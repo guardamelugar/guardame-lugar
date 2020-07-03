@@ -124,6 +124,10 @@ footer {
   
 }
 
+.text-left {
+  text-align: left;
+}
+
 @media (max-width: 768px) {
   .img-login-normal {
     display: none;

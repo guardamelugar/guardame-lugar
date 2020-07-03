@@ -26,6 +26,7 @@ class GaragesContainer extends React.Component {
   cookies = new Cookies();
   cookie = this.cookies.get(cookieName);
   user_id = { "user_id": this.cookie.user_id };
+  rol = this.cookie.rol;
 
   async componentDidMount() {
 
@@ -120,11 +121,20 @@ class GaragesContainer extends React.Component {
         return (
           <>
             <LoadingIndicator />
+            {(parseInt(this.rol,10) === 1) &&
             <Row className="mt-3 garagecomp lg={5} mx-auto">
               <div>
                 <h4>El filtro seleccionado no ha arrojado resultados, inténtelo nuevamente.</h4>
               </div>
             </Row>
+          }
+          {(parseInt(this.rol,10) === 2) &&
+                        <Row className="mt-3 garagecomp lg={5} mx-auto">
+              <div>
+                <h4>Todavía no registraste garages.</h4>
+              </div>
+            </Row>
+            }
           </>
         )
       }

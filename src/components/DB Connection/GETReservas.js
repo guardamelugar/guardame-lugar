@@ -14,10 +14,7 @@ const GETReservas = props => {
   axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
   let url_final = undefined;
-  console.log("LAS PROPS SON: ", props);
-  console.log("EL ROL ES: ", props.rol);
   if (parseInt(props.rol,10) === 1) {
-    console.log("PAPA:" + props.user_id);
     url_final = URL_RESERVAS_USUARIO + (parseInt(props.user_id,10));
   }
   if (parseInt(props.rol,10) === 2) {
@@ -29,7 +26,6 @@ const GETReservas = props => {
       if (res.status === 200 && res.data.total !== 0) {
         return res.data.result;
       } else {
-        console.log("LA PAPA: ", res.data.total)
         return "No Results"
       }
     }))
