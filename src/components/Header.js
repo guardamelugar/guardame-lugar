@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Cookies from 'universal-cookie'
 import { cookieName } from '../constants/Cookie'
+import RecuperarCookie from './RecuperarCookie'
 import '../styles/Header.css'
 
 class Header extends Component {
@@ -10,14 +11,13 @@ class Header extends Component {
   clearUserCookies = (e) => {
     e.preventDefault();
     const cookies = new Cookies();
-    cookies.remove("guardameLugar|user");
+    cookies.remove(cookieName);
     window.location.replace("/");
   }
 
   render(){
     //uso de cookie para mostrar link Ver reservas solo a usuarios
-    const cookies = new Cookies();
-    const cookie = cookies.get(cookieName);
+    const cookie = RecuperarCookie();
 
     //chequeo de rol en la cookie para no mostrar header en login ni registrar
     const rol = cookie !== undefined ? cookie.rol : undefined;

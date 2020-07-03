@@ -3,13 +3,12 @@ import GarageContainer from './GarageContainer'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
-import { cookieName } from '../constants/Cookie'
-import Cookies from 'universal-cookie'
 import GETGaragebyUserID from './DB Connection/GETGaragebyUserID'
 import GETGarages from './DB Connection/GETGarages';
 import GETGaragesFiltered from './DB Connection/GETGaragesFiltered'
 import TransformGarageData from './Transform/TransformGarageData'
 import LoadingIndicator from './LoadingIndicator'
+import RecuperarCookie from './RecuperarCookie'
 import '../styles/garagecomp.css'
 
 class GaragesContainer extends React.Component {
@@ -23,8 +22,7 @@ class GaragesContainer extends React.Component {
     }
   }
 
-  cookies = new Cookies();
-  cookie = this.cookies.get(cookieName);
+  cookie = RecuperarCookie();
   user_id = { "user_id": this.cookie.user_id };
   rol = this.cookie.rol;
 
