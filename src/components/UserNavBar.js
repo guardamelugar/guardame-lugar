@@ -9,7 +9,7 @@ const UserNavBar = (props) => {
   return (
     <div className="cliente-navbar">
       <Container className="client-nav-wrapper">
-        <Link to='/clientindex'>
+        <Link to='/index'>
           <Button className="search-btn" variant="info">Buscar Garages</Button>
         </Link>
       </Container>
