@@ -14,6 +14,7 @@ const RecuperarCookie = () => {
       cookie = simpleCrypto.decrypt(encryptedCookie)
     }
     catch (error) {
+      (window.location.pathname === '/login') &&
       alert("Hay un problema con la información de la cookie. Por favor logueate nuevamente.")
     }
   }

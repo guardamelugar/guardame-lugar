@@ -30,7 +30,7 @@ const ChequearCookie = (salida, user_redirect, client_redirect, landing_redirect
             return (window.location = client_redirect);
           }
           else {
-            alert("Hubo un problema con tu cookie. Por favor reingresá tus datos.")
+            alert("Hay un problema con la información de la cookie. Por favor logueate nuevamente.")
             return salida;
           }
         }
