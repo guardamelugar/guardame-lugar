@@ -15,29 +15,44 @@ html {
 }
 
 .img-login-normal {
-  margin-bottom: -2em;
+  margin-bottom: 0em;
   align-content: center;
   height: 150px;
   margin-top: -6em;
 }
 
+.img-login-mobile  {
+  display: none;
+}
+
 .form-control  {
-  background: gray;
-  
+  background: rgb(70, 70, 70);
+  color:   rgb(240, 240, 240);
 }
 
 .form-control::placeholder {
-  color: darkslategray;
+  color: slategray;
 }
 
 .fondito {
-  background-image: radial-gradient(circle, rgba(80, 80, 80, 0.75), rgba(40, 40, 40, 0.750), rgba(0, 0, 0, 0.800));
+  background-image: radial-gradient(circle, rgba(50, 50, 50, 0.75), rgba(25, 25, 25, 0.750), rgba(0, 0, 0, 0.800));
   padding: 40px;
   margin-top: 4em;
   text-align: center;
   -webkit-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
   -moz-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
   box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
+}
+
+.fondito-vacio {
+  padding: 40px;
+  margin-top: 4em;
+  text-align: center;
+  justify-content: center;
+}
+
+.fondito-modal {
+  background-image: radial-gradient(circle, rgba(80, 80, 80, 1), rgba(40, 40, 40, 1), rgba(0, 0, 0, 1));
 }
 
 .signupForm {
@@ -60,10 +75,11 @@ p {
 
 .mision {
   text-shadow: 4px 4px 0 #2e2e2e;
+  text-shadow: -1px 1px black, 1px 1px black, -1px -1px black, 1px -1px black;
 }
 
 .guardameLugar {
-  font-family: 'Goblin One', cursive;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .login-box:hover {
@@ -108,11 +124,22 @@ footer {
   
 }
 
+.text-left {
+  text-align: left;
+}
+
 @media (max-width: 768px) {
   .img-login-normal {
-    margin: 0em;
-    margin-top: -6em;
+    display: none;
   }
+
+  .img-login-mobile {
+    display: inline-block;
+      margin-bottom: 1em;
+      align-content: center;
+      height: 150px;
+      margin-top: -5em;
+    }
 
   .tituloMision {
     font-size: 2em;

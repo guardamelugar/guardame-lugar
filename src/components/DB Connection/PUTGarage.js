@@ -1,11 +1,10 @@
 import axios from 'axios'
-import { URL_REGISTER_GARAGE } from '../../constants/URL'
+import { URL_UPDATE_GARAGE } from '../../constants/URL'
 
-const POSTGarage = props => {
+const PUTGarage = props => {
   const salida = JSON.stringify(props);
-
-  axios.post((URL_REGISTER_GARAGE), salida, {
-    method: 'POST',
+  axios.put((URL_UPDATE_GARAGE), salida, {
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     }
@@ -27,4 +26,4 @@ const POSTGarage = props => {
     })
 }
 
-export default POSTGarage;
+export default PUTGarage;

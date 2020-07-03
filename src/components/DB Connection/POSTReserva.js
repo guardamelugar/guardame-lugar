@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { URL_REGISTER_GARAGE } from '../../constants/URL'
+import { URL_RESERVAR_LUGAR } from '../../constants/URL'
 
-const PATCHGarage = props => {
+const POSTReserva = props => {
   const salida = JSON.stringify(props);
-  console.log(salida);
-  axios.post((URL_REGISTER_GARAGE), JSON.stringify(props), {
+  
+  axios.post((URL_RESERVAR_LUGAR), salida, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -12,7 +12,8 @@ const PATCHGarage = props => {
   })
     .then(function (res) {
       if (res.status === 200) {
-        alert("El garage se guardó con éxito");
+        alert("¡La reserva se realizó con éxito!");
+        window.location = '/reservas';
       }
     })
     .catch(function (err) {
@@ -26,4 +27,4 @@ const PATCHGarage = props => {
     })
 }
 
-export default PATCHGarage;
+export default POSTReserva;

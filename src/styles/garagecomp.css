@@ -1,0 +1,50 @@
+.garagecomp {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 2em;
+  max-width: 50em;
+}
+
+.reservacomp {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 2em;
+  max-width: 80em;
+}
+
+.nombreGarage {
+  font-size: 1.5em;
+}
+
+.localidad {
+  display: none;
+}
+
+.lugar_disponible {
+  font-size: 1.2em;
+}
+
+.valor_campo {
+  font-style: italic;
+}
+
+.main-modal {
+  min-width: 90%;
+}
+
+.modal-content {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.datos_reserva {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid #375a7f;
+}
