@@ -2,8 +2,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
-import { cookieName } from '../constants/Cookie'
-import Cookies from 'universal-cookie'
+import RecuperarCookie from './RecuperarCookie'
 import LoadingIndicator from './LoadingIndicator'
 import GETReservas from './DB Connection/GETReservas';
 import TransformReservaData from './Transform/TransformReservaData';
@@ -19,8 +18,7 @@ class ReservasContainer extends React.Component {
     }
   }
 
-  cookies = new Cookies();
-  cookie = this.cookies.get(cookieName);
+  cookie = RecuperarCookie()
   data = { "user_id": this.cookie.user_id, "rol": this.cookie.rol }
 
   goBack() {
