@@ -17,7 +17,7 @@ class Header extends Component {
 
   render(){
     //uso de cookie para mostrar link Ver reservas solo a usuarios
-    const cookie = RecuperarCookie();
+    const cookie = (window.location.pathname === '/login') ? undefined : RecuperarCookie();
 
     //chequeo de rol en la cookie para no mostrar header en login ni registrar
     const rol = cookie !== undefined ? cookie.rol : undefined;
