@@ -1,19 +1,17 @@
 import React from 'react'
-import { cookieName } from '../constants/Cookie'
-import Cookies from 'universal-cookie'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import POSTReserva from './DB Connection/POSTReserva'
+import RecuperarCookie from './RecuperarCookie'
 import { TransformFormReserva } from './Transform/TransformReservaData'
 import { ValidationForm, TextInput, SelectGroup } from 'react-bootstrap4-form-validation'
 
 
 class GuardameLugar extends React.Component {
-  cookies = new Cookies();
-  cookie = this.cookies.get(cookieName);
+  cookie = RecuperarCookie();
   user_id = this.cookie.user_id;
 
   state = {

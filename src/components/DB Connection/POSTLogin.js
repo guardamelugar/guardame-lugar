@@ -2,6 +2,8 @@ import axios from 'axios'
 import { URL_LOGIN } from '../../constants/URL'
 import { cookieName } from '../../constants/Cookie'
 import Cookies from 'universal-cookie'
+import SimpleCrypto from "simple-crypto-js"
+import { SecretKey } from '../../constants/SecretKey'
 
 const POSTLogin = props => {
   const login_data = {
@@ -12,8 +14,13 @@ const POSTLogin = props => {
   const BakeCookies = (props) => {
     const cookies = new Cookies();
     const date = Date.now() + 2560000000;
-    cookies.set(cookieName, props.data, { path: '/' });
     cookies.set('timeout', date, { path: '/' });
+
+    const simpleCrypto = new SimpleCrypto({ SecretKey })
+    const cookie = simpleCrypto.encrypt(props.data)
+    
+    cookies.set(cookieName, cookie, { path: '/' });
+
     if (props.data.rol === 1) {
       return (window.location = '/index');
     } else {

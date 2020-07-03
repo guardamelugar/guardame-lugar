@@ -1,9 +1,7 @@
-import { cookieName } from '../../constants/Cookie'
-import Cookies from 'universal-cookie'
+import RecuperarCookie from '../RecuperarCookie'
 
 const TransformGarage = (formData, type) => {
-  const cookies = new Cookies();
-  const cookie = cookies.get(cookieName);
+  const cookie = RecuperarCookie();
 
   if (cookie === undefined) {
     alert("No se encontró cookie de usuario, por favor loguearse nuevamente.");
