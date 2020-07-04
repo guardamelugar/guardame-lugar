@@ -21,8 +21,10 @@ const GETGaragebyUserID = props => {
 
   return trackPromise(axios.get(url_final)
     .then(res => {
-      if (res.status === 200) {
+      if (res.status === 200 && res.data.total !== 0) {
         return res.data.result;
+      } else {
+        return "No Results"
       }
     }))
     .catch(function (err) {
