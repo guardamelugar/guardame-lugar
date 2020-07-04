@@ -79,20 +79,20 @@ class GaragesContainer extends React.Component {
       if (this.state.loaded === false) {
         this.setState({ ...this.state, "loaded": true })
       }
-      if(garages.length%2 !== 0){
+      if (garages.length % 2 !== 0) {
         return (
           <Container fluid>
-          <Row className="ml-md-5 mr-md-5 justify-content-around">
-            <LoadingIndicator />
-            {
-              garages.map((garage) => {
-                const transformed_data = TransformGarageData(garage, this.cookie.rol);
-                return (<GarageContainer garage_data={transformed_data} />)
-              })
-            }
-            <Col className="mr-md-2 mt-4 garagecomp invisible" lg={5} ></Col>
-          </Row>
-        </Container>
+            <Row className="ml-md-5 mr-md-5 justify-content-around">
+              <LoadingIndicator />
+              {
+                garages.map((garage) => {
+                  const transformed_data = TransformGarageData(garage, this.cookie.rol);
+                  return (<GarageContainer garage_data={transformed_data} />)
+                })
+              }
+              <Col className="mr-md-2 mt-4 garagecomp invisible" lg={5} ></Col>
+            </Row>
+          </Container>
         )
       } else {
         return (
@@ -109,29 +109,38 @@ class GaragesContainer extends React.Component {
           </Container>
         )
       }
-      
+
     }
     else {
       if (this.state.loaded === false) {
-        return (<LoadingIndicator />)
+        return (<>
+          {(parseInt(this.rol, 10) === 2) &&
+            <Row className="mt-3 garagecomp lg={5} mx-auto">
+              <div>
+                <h4>Todavía no registraste garages.</h4>
+              </div>
+            </Row>
+          }
+          <LoadingIndicator />
+        </>)
       }
       else {
         return (
           <>
             <LoadingIndicator />
-            {(parseInt(this.rol,10) === 1) &&
-            <Row className="mt-3 garagecomp lg={5} mx-auto">
-              <div>
-                <h4>El filtro seleccionado no ha arrojado resultados, inténtelo nuevamente.</h4>
-              </div>
-            </Row>
-          }
-          {(parseInt(this.rol,10) === 2) &&
-                        <Row className="mt-3 garagecomp lg={5} mx-auto">
-              <div>
-                <h4>Todavía no registraste garages.</h4>
-              </div>
-            </Row>
+            {(parseInt(this.rol, 10) === 1) &&
+              <Row className="mt-3 garagecomp lg={5} mx-auto">
+                <div>
+                  <h4>El filtro seleccionado no ha arrojado resultados, inténtelo nuevamente.</h4>
+                </div>
+              </Row>
+            }
+            {(parseInt(this.rol, 10) === 2) &&
+              <Row className="mt-3 garagecomp lg={5} mx-auto">
+                <div>
+                  <h4>Todavía no registraste garages.</h4>
+                </div>
+              </Row>
             }
           </>
         )
