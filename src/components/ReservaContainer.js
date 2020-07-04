@@ -54,10 +54,12 @@ const ReservaContainer = (props) => {
         }
         <Row className='ml-2 mt-2'>
             <Col xs={12}><span className="lugar_disponible datos_reserva">DATOS DEL GARAGE</span></Col>
-            <Col sm={12} id="nombre_garage"><span>Nombre Garage: </span><span className="valor_campo text-muted">{props.reserva_data.nombre_garage}</span></Col>
-            <Col sm={12} id="direccion"><span>Dirección: </span><span className="valor_campo text-muted">{props.reserva_data.direccion_garage}</span></Col>
-            <Col sm={6} id="telefono"><span>Teléfono: </span><span className="valor_campo text-muted">ESPERANDO BACKEND</span></Col>
+            <Col sm={6} id="nombre_garage"><span>Nombre Garage: </span><span className="valor_campo text-muted">{props.reserva_data.nombre_garage}</span></Col>
             <Col sm={6} id="nombre_localidad"><span>Localidad: </span><span className="valor_campo text-muted">{props.reserva_data.localidad_garage_texto}</span></Col>
+            <Col sm={12} id="direccion"><span>Dirección: </span><span className="valor_campo text-muted">{props.reserva_data.direccion_garage}</span></Col>
+            {props.reserva_data.rol === 1 &&
+                <Col sm={6} id="telefono"><span>Teléfono: </span><span className="valor_campo text-muted">{props.reserva_data.telefono}</span></Col>
+            }
         </Row>
     </Col>)
 };

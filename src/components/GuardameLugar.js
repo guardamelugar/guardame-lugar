@@ -19,6 +19,7 @@ class GuardameLugar extends React.Component {
     reservaform: {
       tipo_vehiculo: "",
       fecha_reserva: "",
+      hora_reserva: "",
     }
   }
 
@@ -34,7 +35,8 @@ class GuardameLugar extends React.Component {
       "user_id": this.user_id,
       "garage_id": this.props.garage_id,
       "tipo_vehiculo": this.state.reservaform.tipo_vehiculo,
-      /*       "fecha_reserva": this.state.reservaform.fecha_reserva, */
+      "fecha_reserva": this.state.reservaform.fecha_reserva,
+      "hora_reserva": this.state.reservaform.hora_reserva,
     }
 
     POSTReserva(TransformFormReserva(jsonForm));
@@ -67,13 +69,26 @@ class GuardameLugar extends React.Component {
                 </Form.Row>
                 <Form.Row className="text-left justify-content-center">
                   <Form.Group as={Col} md={8} controlId="fecha_reserva">
-                    <Form.Label>Elija el día y hora</Form.Label>
+                    <Form.Label>Elija el día</Form.Label>
                     <TextInput name="fecha_reserva" id="fecha_reserva"
                       required value={this.state.reservaform.fecha_reserva}
                       onChange={this.handleChange}
                       type="date"
                       errorMessage={{
                         required: "Por favor elegí una fecha",
+                      }}
+                    />
+                  </Form.Group>
+                </Form.Row>
+                <Form.Row className="text-left justify-content-center">
+                  <Form.Group as={Col} md={8} controlId="hora_reserva">
+                    <Form.Label>Elija la hora</Form.Label>
+                    <TextInput name="hora_reserva" id="hora_reserva"
+                      required value={this.state.reservaform.hora_reserva}
+                      onChange={this.handleChange}
+                      type="time"
+                      errorMessage={{
+                        required: "Por favor elegí una hora",
                       }}
                     />
                   </Form.Group>
