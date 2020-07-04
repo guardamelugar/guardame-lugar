@@ -24,6 +24,7 @@ export const TransformFormReserva = (props) => {
     "user_id": props.user_id,
     "garage_id": props.garage_id,
     "tipo_vehiculo": props.tipo_vehiculo,
+    "fecha_hora": props.fecha_reserva+"T"+props.hora_reserva+":00.000Z"
   }
   return salida
 }
