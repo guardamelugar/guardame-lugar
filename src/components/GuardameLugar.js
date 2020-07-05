@@ -18,8 +18,8 @@ class GuardameLugar extends React.Component {
     ...this.state,
     reservaform: {
       tipo_vehiculo: "",
-      fecha_reserva: "",
-      hora_reserva: "",
+/*       fecha_reserva: "",
+      hora_reserva: "", */
     }
   }
 
@@ -35,8 +35,8 @@ class GuardameLugar extends React.Component {
       "user_id": this.user_id,
       "garage_id": this.props.garage_id,
       "tipo_vehiculo": this.state.reservaform.tipo_vehiculo,
-      "fecha_reserva": this.state.reservaform.fecha_reserva,
-      "hora_reserva": this.state.reservaform.hora_reserva,
+/*       "fecha_reserva": this.state.reservaform.fecha_reserva,
+      "hora_reserva": this.state.reservaform.hora_reserva, */
     }
 
     POSTReserva(TransformFormReserva(jsonForm));
@@ -67,7 +67,7 @@ class GuardameLugar extends React.Component {
                     </SelectGroup>
                   </Form.Group>
                 </Form.Row>
-                <Form.Row className="text-left justify-content-center">
+{/*                 <Form.Row className="text-left justify-content-center">
                   <Form.Group as={Col} md={8} controlId="fecha_reserva">
                     <Form.Label>Elija el día</Form.Label>
                     <TextInput name="fecha_reserva" id="fecha_reserva"
@@ -92,7 +92,7 @@ class GuardameLugar extends React.Component {
                       }}
                     />
                   </Form.Group>
-                </Form.Row>
+                </Form.Row> */}
                 <Button variant="danger" onClick={this.props.handleClose} className="mr-2">
                   Cancelar
                   </Button>
