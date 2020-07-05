@@ -113,16 +113,7 @@ class GaragesContainer extends React.Component {
     }
     else {
       if (this.state.loaded === false) {
-        return (<>
-          {(parseInt(this.rol, 10) === 2) &&
-            <Row className="mt-3 garagecomp lg={5} mx-auto">
-              <div>
-                <h4>Todavía no registraste garages.</h4>
-              </div>
-            </Row>
-          }
-          <LoadingIndicator />
-        </>)
+        return (<LoadingIndicator />)
       }
       else {
         return (
