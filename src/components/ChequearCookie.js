@@ -1,17 +1,17 @@
 import React from 'react'
-import GETLogin from './DB Connection/GETLogin'
-import { cookieName } from '../constants/Cookie'
+import POSTLogin from './DB Connection/POSTLogin'
 import Cookies from 'universal-cookie'
-
+import RecuperarCookie from './RecuperarCookie'
 
 const ChequearCookie = (salida, user_redirect, client_redirect, landing_redirect) => {
   const cookies = new Cookies();
-  const cookie = cookies.get(cookieName);
+
   const timeout = cookies.get('timeout');
   const date = Date.now();
+  const cookie = RecuperarCookie();
 
   if (cookie === undefined || cookie === null || timeout === undefined) {
-    if(window.location.pathname === landing_redirect){
+    if (window.location.pathname === landing_redirect) {
       return (
         salida
       );
@@ -21,38 +21,67 @@ const ChequearCookie = (salida, user_redirect, client_redirect, landing_redirect
   }
   else {
     if (timeout > date && (cookie !== undefined || cookie !== null)) {
-      if(window.location.pathname === landing_redirect){
-        if (cookie.rol === 1) {
-          return(window.location = user_redirect);
-        } else {
-          return(window.location = client_redirect);
-        }
-      } else if (window.location.pathname === user_redirect){
-        if (cookie.rol === 1) {
-          return salida;
-        } else {
-          return(window.location = client_redirect);
-        }
-      } else if (window.location.pathname === client_redirect){
-        if (cookie.rol === 2) {
-          return salida;
-        } else {
+      if (window.location.pathname === landing_redirect) {
+        if (parseInt(cookie.rol, 10) === 1) {
           return (window.location = user_redirect);
         }
-      }
-    } else {
-      const mail = cookie.mail;
-      const password = cookie.contraseña;
-      const jsonForm = {
-        'mail': mail,
-        'password': password,
+        else {
+          if (parseInt(cookie.rol, 10) === 2) {
+            return (window.location = client_redirect);
+          }
+          else {
+            alert("Hay un problema con la información de la cookie. Por favor logueate nuevamente.")
+            return salida;
+          }
+        }
       }
 
-      return (
-        <>
-        {GETLogin(jsonForm)}
-        </>
-      );
+      else {
+
+        if (window.location.pathname === user_redirect) {
+          if (parseInt(cookie.rol, 10) === 1) {
+            return salida;
+          } else {
+            if (parseInt(cookie.rol, 10) === 2) {
+              return (window.location = client_redirect);
+            }
+            else {
+              return (window.location = landing_redirect)
+            }
+          }
+        }
+
+        else {
+
+          if (window.location.pathname === client_redirect) {
+            if (parseInt(cookie.rol, 10) === 2) {
+              return salida;
+            } else {
+              if (parseInt(cookie.rol, 10) === 1) {
+                return (window.location = user_redirect);
+              }
+              else {
+                return (window.location = landing_redirect)
+              }
+            }
+          }
+
+          else {
+            const mail = cookie.mail;
+            const password = cookie.contraseña;
+            const jsonForm = {
+              'mail': mail,
+              'password': password,
+            }
+
+            return (
+              <>
+                {POSTLogin(jsonForm)}
+              </>
+            );
+          }
+        }
+      }
     }
   }
 }

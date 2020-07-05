@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
-import GETLogin from './DB Connection/GETLogin'
+import POSTLogin from './DB Connection/POSTLogin'
 
 class Login extends Component {
 
@@ -21,25 +21,26 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const jsonForm = (this.state);
-    GETLogin(jsonForm);
+    POSTLogin(jsonForm);
 
   }
 
   render() {
     return (
       <Col className='fondito login-box rounded ancho-maximo-1000'>
+        <img alt="logo" className='img-login-normal' src={require("../img/guardamelugar-iso.png")} />
         <h4>Logueate</h4>
         <Form onSubmit={this.handleSubmit} className="loginForm">
           <Form.Group as={Col}>
             <Form.Label>Email</Form.Label>
-            <Form.Control name="mail" id="mail" type="email" autoComplete="username"
+            <Form.Control name="mail" id="mail" type="email" autoComplete="username" required
               value={this.state.mail}
               onChange={this.handleChange}
             />
           </Form.Group>
           <Form.Group as={Col}>
             <Form.Label>Password</Form.Label>
-            <Form.Control name="password" id="password" type="password" maxLength="15" autoComplete="current-password"
+            <Form.Control name="password" id="password" type="password" maxLength="15" autoComplete="current-password" required
               value={this.state.password}
               onChange={this.handleChange}
             />

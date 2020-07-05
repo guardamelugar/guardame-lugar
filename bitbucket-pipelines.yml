@@ -6,11 +6,20 @@
 image: node:10.15.3
 
 pipelines:
-  default:
-  - step:
-      name: Deploy to GITHUB
-      deployment: GITHUB
-      script:
-        - echo "Deploying to GITHUB"
-        - apt-get update && apt-get install -y unzip git git-core libc-client-dev libkrb5-dev && rm -r /var/lib/apt/lists/*
-        - git push git@github.com:guardamelugar/guardame-lugar.git
+ branches:
+    master:
+      - step:
+          name: Deploy to GITHUB
+          deployment: GITHUB
+          script:
+            - echo "Deploying to GITHUB"
+            - apt-get update && apt-get install -y unzip git git-core libc-client-dev libkrb5-dev && rm -r /var/lib/apt/lists/*
+            - git push git@github.com:guardamelugar/guardame-lugar.git
+    development:
+      - step:
+          name: Deploy to GITHUB development
+          deployment: GITHUB
+          script:
+            - echo "Deploying to GITHUB development"
+            - apt-get update && apt-get install -y unzip git git-core libc-client-dev libkrb5-dev && rm -r /var/lib/apt/lists/*
+            - git push git@github.com:guardamelugar/guardame-lugar.git

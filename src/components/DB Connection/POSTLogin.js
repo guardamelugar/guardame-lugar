@@ -2,25 +2,39 @@ import axios from 'axios'
 import { URL_LOGIN } from '../../constants/URL'
 import { cookieName } from '../../constants/Cookie'
 import Cookies from 'universal-cookie'
+import SimpleCrypto from "simple-crypto-js"
+import { SecretKey } from '../../constants/SecretKey'
 
-const GETLogin = props => {
-  const urlWData = URL_LOGIN + '/' + props.mail + '/' + props.password
-  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+const POSTLogin = props => {
+  const login_data = {
+    "user": props.mail,
+    "password": props.password,
+  }
 
   const BakeCookies = (props) => {
     const cookies = new Cookies();
     const date = Date.now() + 2560000000;
-    cookies.set(cookieName, props.data, { path: '/' });
     cookies.set('timeout', date, { path: '/' });
+
+    const simpleCrypto = new SimpleCrypto({ SecretKey })
+    const cookie = simpleCrypto.encrypt(props.data)
+    
+    cookies.set(cookieName, cookie, { path: '/' });
+
     if (props.data.rol === 1) {
-      return(window.location = '/index');
+      return (window.location = '/index');
     } else {
-      return(window.location = '/clientindex');
+      return (window.location = '/clientindex');
     }
 
   }
 
-  axios.get(urlWData)
+  axios.post((URL_LOGIN), JSON.stringify(login_data), {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
     .then(res => {
       if (res.status === 200) {
         return (BakeCookies(res))
@@ -37,4 +51,4 @@ const GETLogin = props => {
     })
 }
 
-export default GETLogin;
+export default POSTLogin;
