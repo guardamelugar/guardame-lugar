@@ -97,7 +97,7 @@ class GuardameLugar extends React.Component {
                   Cancelar
                   </Button>
                 <Button variant="primary" type="submit">
-                  Completar reserva
+                  Reservar
                   </Button>
               </Form>
             </ValidationForm>
