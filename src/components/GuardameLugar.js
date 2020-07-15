@@ -45,7 +45,7 @@ class GuardameLugar extends React.Component {
 
   render() {
     return (
-      <Container fluid className="align-modal mt-5">
+      <Container className="align-modal mt-5">
         <Row className="justify-content-center align-items-center">
           <Col className='fondito fondito-modal form-width rounded' xl={6} lg={7} md={8} sm={9}>
             <section className="text-left nombreGarage">Reservando en {this.props.nombre_garage}</section>
