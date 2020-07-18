@@ -31,9 +31,9 @@ reserva_data: reserva_data = {
 
 const ReservaContainer = (props) => {
 
-    const cancel_reserva = {reserva_id:props.reserva_data.reserva_id, estado:3}
+    const cancel_reserva = { reserva_id: props.reserva_data.reserva_id, estado: 3 }
 
-    const completar_reserva = {reserva_id:props.reserva_data.reserva_id, estado:2}
+    const completar_reserva = { reserva_id: props.reserva_data.reserva_id, estado: 2 }
 
     return (<Col className="mr-md-2 mt-4 reservacomp" xs={10} id={props.reserva_data.reserva_id}>
         <Row className='ml-2'><Col className='nombreGarage' id="reserva_id">Identificador de Reserva: {props.reserva_data.reserva_id}</Col></Row>
@@ -63,10 +63,14 @@ const ReservaContainer = (props) => {
             }
         </Row>
         <Row className='mt-3 text-center justify-content-center'>
-                {parseInt(props.reserva_data.estado,10) === 1 &&  <button className="btn btn-lg btn-danger"
-                    onClick={() => PATCHReserva(cancel_reserva)}>CANCELAR RESERVA</button>}
-                {parseInt(props.reserva_data.estado,10) === 1 && props.reserva_data.rol === 2 && <button className="btn btn-lg btn-success ml-3"
-                    onClick={() => PATCHReserva(completar_reserva)}>COMPLETAR RESERVA</button>}
+                <Col xs={12} lg={4}>
+                    {parseInt(props.reserva_data.estado, 10) === 1 && <button className="btn btn-danger btn-block"
+                        onClick={() => PATCHReserva(cancel_reserva)}>CANCELAR RESERVA</button>}
+                </Col>
+                <Col xs={12} lg={4}>
+                    {parseInt(props.reserva_data.estado, 10) === 1 && props.reserva_data.rol === 2 && <button className="btn btn-success btn-block"
+                        onClick={() => PATCHReserva(completar_reserva)}>COMPLETAR RESERVA</button>}
+                </Col>
         </Row>
     </Col>)
 };
