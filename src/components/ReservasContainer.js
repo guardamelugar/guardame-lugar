@@ -8,20 +8,20 @@ import GETReservas from './DB Connection/GETReservas';
 import TransformReservaData from './Transform/TransformReservaData';
 import ReservaContainer from './ReservaContainer';
 import FiltrarReservas from './FiltrarReservas'
+import ReservasFiltradas from './ReservasFiltradas'
 
 class ReservasContainer extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      "reservas": undefined,
+      "reservas": [],
       "loaded": false,
     }
   }
 
   cookie = RecuperarCookie()
   data = { "user_id": this.cookie.user_id, "rol": this.cookie.rol }
-  contador = 0;
 
   goBack() {
     window.history.back();
@@ -30,7 +30,9 @@ class ReservasContainer extends React.Component {
   async componentDidUpdate(prevProps) {
     if (this.props.mostrar_reservas !== prevProps.mostrar_reservas) {
       if (parseInt(this.cookie.rol, 10) === 1) {
-        const reservas = await GETReservas(this.data);
+        let reservas = await GETReservas(this.data);
+        reservas = ReservasFiltradas(reservas, this.props.mostrar_reservas);
+
         this.setState({
           ...this.state, "reservas": reservas
         });
@@ -39,7 +41,9 @@ class ReservasContainer extends React.Component {
         if (parseInt(this.cookie.rol, 10) === 2) {
 
           const data_garage = { "garage_id": this.props.garage_id, "rol": this.cookie.rol };
-          const reservas = await GETReservas(data_garage);
+          let reservas = await GETReservas(data_garage);
+          reservas = ReservasFiltradas(reservas, this.props.mostrar_reservas);
+
           this.setState({
             ...this.state, "reservas": reservas
           });
@@ -52,9 +56,9 @@ class ReservasContainer extends React.Component {
   }
 
   async componentDidMount() {
-
     if (parseInt(this.cookie.rol, 10) === 1) {
-      const reservas = await GETReservas(this.data);
+      let reservas = await GETReservas(this.data);
+      reservas = ReservasFiltradas(reservas, this.props.mostrar_reservas);
       this.setState({
         ...this.state, "reservas": reservas
       });
@@ -63,7 +67,9 @@ class ReservasContainer extends React.Component {
       if (parseInt(this.cookie.rol, 10) === 2) {
 
         const data_garage = { "garage_id": this.props.garage_id, "rol": this.cookie.rol };
-        const reservas = await GETReservas(data_garage);
+        let reservas = await GETReservas(data_garage);
+        reservas = ReservasFiltradas(reservas, this.props.mostrar_reservas);
+
         this.setState({
           ...this.state, "reservas": reservas
         });
@@ -76,7 +82,7 @@ class ReservasContainer extends React.Component {
 
 
   render() {
-    if (this.state.reservas !== undefined && this.state.reservas !== null && this.state.reservas !== "No Results") {
+    if (this.state.reservas !== undefined && this.state.reservas !== null && this.state.reservas.length !== 0) {
       const reservas = this.state.reservas;
       if (this.state.loaded === false) {
         this.setState({ ...this.state, "loaded": true })
@@ -92,27 +98,9 @@ class ReservasContainer extends React.Component {
               {
                 reservas.map((reserva) => {
                   const transformed_data = TransformReservaData(reserva, this.cookie.rol);
-
-                  if (this.props.mostrar_reservas === "activas"){
-                    if (parseInt(transformed_data.estado,10) === 1){
-                      this.contador = this.contador + 1;
-                      return (<ReservaContainer reserva_data={transformed_data} />)    
-                    }
-                    else{
-                      return true;
-                    }
-                  }
-                  else{
-                    if(parseInt(transformed_data.estado,10) !== 1){
-                      this.contador = this.contador + 1;
-                      return (<ReservaContainer reserva_data={transformed_data} />)    
-                    }
-                    else{
-                      return true;
-                    }
-                }
-              })
-            }
+                  return (<ReservaContainer reserva_data={transformed_data} />)
+                })
+              }
               <Col className="mr-md-2 mt-4 garagecomp invisible" lg={5} ></Col>
             </Row>
           </Container>
@@ -128,24 +116,9 @@ class ReservasContainer extends React.Component {
               {
                 reservas.map((reserva) => {
                   const transformed_data = TransformReservaData(reserva, this.cookie.rol);
-                  if (this.props.mostrar_reservas === "activas"){
-                    if (parseInt(transformed_data.estado,10) === 1){
-                      return (<ReservaContainer reserva_data={transformed_data} />)    
-                    }
-                    else{
-                      return true;
-                    }
-                  }
-                  else{
-                    if(parseInt(transformed_data.estado,10) !== 1){
-                      return (<ReservaContainer reserva_data={transformed_data} />)    
-                    }
-                    else{
-                      return true;
-                    }
-                }
-              })
-            }
+                  return (<ReservaContainer reserva_data={transformed_data} />)
+                })
+              }
             </Row>
           </Container>
         )
@@ -153,7 +126,7 @@ class ReservasContainer extends React.Component {
 
     }
     else {
-      if (this.state.loaded === false && this.state.reservas !== "No Results" && this.contador < 0 ) {
+      if (this.state.loaded === false && this.state.reservas.length !== 0) {
         return (<Container>
           <Row>
             <FiltrarReservas changeReservasActivas={this.props.changeReservasActivas} />
@@ -171,12 +144,20 @@ class ReservasContainer extends React.Component {
                 <Row>
                   <FiltrarReservas changeReservasActivas={this.props.changeReservasActivas} />
                 </Row>
-
-                <Row className="mt-3 mx-auto garagecomp lg={5}">
-                  <div>
-                    <h4>No registrás reservas a la fecha.</h4>
-                  </div>
-                </Row>
+                {this.props.mostrar_reservas === "activas" &&
+                  <Row className="mt-3 mx-auto garagecomp lg={5}">
+                    <div>
+                      <h4>No registrás reservas activas a la fecha.</h4>
+                    </div>
+                  </Row>
+                }
+                {this.props.mostrar_reservas === "inactivas" &&
+                  <Row className="mt-3 mx-auto garagecomp lg={5}">
+                    <div>
+                      <h4>No registrás reservas completas o canceladas a la fecha.</h4>
+                    </div>
+                  </Row>
+                }
               </Container>
             }
             {
@@ -185,12 +166,20 @@ class ReservasContainer extends React.Component {
                 <Row>
                   <FiltrarReservas changeReservasActivas={this.props.changeReservasActivas} />
                 </Row>
-
-                <Row className="mt-3 mx-auto garagecomp lg={5}">
-                  <div>
-                    <h4>El garage seleccionado no registra reservas a la fecha.</h4>
-                  </div>
-                </Row>
+                {this.props.mostrar_reservas === "activas" &&
+                  <Row className="mt-3 mx-auto garagecomp lg={5}">
+                    <div>
+                      <h4>El garage seleccionado no registra reservas activas a la fecha.</h4>
+                    </div>
+                  </Row>
+                }
+                {this.props.mostrar_reservas === "inactivas" &&
+                  <Row className="mt-3 mx-auto garagecomp lg={5}">
+                    <div>
+                      <h4>El garage seleccionado no registra reservas completas o canceladas a la fecha.</h4>
+                    </div>
+                  </Row>
+                }
               </Container>
             }
           </>
