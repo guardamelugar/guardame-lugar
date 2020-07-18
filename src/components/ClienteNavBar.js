@@ -14,10 +14,10 @@ const ClienteNavBar = (props) => {
   return (
     <div className="cliente-navbar">
       <Container className="client-nav-wrapper">
-        <Button className="search-btn" variant="info" onClick={() => setShow(true)}>Agregar Garage</Button>
+        <Button className="search-btn mr-3" variant="info" onClick={() => setShow(true)}>Agregar Garage</Button>
         {window.location.pathname !== '/clientindex' &&
           <Link to='/clientindex'>
-            <Button className="search-btn" variant="info">Ver Garages</Button>
+            <Button className="search-btn ml-3" variant="info">Ver Garages</Button>
           </Link>}
         <Modal
           show={show}

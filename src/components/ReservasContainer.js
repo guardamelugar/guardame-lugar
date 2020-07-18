@@ -21,6 +21,7 @@ class ReservasContainer extends React.Component {
 
   cookie = RecuperarCookie()
   data = { "user_id": this.cookie.user_id, "rol": this.cookie.rol }
+  contador = 0;
 
   goBack() {
     window.history.back();
@@ -75,7 +76,7 @@ class ReservasContainer extends React.Component {
 
 
   render() {
-    if (this.props.mostrar_reservas === "activas" && this.state.reservas !== undefined && this.state.reservas !== null && this.state.reservas !== "No Results") {
+    if (this.state.reservas !== undefined && this.state.reservas !== null && this.state.reservas !== "No Results") {
       const reservas = this.state.reservas;
       if (this.state.loaded === false) {
         this.setState({ ...this.state, "loaded": true })
@@ -91,9 +92,27 @@ class ReservasContainer extends React.Component {
               {
                 reservas.map((reserva) => {
                   const transformed_data = TransformReservaData(reserva, this.cookie.rol);
-                  return (<ReservaContainer reserva_data={transformed_data} />)
-                })
-              }
+
+                  if (this.props.mostrar_reservas === "activas"){
+                    if (parseInt(transformed_data.estado,10) === 1){
+                      this.contador = this.contador + 1;
+                      return (<ReservaContainer reserva_data={transformed_data} />)    
+                    }
+                    else{
+                      return true;
+                    }
+                  }
+                  else{
+                    if(parseInt(transformed_data.estado,10) !== 1){
+                      this.contador = this.contador + 1;
+                      return (<ReservaContainer reserva_data={transformed_data} />)    
+                    }
+                    else{
+                      return true;
+                    }
+                }
+              })
+            }
               <Col className="mr-md-2 mt-4 garagecomp invisible" lg={5} ></Col>
             </Row>
           </Container>
@@ -109,9 +128,24 @@ class ReservasContainer extends React.Component {
               {
                 reservas.map((reserva) => {
                   const transformed_data = TransformReservaData(reserva, this.cookie.rol);
-                  return (<ReservaContainer reserva_data={transformed_data} />)
-                })
-              }
+                  if (this.props.mostrar_reservas === "activas"){
+                    if (parseInt(transformed_data.estado,10) === 1){
+                      return (<ReservaContainer reserva_data={transformed_data} />)    
+                    }
+                    else{
+                      return true;
+                    }
+                  }
+                  else{
+                    if(parseInt(transformed_data.estado,10) !== 1){
+                      return (<ReservaContainer reserva_data={transformed_data} />)    
+                    }
+                    else{
+                      return true;
+                    }
+                }
+              })
+            }
             </Row>
           </Container>
         )
@@ -119,7 +153,7 @@ class ReservasContainer extends React.Component {
 
     }
     else {
-      if (this.state.loaded === false && this.state.reservas !== "No Results") {
+      if (this.state.loaded === false && this.state.reservas !== "No Results" && this.contador < 0 ) {
         return (<Container>
           <Row>
             <FiltrarReservas changeReservasActivas={this.props.changeReservasActivas} />
