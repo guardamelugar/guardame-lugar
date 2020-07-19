@@ -26,13 +26,13 @@ class SignupContainer extends Component {
 
   handleChange = (e) => {
     this.setState({
-      ...this.state, "signup": {...this.state.signup, [e.target.name] : e.target.value}
+      ...this.state, "signup": { ...this.state.signup, [e.target.name]: e.target.value }
     })
   }
 
   handleChangeCheck = (e, value) => {
     this.setState({
-      ...this.state, "signup": {...this.state.signup, [e.target.name] : value}
+      ...this.state, "signup": { ...this.state.signup, [e.target.name]: value }
     })
   }
 
@@ -53,8 +53,8 @@ class SignupContainer extends Component {
       <Container fluid>
         <Row className="justify-content-center align-items-center">
           <Col className='fondito justify-self-center' xl={7} lg={8} md={9} sm={10}>
-          <img className='img-login-normal' alt="logo" src={require("../img/guardamelugar-iso.png")} />
-          <img className='img-login-mobile' alt="logo" src={require("../img/guardamelugar-iso.png")} />
+            <img className='img-login-normal' alt="logo" src={require("../img/guardamelugar-iso.png")} />
+            <img className='img-login-mobile' alt="logo" src={require("../img/guardamelugar-iso.png")} />
             <h2 className='pt-4'>Registrate</h2>
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="signupForm">
               <Form>
@@ -138,21 +138,25 @@ class SignupContainer extends Component {
                     value={this.state.signup.soydueno}
                     onChange={this.handleChangeCheck} />
                 </Form.Group>
-                <div className='text-center'>
-                  <Link to='/'>
-                    <Button variant="danger">
-                      Volver a Login
+                <Row className='justify-content-center'>
+                  <Col className='text-right ml-0 mr-0 pl-0 pr-2'>
+                    <Link to='/'>
+                      <Button variant="danger">
+                        Volver a Login
                     </Button>
-                  </Link>
-                  <Button variant="primary" type="submit">
-                    Registrarse
+                    </Link>
+                  </Col>
+                  <Col className='text-left ml-0 mr-0 pl-2 pr-0'>
+                    <Button variant="primary" type="submit">
+                      Registrarse
                   </Button>
-                </div>
+                  </Col>
+                </Row>
               </Form>
             </ValidationForm>
           </Col>
         </Row>
-      </Container>
+      </Container >
     );
   }
 }

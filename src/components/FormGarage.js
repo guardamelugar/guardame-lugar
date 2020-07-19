@@ -32,7 +32,7 @@ class FormGarage extends Component {
 
   async componentDidMount() {
     if (this.props.type === "UPDATE") {
-      const garage = await GETGaragebyID(parseInt(this.props.garage_id,10));
+      const garage = await GETGaragebyID(parseInt(this.props.garage_id, 10));
 
       const { garage_id, altura_maxima, coordenadas, telefono, direccion, localidad_garage, lugar_autos,
         lugar_bicicletas, lugar_camionetas, lugar_motos, nombre_garage } = garage;
@@ -81,7 +81,7 @@ class FormGarage extends Component {
             <img className='img-logo' alt="logo" src={require("../img/guardamelugar-iso.png")} />
             <h2 className='pt-4'>{this.props.titulo}</h2>
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="signupForm">
-            <LoadingIndicator />
+              <LoadingIndicator />
               <Form>
                 <Form.Row>
                   <Form.Group as={Col} md={6} controlId="nombre_garage">
@@ -117,7 +117,7 @@ class FormGarage extends Component {
                       value={this.state.formGarage.localidad_garage}
                       required errorMessage="Por favor elija una localidad"
                       onChange={this.handleChange}>
-                      <ListadoLocalidades selected={this.state.formGarage.localidad_garage}/>
+                      <ListadoLocalidades selected={this.state.formGarage.localidad_garage} />
                     </SelectGroup>
 
                   </Form.Group>
@@ -201,14 +201,18 @@ class FormGarage extends Component {
                     />
                   </Form.Group>
                 </Form.Row>
-                <div className='mt-2 text-center'>
+                <Row className='mt-2 justify-content-center'>
+                  <Col className='text-right ml-0 mr-0 pl-0 pr-2'>
                     <Button variant="danger" onClick={this.props.handleClose}>
                       Cancelar
                     </Button>
-                  <Button variant="primary" type="submit">
-                    Guardar
+                  </Col>
+                  <Col className='text-left ml-0 mr-0 pl-2 pr-0'>
+                    <Button variant="primary" type="submit">
+                      Guardar
                   </Button>
-                </div>
+                  </Col>
+                </Row>
               </Form>
             </ValidationForm>
           </Col>
