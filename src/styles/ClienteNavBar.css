@@ -1,7 +1,7 @@
 .cliente-navbar {
   background-color: #375a7f;
   width: 100vw;
-  height: 8vh;
+  min-height: 8vh;
 }
 
 .client-nav-wrapper {
@@ -13,4 +13,10 @@
 
 .hidden {
    display: none;
+}
+
+.client-btn {
+  margin: 0;
+  height: calc(1.5em + 0.5rem + 2px);
+  padding: 0 0.5rem;
 }
