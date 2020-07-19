@@ -48,3 +48,10 @@ hr {
   border: 0;
   border-top: 1px solid #375a7f;
 }
+
+.btn-reserva {
+  color: white;
+  font-weight: 900; 
+  margin-top: 1em;
+  background: rgba(255, 255, 255, 0.363);
+}

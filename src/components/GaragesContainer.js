@@ -81,7 +81,7 @@ class GaragesContainer extends React.Component {
       }
       if (garages.length % 2 !== 0) {
         return (
-          <Container fluid>
+          <Container>
             <Row className="ml-md-5 mr-md-5 justify-content-around">
               <LoadingIndicator />
               {
@@ -96,7 +96,7 @@ class GaragesContainer extends React.Component {
         )
       } else {
         return (
-          <Container fluid>
+          <Container>
             <Row className="ml-md-5 mr-md-5 justify-content-around">
               <LoadingIndicator />
               {

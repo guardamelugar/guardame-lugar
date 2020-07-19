@@ -75,10 +75,10 @@ class FormGarage extends Component {
 
   render() {
     return (
-      <Container fluid>
+      <Container>
         <Row className="justify-content-center align-items-center">
           <Col className='fondito fondito-modal justify-self-center form-width' xl={7} lg={8} md={9} sm={10}>
-            <img className='img-login-normal' alt="logo" src={require("../img/guardamelugar-iso.png")} />
+            <img className='img-logo' alt="logo" src={require("../img/guardamelugar-iso.png")} />
             <h2 className='pt-4'>{this.props.titulo}</h2>
             <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="signupForm">
             <LoadingIndicator />

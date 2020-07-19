@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import Button from 'react-bootstrap/Button'
 import ConvertirFecha from './ConvertirFecha'
 import '../styles/garagecomp.css'
+import PATCHReserva from './DB Connection/PATCHReserva'
 
 /* El componente necesita que se le manden estos datos.
 reserva_data: reserva_data = {
@@ -30,9 +30,10 @@ reserva_data: reserva_data = {
     localidad_garage_texto Es el valor asociado al ID de localidad. Ej. Almagro. */
 
 const ReservaContainer = (props) => {
-    const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
+    const cancel_reserva = { reserva_id: props.reserva_data.reserva_id, estado: 3, changeReservasActivas: props.changeReservasActivas }
+
+    const completar_reserva = { reserva_id: props.reserva_data.reserva_id, estado: 2, changeReservasActivas: props.changeReservasActivas }
 
     return (<Col className="mr-md-2 mt-4 reservacomp" xs={10} id={props.reserva_data.reserva_id}>
         <Row className='ml-2'><Col className='nombreGarage' id="reserva_id">Identificador de Reserva: {props.reserva_data.reserva_id}</Col></Row>
@@ -60,6 +61,16 @@ const ReservaContainer = (props) => {
             {props.reserva_data.rol === 1 &&
                 <Col sm={6} id="telefono"><span>Teléfono: </span><span className="valor_campo text-muted">{props.reserva_data.telefono}</span></Col>
             }
+        </Row>
+        <Row className='mt-3 text-center justify-content-center'>
+            {parseInt(props.reserva_data.estado, 10) === 1 && <Col xs={12} lg={4}>
+                <button className="btn btn-danger btn-block"
+                    onClick={() => PATCHReserva(cancel_reserva)}>CANCELAR RESERVA</button>
+            </Col>}
+            {parseInt(props.reserva_data.estado, 10) === 1 && props.reserva_data.rol === 2 && <Col xs={12} lg={4}>
+                <button className="btn btn-success btn-block"
+                    onClick={() => PATCHReserva(completar_reserva)}>COMPLETAR RESERVA</button>
+            </Col>}
         </Row>
     </Col>)
 };

@@ -21,6 +21,13 @@ html {
   margin-top: -6em;
 }
 
+.img-logo {
+  margin-bottom: 0em;
+  align-content: center;
+  height: 150px;
+  margin-top: -6em;
+}
+
 .img-login-mobile  {
   display: none;
 }
@@ -131,6 +138,13 @@ footer {
 @media (max-width: 768px) {
   .img-login-normal {
     display: none;
+  }
+
+  .img-logo {
+    margin-bottom: 0em;
+    align-content: center;
+    height: 100px;
+    margin-top: -6em;
   }
 
   .img-login-mobile {

@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import POSTReserva from './DB Connection/POSTReserva'
 import RecuperarCookie from './RecuperarCookie'
 import { TransformFormReserva } from './Transform/TransformReservaData'
-import { ValidationForm, TextInput, SelectGroup } from 'react-bootstrap4-form-validation'
+import { ValidationForm, SelectGroup } from 'react-bootstrap4-form-validation'
 
 
 class GuardameLugar extends React.Component {
@@ -45,7 +45,7 @@ class GuardameLugar extends React.Component {
 
   render() {
     return (
-      <Container fluid className="align-modal mt-5">
+      <Container className="align-modal mt-5">
         <Row className="justify-content-center align-items-center">
           <Col className='fondito fondito-modal form-width rounded' xl={6} lg={7} md={8} sm={9}>
             <section className="text-left nombreGarage">Reservando en {this.props.nombre_garage}</section>
@@ -97,7 +97,7 @@ class GuardameLugar extends React.Component {
                   Cancelar
                   </Button>
                 <Button variant="primary" type="submit">
-                  Completar reserva
+                  Reservar
                   </Button>
               </Form>
             </ValidationForm>
