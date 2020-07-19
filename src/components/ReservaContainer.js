@@ -63,14 +63,14 @@ const ReservaContainer = (props) => {
             }
         </Row>
         <Row className='mt-3 text-center justify-content-center'>
-                <Col xs={12} lg={4}>
-                    {parseInt(props.reserva_data.estado, 10) === 1 && <button className="btn btn-danger btn-block"
-                        onClick={() => PATCHReserva(cancel_reserva)}>CANCELAR RESERVA</button>}
-                </Col>
-                <Col xs={12} lg={4}>
-                    {parseInt(props.reserva_data.estado, 10) === 1 && props.reserva_data.rol === 2 && <button className="btn btn-success btn-block"
-                        onClick={() => PATCHReserva(completar_reserva)}>COMPLETAR RESERVA</button>}
-                </Col>
+            {parseInt(props.reserva_data.estado, 10) === 1 && <Col xs={12} lg={4}>
+                <button className="btn btn-danger btn-block"
+                    onClick={() => PATCHReserva(cancel_reserva)}>CANCELAR RESERVA</button>
+            </Col>}
+            {parseInt(props.reserva_data.estado, 10) === 1 && props.reserva_data.rol === 2 && <Col xs={12} lg={4}>
+                <button className="btn btn-success btn-block"
+                    onClick={() => PATCHReserva(completar_reserva)}>COMPLETAR RESERVA</button>
+            </Col>}
         </Row>
     </Col>)
 };
