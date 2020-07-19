@@ -28,8 +28,6 @@ class ReservasPageContainer extends React.Component {
       </section>
 
     //garage_id viene de ReservasPage como props
-    const garage_id = this.props.garage_id;
-
     const salidaCliente =
       <section>
         <ClienteNavBar />

@@ -2,10 +2,10 @@ import axios from 'axios'
 import { URL_ACTUALIZAR_RESERVA } from '../../constants/URL'
 
 const PATCHReserva = props => {
-  const salida = JSON.stringify(props);
-  
-  axios.post((URL_ACTUALIZAR_RESERVA), salida, {
-    method: 'POST',
+  const salida = {reserva_id: props.reserva_id, estado: props.estado}
+
+  axios.patch((URL_ACTUALIZAR_RESERVA), salida, {
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     }
@@ -13,7 +13,7 @@ const PATCHReserva = props => {
     .then(function (res) {
       if (res.status === 200) {
         alert("¡La reserva se actualizó con éxito!");
-        window.location = '/reservas';
+        return props.changeReservasActivas("refrescar");
       }
     })
     .catch(function (err) {

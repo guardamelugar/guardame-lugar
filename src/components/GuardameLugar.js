@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 import POSTReserva from './DB Connection/POSTReserva'
 import RecuperarCookie from './RecuperarCookie'
 import { TransformFormReserva } from './Transform/TransformReservaData'
-import { ValidationForm, TextInput, SelectGroup } from 'react-bootstrap4-form-validation'
+import { ValidationForm, SelectGroup } from 'react-bootstrap4-form-validation'
 
 
 class GuardameLugar extends React.Component {

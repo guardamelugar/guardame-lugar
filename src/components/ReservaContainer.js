@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import ConvertirFecha from './ConvertirFecha'
@@ -31,9 +31,9 @@ reserva_data: reserva_data = {
 
 const ReservaContainer = (props) => {
 
-    const cancel_reserva = { reserva_id: props.reserva_data.reserva_id, estado: 3 }
+    const cancel_reserva = { reserva_id: props.reserva_data.reserva_id, estado: 3, changeReservasActivas: props.changeReservasActivas }
 
-    const completar_reserva = { reserva_id: props.reserva_data.reserva_id, estado: 2 }
+    const completar_reserva = { reserva_id: props.reserva_data.reserva_id, estado: 2, changeReservasActivas: props.changeReservasActivas }
 
     return (<Col className="mr-md-2 mt-4 reservacomp" xs={10} id={props.reserva_data.reserva_id}>
         <Row className='ml-2'><Col className='nombreGarage' id="reserva_id">Identificador de Reserva: {props.reserva_data.reserva_id}</Col></Row>

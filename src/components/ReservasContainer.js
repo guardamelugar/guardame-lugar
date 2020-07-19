@@ -29,19 +29,12 @@ class ReservasContainer extends React.Component {
 
   async componentDidUpdate(prevProps) {
     if (this.props.mostrar_reservas !== prevProps.mostrar_reservas) {
-      if (parseInt(this.cookie.rol, 10) === 1) {
-        let reservas = await GETReservas(this.data);
-        reservas = ReservasFiltradas(reservas, this.props.mostrar_reservas);
-
-        this.setState({
-          ...this.state, "reservas": reservas
-        });
+      if (this.props.mostrar_reservas === "refrescar") {
+        this.props.changeReservasActivas("activas");
       }
       else {
-        if (parseInt(this.cookie.rol, 10) === 2) {
-
-          const data_garage = { "garage_id": this.props.garage_id, "rol": this.cookie.rol };
-          let reservas = await GETReservas(data_garage);
+        if (parseInt(this.cookie.rol, 10) === 1) {
+          let reservas = await GETReservas(this.data);
           reservas = ReservasFiltradas(reservas, this.props.mostrar_reservas);
 
           this.setState({
@@ -49,7 +42,19 @@ class ReservasContainer extends React.Component {
           });
         }
         else {
-          return (window.location = '/index');
+          if (parseInt(this.cookie.rol, 10) === 2) {
+
+            const data_garage = { "garage_id": this.props.garage_id, "rol": this.cookie.rol };
+            let reservas = await GETReservas(data_garage);
+            reservas = ReservasFiltradas(reservas, this.props.mostrar_reservas);
+
+            this.setState({
+              ...this.state, "reservas": reservas
+            });
+          }
+          else {
+            return (window.location = '/index');
+          }
         }
       }
     }
@@ -98,7 +103,7 @@ class ReservasContainer extends React.Component {
               {
                 reservas.map((reserva) => {
                   const transformed_data = TransformReservaData(reserva, this.cookie.rol);
-                  return (<ReservaContainer reserva_data={transformed_data} />)
+                  return (<ReservaContainer reserva_data={transformed_data} changeReservasActivas={this.props.changeReservasActivas} />)
                 })
               }
               <Col className="mr-md-2 mt-4 garagecomp invisible" lg={5} ></Col>
@@ -116,7 +121,7 @@ class ReservasContainer extends React.Component {
               {
                 reservas.map((reserva) => {
                   const transformed_data = TransformReservaData(reserva, this.cookie.rol);
-                  return (<ReservaContainer reserva_data={transformed_data} />)
+                  return (<ReservaContainer reserva_data={transformed_data} changeReservasActivas={this.props.changeReservasActivas} />)
                 })
               }
             </Row>
