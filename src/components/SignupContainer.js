@@ -139,15 +139,15 @@ class SignupContainer extends Component {
                     onChange={this.handleChangeCheck} />
                 </Form.Group>
                 <Row className='justify-content-center'>
-                  <Col className='text-right ml-0 mr-0 pl-0 pr-2'>
+                  <Col xs={12} md={4}>
                     <Link to='/'>
-                      <Button variant="danger">
+                      <Button className="btn btn-block" variant="danger">
                         Volver a Login
                     </Button>
                     </Link>
                   </Col>
-                  <Col className='text-left ml-0 mr-0 pl-2 pr-0'>
-                    <Button variant="primary" type="submit">
+                  <Col xs={12} md={4}>
+                    <Button className="btn btn-block" variant="primary" type="submit">
                       Registrarse
                   </Button>
                   </Col>
