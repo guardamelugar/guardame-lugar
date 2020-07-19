@@ -201,14 +201,14 @@ class FormGarage extends Component {
                     />
                   </Form.Group>
                 </Form.Row>
-                <Row className='mt-2 justify-content-center'>
-                  <Col className='text-right ml-0 mr-0 pl-0 pr-2'>
-                    <Button variant="danger" onClick={this.props.handleClose}>
+                <Row className='justify-content-center'>
+                  <Col xs={12} md={4}>
+                    <Button className="btn btn-block" variant="danger" onClick={this.props.handleClose}>
                       Cancelar
                     </Button>
                   </Col>
-                  <Col className='text-left ml-0 mr-0 pl-2 pr-0'>
-                    <Button variant="primary" type="submit">
+                  <Col xs={12} md={4}>
+                    <Button className="btn btn-block" variant="primary" type="submit">
                       Guardar
                   </Button>
                   </Col>
