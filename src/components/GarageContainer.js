@@ -34,7 +34,8 @@ const GarageContainer = (props) => {
 
     const handleClose = () => setShow(false);
 
-    const promedio = props.garage_data.contador > 0 ? props.garage_data.promedio / props.garage_data.contador : 0
+    const promedio = props.garage_data.contador > 0 ?
+        (props.garage_data.promedio / props.garage_data.contador).toFixed(1) : 0
 
     return (<Col className="mr-md-2 mt-4 garagecomp" xs={11} lg={5} id={props.garage_data.garage_id}>
         <Row className='ml-1'>
@@ -46,7 +47,7 @@ const GarageContainer = (props) => {
                     <Row>
                         {promedio > 0 &&
                             <Col xs={12}>
-                                <i className="fa fa-star estrella-garage"></i>{promedio}
+                                <i className="fa fa-star estrella-garage"></i>{' '+promedio}
                             </Col>}
                         <Col xs={12}>
                             <i class='fas fa-comment'></i>
@@ -76,31 +77,34 @@ const GarageContainer = (props) => {
         <Row className='ml-1'>
             <Col id="altura_maxima"><span>Altura máxima: </span><span className="valor_campo text-muted">{props.garage_data.altura_maxima}</span></Col>
         </Row>
-        <Row className='mt-3 justify-content-center'>
+        <Row className='mt-2 justify-content-center'>
 
             {parseInt(props.garage_data.rol, 10) === 2 &&
                 <>
-                    <Button variant="primary" onClick={() => setShow(true)}>Modificar Garage</Button>
-                    <Modal
-                        show={show}
-                        onHide={() => setShow(false)}
-                        dialogClassName="main-modal"
-                    >
-                        <ModificarGaragePage garage_id={props.garage_data.garage_id} handleClose={handleClose} />
-                    </Modal>
-
+                    <Col xs={12} lg={6} className='mt-1'>
+                        <Button variant="primary" className="btn-block" onClick={() => setShow(true)}>Modificar Garage</Button>
+                        <Modal
+                            show={show}
+                            onHide={() => setShow(false)}
+                            dialogClassName="main-modal"
+                        >
+                            <ModificarGaragePage garage_id={props.garage_data.garage_id} handleClose={handleClose} />
+                        </Modal>
+                    </Col>
                     {/* uso de state en link para pasar garage_id como propiedad a /reservascliente */}
-
-                    <Link to={{ pathname: '/reservascliente', state: { garage_id: props.garage_data.garage_id } }}
-                        className='search-btn'>
-                        <Button className="link_button" variant="primary">Ver reservas Garage</Button>
-                    </Link>
+                    <Col xs={12} lg={6} className='mt-1'>
+                        <Link to={{ pathname: '/reservascliente', state: { garage_id: props.garage_data.garage_id } }}
+                            className='btn btn-block btn-primary'>
+                            <span>Ver reservas Garage</span>
+                        </Link>
+                    </Col>
                 </>
             }
 
             {parseInt(props.garage_data.rol, 10) === 1 &&
-                <>
-                    <Button variant="primary" onClick={() => setShow(true)}>Reservar lugar</Button>
+
+                <Col xs={12} lg={6} className='mt-1'>
+                    <Button variant="primary" className="btn-block" onClick={() => setShow(true)}>Reservar lugar</Button>
                     <Modal
                         show={show}
                         onHide={() => setShow(false)}
@@ -109,7 +113,7 @@ const GarageContainer = (props) => {
                         <GuardameLugar garage_id={props.garage_data.garage_id} nombre_garage={props.garage_data.nombre_garage}
                             handleClose={handleClose} />
                     </Modal>
-                </>
+                </Col>
             }
         </Row>
     </Col >)
