@@ -12,6 +12,8 @@ const TransformGarageData = (garage, rol) => {
     "lugar_motos": garage.lugar_motos,
     "nombre_garage": garage.nombre_garage,
     "localidad_garage_texto": garage.nombre_localidad,
+    "contador": garage.contador,
+    "promedio": garage.promedio,
     "rol": rol,
   }
 

@@ -9,7 +9,7 @@ class ListadoLocalidades extends React.Component {
 
   async componentDidMount() {
     if (this.state.localidades === null || this.state.localidades === undefined) {
-      const localidades = await GETLocalidades();
+      const localidades = await GETLocalidades(this.props.filtrado);
       this.setState({
         ...this.state, "localidades": localidades
       });

@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import Badge from 'react-bootstrap/Badge'
 import { Link } from 'react-router-dom'
 import ModificarGaragePage from '../pages/ModificarGaragePage';
 import GuardameLugar from './GuardameLugar'
@@ -33,25 +34,46 @@ const GarageContainer = (props) => {
 
     const handleClose = () => setShow(false);
 
-    return (<Col className="mr-md-2 mt-4 garagecomp" xs={10} lg={5} id={props.garage_data.garage_id}>
-        <Row className='ml-2'><Col className='nombreGarage' id="nombre_garage">{props.garage_data.nombre_garage}</Col></Row>
+    const promedio = props.garage_data.contador > 0 ? props.garage_data.promedio / props.garage_data.contador : 0
+
+    return (<Col className="mr-md-2 mt-4 garagecomp" xs={11} lg={5} id={props.garage_data.garage_id}>
+        <Row className='ml-1'>
+            <Col xs={9} className='nombreGarage' id="nombre_garage">
+                {props.garage_data.nombre_garage}
+            </Col>
+            <Col xs={3} className="text-right">
+                <Badge pill variant="primary" className="btn">
+                    <Row>
+                        {promedio > 0 &&
+                            <Col xs={12}>
+                                <i className="fa fa-star estrella-garage"></i>{promedio}
+                            </Col>}
+                        <Col xs={12}>
+                            <i class='fas fa-comment'></i>
+                            {' ' + props.garage_data.contador}
+                        </Col>
+                    </Row>
+                </Badge>
+            </Col>
+        </Row>
+
         <hr></hr>
-        <Row className='ml-2 mt-3'>
+        <Row className='ml-1 mt-3'>
             <Col md={6} id="telefono_garage"><span>Teléfono: </span><span className="valor_campo text-muted">{props.garage_data.telefono_garage}</span></Col>
             <Col md={6}><span>Localidad: </span><span className="valor_campo text-muted">{props.garage_data.localidad_garage_texto}</span></Col>
             <Col id="localidad_garage" className="localidad">{props.garage_data.localidad_garage}</Col>
         </Row>
-        <Row className='ml-2'>
+        <Row className='ml-1'>
             <Col id="direccion_garage"><span>Dirección: </span><span className="valor_campo text-muted">{props.garage_data.direccion_garage}</span></Col>
         </Row>
-        <Row className='ml-2 mt-2'>
+        <Row className='ml-1 mt-2'>
             <Col xs={12}><span className="lugar_disponible">Lugares disponibles</span></Col>
             <Col sm={6} id="lugar_autos"><span>Auto: </span><span className="valor_campo text-muted">{props.garage_data.lugar_autos}</span></Col>
             <Col sm={6} id="lugar_bicicleta"><span>Bicicleta: </span><span className="valor_campo text-muted">{props.garage_data.lugar_bicicletas}</span></Col>
             <Col sm={6} id="lugar_camionetas"><span>Camioneta: </span><span className="valor_campo text-muted">{props.garage_data.lugar_camionetas}</span></Col>
             <Col sm={6} id="lugar_motos"><span>Moto: </span><span className="valor_campo text-muted">{props.garage_data.lugar_motos}</span></Col>
         </Row>
-        <Row className='ml-2'>
+        <Row className='ml-1'>
             <Col id="altura_maxima"><span>Altura máxima: </span><span className="valor_campo text-muted">{props.garage_data.altura_maxima}</span></Col>
         </Row>
         <Row className='mt-3 justify-content-center'>
@@ -85,12 +107,12 @@ const GarageContainer = (props) => {
                         dialogClassName="main-modal"
                     >
                         <GuardameLugar garage_id={props.garage_data.garage_id} nombre_garage={props.garage_data.nombre_garage}
-                        handleClose={handleClose} />
+                            handleClose={handleClose} />
                     </Modal>
                 </>
             }
         </Row>
-    </Col>)
+    </Col >)
 };
 
 export default GarageContainer;
