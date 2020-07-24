@@ -7,6 +7,7 @@ import './index.css'
 import './styles/Forms.css'
 import './styles/SocialMedia.css'
 import './styles/NotFound.css'
+import './styles/Comentarios.css'
 
 ReactDOM.render(
   <>

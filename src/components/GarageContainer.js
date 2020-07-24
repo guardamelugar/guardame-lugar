@@ -7,6 +7,7 @@ import Badge from 'react-bootstrap/Badge'
 import { Link } from 'react-router-dom'
 import ModificarGaragePage from '../pages/ModificarGaragePage';
 import GuardameLugar from './GuardameLugar'
+import MostrarComentarios from './MostrarComentarios'
 import '../styles/garagecomp.css'
 
 /* El componente necesita que se le manden estos datos.
@@ -31,26 +32,29 @@ garage_data: {
     localidad_garage_texto Es el valor asociado al ID de localidad. Ej. Almagro. */
 const GarageContainer = (props) => {
     const [show, setShow] = useState(false);
+    const [showComentario, setShowComentario] = useState(false);
 
     const handleClose = () => setShow(false);
+    const handleCloseComentario = () => setShow(false);
 
     const promedio = props.garage_data.contador > 0 ?
         (props.garage_data.promedio / props.garage_data.contador).toFixed(1) : 0
 
-    return (<Col className="mr-md-2 mt-4 garagecomp" xs={11} lg={5} id={props.garage_data.garage_id}>
+    return (<><Col className="mr-md-2 mt-4 garagecomp" xs={11} lg={5} id={props.garage_data.garage_id}
+        key={props.garage_data.garage_id}>
         <Row className='ml-1'>
             <Col xs={9} className='nombreGarage' id="nombre_garage">
                 {props.garage_data.nombre_garage}
             </Col>
             <Col xs={3} className="text-right">
-                <Badge pill variant="primary" className="btn">
+                <Badge pill variant="primary" className="btn" onClick={() => setShowComentario(true)}>
                     <Row>
                         {promedio > 0 &&
                             <Col xs={12}>
-                                <i className="fa fa-star estrella-garage"></i>{' '+promedio}
+                                <i className="fa fa-star estrella-garage"></i>{' ' + promedio}
                             </Col>}
                         <Col xs={12}>
-                            <i class='fas fa-comment'></i>
+                            <i className='fas fa-comment'></i>
                             {' ' + props.garage_data.contador}
                         </Col>
                     </Row>
@@ -116,7 +120,20 @@ const GarageContainer = (props) => {
                 </Col>
             }
         </Row>
-    </Col >)
+    </Col >
+        <Modal
+            show={showComentario}
+            onHide={() => setShowComentario(false)}
+            dialogClassName="main-modal"
+        >
+            <Modal.Header closeButton />
+            <Modal.Body>
+                <MostrarComentarios mostrar_lista={true} garage_id={props.garage_data.garage_id}
+                nombre_garage={props.garage_data.nombre_garage}
+                    handleClose={handleCloseComentario} />
+            </Modal.Body>
+        </Modal>
+    </>)
 };
 
 export default GarageContainer;
