@@ -18,24 +18,19 @@ const ComentarioContainer = (props) => {
 
   return (
     <Row className="justify-content-center align-items-center">
-      <Col className='' xl={11} lg={11} md={11} sm={11}>
+      <Col xl={11} lg={11} md={11} sm={11}>
         <Row className="justify-content-around">
-          <Col xs={4}>
-            <Col xs={12} className="text-left titulo-comentario">{props.comentario.nombre}</Col>
-            <Col xs={12} className="text-left titulo-comentario">
-              <i className="fa fa-star estrella-garage" />{' ' + props.comentario.calificacion_media}
-            </Col>
+          <Col xs={12} className="text-left titulo-comentario">{props.comentario.nombre}</Col>
+          <Col xs={4} className="text-left titulo-comentario align-self-center">
+            <i className="fa fa-star estrella-garage" />{' ' + props.comentario.calificacion_media}
           </Col>
-          <Col xs={8} className="justify-content-around">
-            <Col xs={12} className="text-left cuerpo-comentario">
-              {props.comentario.comentario}
-            </Col>
+          <Col xs={8} className="text-left cuerpo-comentario align-self-center">
+            {props.comentario.comentario}
           </Col>
         </Row>
         <hr />
-
       </Col>
-    </Row>
+    </Row >
   )
 }
 
