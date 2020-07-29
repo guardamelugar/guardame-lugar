@@ -129,7 +129,7 @@ const GarageContainer = (props) => {
         >
             <Modal.Header closeButton />
             <Modal.Body>
-                <MostrarComentarios mostrar_lista={true} garage_id={props.garage_data.garage_id}
+                <MostrarComentarios garage_id={props.garage_data.garage_id}
                 nombre_garage={props.garage_data.nombre_garage}
                     handleClose={handleCloseComentario} />
             </Modal.Body>

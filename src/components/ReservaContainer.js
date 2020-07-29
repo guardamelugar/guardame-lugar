@@ -144,7 +144,7 @@ class ReservaContainer extends React.Component {
             >
                 <Modal.Header closeButton />
                 <Modal.Body>
-                    <MostrarComentarios mostrar_lista={false} reserva_id={this.props.reserva_data.reserva_id}
+                    <MostrarComentarios comentario={this.state.comentario}
                         nombre_garage={this.props.reserva_data.nombre_garage}
                         handleClose={this.handleCloseComentario} />
                 </Modal.Body>

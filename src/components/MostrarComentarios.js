@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col'
 import LoadingIndicator from './LoadingIndicator'
 import ComentarioContainer from './ComentarioContainer'
 import GETComentariosbyGarage from './DB Connection/GETComentariosbyGarage'
-import GETComentariosbyReserva from './DB Connection/GETComentariosbyReserva'
 
 class MostrarComentarios extends Component {
   state = {
@@ -17,7 +16,7 @@ class MostrarComentarios extends Component {
   async componentDidMount() {
     let comentarios = undefined;
 
-    if (this.props.mostrar_lista) {
+    if (this.props.comentario === undefined) {
       comentarios = await GETComentariosbyGarage(parseInt(this.props.garage_id, 10));
       this.setState({
         ...this.state,
@@ -26,7 +25,7 @@ class MostrarComentarios extends Component {
       })
     }
     else {
-      comentarios = await GETComentariosbyReserva(parseInt(this.props.reserva_id, 10));
+      comentarios = this.props.comentario;
       this.setState({
         ...this.state,
         comentarios: comentarios,
