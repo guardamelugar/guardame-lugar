@@ -121,7 +121,8 @@ class ReservasContainer extends React.Component {
               {
                 reservas.map((reserva) => {
                   const transformed_data = TransformReservaData(reserva, this.cookie.rol);
-                  return (<ReservaContainer reserva_data={transformed_data} changeReservasActivas={this.props.changeReservasActivas} />)
+                  return (<ReservaContainer  key={transformed_data.reserva_id}
+                    reserva_data={transformed_data} changeReservasActivas={this.props.changeReservasActivas} />)
                 })
               }
             </Row>

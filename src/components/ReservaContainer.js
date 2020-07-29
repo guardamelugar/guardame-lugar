@@ -118,7 +118,8 @@ class ReservaContainer extends React.Component {
                     {(parseInt(this.props.reserva_data.estado, 10) === 2
                         || parseInt(this.props.reserva_data.estado, 10) === 3)
                         && this.props.reserva_data.rol === 1
-                        && this.state.comentario === "No data"
+                        && this.state.comentario !== undefined
+                        && this.state.comentario.comentario_id === 0
                         && <Col xs={12} lg={4}>
                             <button className="btn btn-primary btn-block"
                                 onClick={() => alert("ACA IRIA EL MODAL Y EL POST")}>DEJAR RESEÑA</button>
@@ -127,7 +128,8 @@ class ReservaContainer extends React.Component {
                     {(parseInt(this.props.reserva_data.estado, 10) === 2
                         || parseInt(this.props.reserva_data.estado, 10) === 3)
                         && this.props.reserva_data.rol === 1
-                        && this.state.comentario !== "No data"
+                        && this.state.comentario !== undefined
+                        && this.state.comentario.comentario_id !== 0
                         && <Col xs={12} lg={4}>
                             <button className="btn btn-primary btn-block"
                                 onClick={() => this.handleOpenComentario()}>VER RESEÑA DEJADA</button>

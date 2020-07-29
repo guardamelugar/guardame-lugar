@@ -15,10 +15,7 @@ const GETGarages = reserva_id => {
     }))
     .catch(function (err) {
       if (err.response) {
-        if (err.response.status === 404) {
-          return "No data"
-        }
-        else if (err.response.status !== 500) {
+        if (err.response.status !== 500) {
           alert(err.response.data.message);
         } else {
           alert("No se puede conectar con la base de datos")
