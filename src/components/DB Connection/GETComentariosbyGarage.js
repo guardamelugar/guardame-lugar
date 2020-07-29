@@ -10,7 +10,6 @@ const GETGarages = garage_id => {
   return trackPromise(axios.get(url_final)
     .then(res => {
       if (res.status === 200) {
-        console.log(res.data)
         return res.data.result;
       }
     }))
