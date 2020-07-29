@@ -14,3 +14,5 @@ export const URL_RESERVAS_POR_GARAGE = DOMAIN + '/guardamelugar/Garages/reservat
 export const URL_RESERVAS_USUARIO = DOMAIN + '/guardamelugar/Garages/reservation/user/'
 export const URL_RESERVAR_LUGAR = DOMAIN + '/guardamelugar/Garages/reservation'
 export const URL_ACTUALIZAR_RESERVA = DOMAIN + '/guardamelugar/Garages'
+export const URL_COMENTARIO_POR_GARAGE = DOMAIN + '/guardamelugar/Garages/Coment/garage/'
+export const URL_COMENTARIO_POR_RESERVA = DOMAIN + '/guardamelugar/Garages/Coment/reservation/'

@@ -4,53 +4,39 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import LoadingIndicator from './LoadingIndicator'
 import ComentarioContainer from './ComentarioContainer'
+import GETComentariosbyGarage from './DB Connection/GETComentariosbyGarage'
+import GETComentariosbyReserva from './DB Connection/GETComentariosbyReserva'
 
 class MostrarComentarios extends Component {
   state = {
     ...this.state,
     comentarios: "",
+    esReserva: undefined,
   }
 
   async componentDidMount() {
     let comentarios = undefined;
 
-    /*     if (this.props.mostrar_lista) {
-          comentarios = await GETComentariosbyGarage(parseInt(this.props.garage_id, 10));
-        }
-        else {
-          comentarios = await GETComentariosbyReserva(parseInt(this.props.reserva_id, 10));
-        } */
-
-    this.setState({
-      ...this.state,
-      comentarios: comentarios,
-    })
+    if (this.props.mostrar_lista) {
+      comentarios = await GETComentariosbyGarage(parseInt(this.props.garage_id, 10));
+      this.setState({
+        ...this.state,
+        comentarios: comentarios,
+        esReserva: false
+      })
+    }
+    else {
+      comentarios = await GETComentariosbyReserva(parseInt(this.props.reserva_id, 10));
+      this.setState({
+        ...this.state,
+        comentarios: comentarios,
+        esReserva: true
+      })
+    }
   }
 
   render() {
-    /* const comentarios = this.state.comentarios; */
-
-    const comentarios = [{
-      comentario_id: 3,
-      reserva_id: 8,
-      comentario: "El garage muy bueno. La atención excelente!!!",
-      calificacion_1: 5,
-      calificacion_2: 5,
-      calificacion_3: 5,
-      calificacion_media: 5,
-      nombre: "Gabriel"
-    },
-    {
-      comentario_id: 3,
-      reserva_id: 8,
-      comentario: "La limipieza no es la mejor pero el resto muy bien. El precio podría ser un poco más acorde al servicio.",
-      calificacion_1: 4,
-      calificacion_2: 4,
-      calificacion_3: 4,
-      calificacion_media: 4,
-      nombre: "Testing"
-    }]
-
+    const comentarios = this.state.comentarios;
     return (
       <Container className="align-modal">
         <Row className="justify-content-center align-items-center">
@@ -58,13 +44,24 @@ class MostrarComentarios extends Component {
          justify-self-center form-width' xs={12} sm={12}>
             <LoadingIndicator />
             <Col className="text-center nombreGarage mb-4">
-            Comentarios para Garage {this.props.nombre_garage}
+              Comentarios para Garage {this.props.nombre_garage}
             </Col>
-            {
+            {comentarios.length > 0 &&
               comentarios.map((comentario) => {
                 return (<ComentarioContainer comentario={comentario} />)
               })
             }
+            {comentarios.length === 0 &&
+              <Col xs={12} className="text-center cuerpo-comentario align-self-center">
+                No hay comentarios
+            </Col>
+            }
+            {this.state.esReserva &&
+              <Col xs={12} className="text-center cuerpo-comentario align-self-center">
+                <ComentarioContainer comentario={comentarios} />
+              </Col>
+            }
+
           </Col>
         </Row>
       </Container>

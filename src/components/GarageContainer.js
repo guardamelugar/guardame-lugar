@@ -38,7 +38,7 @@ const GarageContainer = (props) => {
     const handleCloseComentario = () => setShow(false);
 
     const promedio = props.garage_data.contador > 0 ?
-        (props.garage_data.promedio / props.garage_data.contador).toFixed(1) : 0
+        (props.garage_data.promedio / props.garage_data.contador).toFixed(2) : 0
 
     return (<><Col className="mr-md-2 mt-4 garagecomp" xs={11} lg={5} id={props.garage_data.garage_id}
         key={props.garage_data.garage_id}>
@@ -125,6 +125,7 @@ const GarageContainer = (props) => {
             show={showComentario}
             onHide={() => setShowComentario(false)}
             dialogClassName="main-modal"
+            scrollable={true}
         >
             <Modal.Header closeButton />
             <Modal.Body>
