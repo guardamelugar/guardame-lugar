@@ -111,7 +111,7 @@ class ReservaContainer extends React.Component {
                     </Col>}
                     {parseInt(this.props.reserva_data.estado, 10) === 1 && this.props.reserva_data.rol === 2 && <Col xs={12} lg={4}>
                         <button className="btn btn-success btn-block"
-                            onClick={() => PATCHReserva(this.completar_reserva)}>COMPLETAR RESERVA</button>
+                            onClick={() => PATCHReserva(this.completar_reserva)}>MARCAR COMPLETA</button>
                     </Col>}
                 </Row>
                 <Row className='mt-3 text-center justify-content-center'>
