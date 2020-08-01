@@ -2,6 +2,16 @@
 
 **Notas de Versión**
 
+### Versión 1.1 - Release 6
+
+**02/08/2020**
+
+### Cambios:
+
+#### Añadido:
+- Agregado ver y dejar reseñas a un garage
+- Google Map
+
 ### Versión 1.0 - Release 5
 
 **19/07/2020**
