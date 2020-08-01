@@ -6,6 +6,7 @@ import ConvertirFecha from './ConvertirFecha'
 import PATCHReserva from './DB Connection/PATCHReserva'
 import GETComentariosbyReserva from './DB Connection/GETComentariosbyReserva'
 import MostrarComentarios from './MostrarComentarios'
+import CrearComentario from './CrearComentario'
 import '../styles/garagecomp.css'
 
 /* El componente necesita que se le manden estos datos.
@@ -37,6 +38,7 @@ class ReservaContainer extends React.Component {
     state = {
         ...this.state, comentario: undefined,
         showComentario: false,
+        showDejarComentario: false,
     }
 
     handleCloseComentario = () => {
@@ -45,6 +47,14 @@ class ReservaContainer extends React.Component {
 
     handleOpenComentario = () => {
         this.setState({...this.state, showComentario: true})
+    }
+
+    handleCloseDejarComentario = () => {
+        this.setState({...this.state, showDejarComentario: false})
+    }
+
+    handleOpenDejarComentario = () => {
+        this.setState({...this.state, showDejarComentario: true})
     }
 
     cancel_reserva = {
@@ -122,7 +132,7 @@ class ReservaContainer extends React.Component {
                         && this.state.comentario.comentario_id === 0
                         && <Col xs={12} lg={4}>
                             <button className="btn btn-primary btn-block"
-                                onClick={() => alert("ACA IRIA EL MODAL Y EL POST")}>DEJAR RESEÑA</button>
+                                onClick={() => this.handleOpenDejarComentario()}>DEJAR RESEÑA</button>
                         </Col>}
 
                     {(parseInt(this.props.reserva_data.estado, 10) === 2
@@ -147,6 +157,18 @@ class ReservaContainer extends React.Component {
                     <MostrarComentarios comentario={this.state.comentario}
                         nombre_garage={this.props.reserva_data.nombre_garage}
                         handleClose={this.handleCloseComentario} />
+                </Modal.Body>
+            </Modal>
+            <Modal
+                show={this.state.showDejarComentario}
+                onHide={() => this.handleCloseDejarComentario()}
+                dialogClassName="main-modal"
+            >
+                <Modal.Body>
+                    <CrearComentario
+                        nombre_garage={this.props.reserva_data.nombre_garage}
+                        reserva_id={this.props.reserva_data.reserva_id}
+                        handleClose={this.handleCloseDejarComentario} />
                 </Modal.Body>
             </Modal>
         </>)

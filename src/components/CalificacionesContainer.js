@@ -20,6 +20,7 @@ class CalificacionesContainer extends React.Component {
       ...this.state, "calificacion_1": value,
       "calificacion_media": parseFloat(((value + this.state.calificacion_2 + this.state.calificacion_3) / 3).toFixed(2))
     })
+    this.props.bubbleChangeCal1(value);
   }
 
   onChangeCal2 = (value) => {
@@ -27,6 +28,7 @@ class CalificacionesContainer extends React.Component {
       ...this.state, "calificacion_2": value,
       "calificacion_media": parseFloat(((this.state.calificacion_1 + value + this.state.calificacion_3) / 3).toFixed(2))
     })
+    this.props.bubbleChangeCal2(value);
   }
 
   onChangeCal3 = (value) => {
@@ -34,6 +36,7 @@ class CalificacionesContainer extends React.Component {
       ...this.state, "calificacion_3": value,
       "calificacion_media": parseFloat(((this.state.calificacion_1 + this.state.calificacion_2 + value) / 3).toFixed(2))
     })
+    this.props.bubbleChangeCal3(value);
   }
 
 
@@ -42,7 +45,7 @@ class CalificacionesContainer extends React.Component {
       <>
         <Row>
           <Col xs={12}>
-            <span>Calificaciones</span>
+            <div className="header-comentario">Calificaciones</div>
           </Col>
           <Col xs={4}>
             Atención
