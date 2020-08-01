@@ -13,7 +13,7 @@
 }
 
 .nombreGarage {
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .localidad {
@@ -54,4 +54,8 @@ hr {
   font-weight: 900; 
   margin-top: 1em;
   background: rgba(255, 255, 255, 0.363);
+}
+
+.estrella-garage {
+  color: rgb(255, 238, 0);
 }

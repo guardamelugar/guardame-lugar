@@ -1,0 +1,35 @@
+.titulo-comentario {
+  font-size: 1.3em;
+}
+
+.cuerpo-comentario {
+  font-size: 1.2em;
+  color: rgb(199, 199, 199);
+  font-style: italic;
+}
+
+.fondito-comentarios {
+  background-image: radial-gradient(circle, rgba(50, 50, 50, 0.75), rgba(25, 25, 25, 0.750), rgba(0, 0, 0, 0.800));
+  margin-top: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  -webkit-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
+  -moz-box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
+  box-shadow: 6px 7px 5px -1px rgba(36,36,36,0.74);
+}
+
+.fondito-modal-comentarios {
+  background-image: radial-gradient(circle, rgba(80, 80, 80, 1), rgba(40, 40, 40, 1), rgba(0, 0, 0, 1));
+}
+
+.close {
+  color: #fff; 
+  opacity: 1;
+  font-size: 2.2em;
+}
+
+.header-comentario {
+  font-size: 1.2em;
+  font-weight: bold;
+}

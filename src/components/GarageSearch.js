@@ -31,7 +31,7 @@ class GarageSearch extends Component {
               <Form.Group controlId="busquedaForm.Region" className="form-group-search">
                 <Form.Label className="d-none d-md-block label-search">Seleccione Localidad: </Form.Label>
                 <Form.Control size="sm" as="select" onChange={this.handleLocalidadChange}>
-                  <ListadoLocalidades></ListadoLocalidades>
+                  <ListadoLocalidades filtrado={true}></ListadoLocalidades>
                 </Form.Control>
               </Form.Group>
               <Form.Group controlId="busquedaForm.VehicleType" className="form-group-search">
