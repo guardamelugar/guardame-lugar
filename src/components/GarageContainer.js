@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Badge from 'react-bootstrap/Badge'
 import { Link } from 'react-router-dom'
+import Map from './Map'
 import ModificarGaragePage from '../pages/ModificarGaragePage';
 import GuardameLugar from './GuardameLugar'
 import MostrarComentarios from './MostrarComentarios'
@@ -80,6 +81,9 @@ const GarageContainer = (props) => {
         </Row>
         <Row className='ml-1'>
             <Col id="altura_maxima"><span>Altura máxima: </span><span className="valor_campo text-muted">{props.garage_data.altura_maxima}</span></Col>
+        </Row>
+        <Row className="mt-2 justify-content-center">
+            <Map address={props.garage_data.direccion_garage}></Map>
         </Row>
         <Row className='mt-2 justify-content-center'>
 
