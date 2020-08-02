@@ -1,10 +1,15 @@
 import axios from 'axios'
-import { URL_LOCALIDADES } from '../../constants/URL'
+import { URL_LOCALIDADES, URL_LOCALIDADES_FILTRADAS } from '../../constants/URL'
 
-const GETLocalidades = props => {
+const GETLocalidades = filtrados => {
   axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+  let url_final = URL_LOCALIDADES;
 
-return axios.get(URL_LOCALIDADES)
+  if (filtrados) {
+    url_final = URL_LOCALIDADES_FILTRADAS;
+  }
+
+return axios.get(url_final)
     .then(res => {
       if (res.status === 200) {
         return res.data.result;
