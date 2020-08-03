@@ -20,7 +20,7 @@ class Map extends Component {
 
     let coordenadas = await MapDefault(this.state.address);
 
-    if (coordenadas !== undefined) {
+    if (coordenadas !== undefined && coordenadas.direccion !== 'Buenos Aires, Argentina') {
       this.setState({...this.state, coordenadas: coordenadas})
       this.setState({...this.state, isMarkerShown: true})
     } else {

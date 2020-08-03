@@ -6,11 +6,15 @@ const MapDefault = props => {
   Geocode.setApiKey(`${GMAPS_API_KEY}`);
 
   let getLatLong = new Promise(function (resolve, reject) {
+    props = props+", CABA"
     Geocode.setRegion("ar");
+    
     let salida = Geocode.fromAddress(props).then(
+
       response => {
         const { lat, lng } = response.results[0].geometry.location;
-        return ({ lat: lat, lng: lng })
+        const direccion = response.results[0].formatted_address;
+        return ({ lat: lat, lng: lng, direccion: direccion })
       }
     ).catch(function (err) {
       if (err.response) {
