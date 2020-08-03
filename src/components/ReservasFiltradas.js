@@ -11,11 +11,21 @@ const ReservasFiltradas = (reservas, mostrar_reservas) => {
       }
     }
     else {
-      if (parseInt(reserva.estado, 10) !== 1) {
-        return reservas_filtradas.push(reserva)
+      if (mostrar_reservas === "encurso") {
+        if (parseInt(reserva.estado, 10) === 4) {
+          return reservas_filtradas.push(reserva)
+        }
+        else {
+          return true;
+        }
       }
       else {
-        return true;
+        if (parseInt(reserva.estado, 10) === 2 || parseInt(reserva.estado, 10) === 3) {
+          return reservas_filtradas.push(reserva)
+        }
+        else {
+          return true;
+        }
       }
     }
   }

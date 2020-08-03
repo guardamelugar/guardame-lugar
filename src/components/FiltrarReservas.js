@@ -6,11 +6,15 @@ import Col from 'react-bootstrap/Col'
 const FiltrarReservas = (props) => {
   return (<Container>
     <Row className="text-center">
-      <Col xs={12} sm={6}>
+      <Col xs={12} sm={4}>
         <button className="btn btn-lg btn-outline-light btn-block btn-reserva"
           onClick={() => props.changeReservasActivas("activas")}>RESERVAS ACTIVAS</button>
       </Col>
-      <Col xs={12} sm={6}>
+      <Col xs={12} sm={4}>
+        <button className="btn btn-lg btn-outline-light btn-block btn-reserva"
+          onClick={() => props.changeReservasActivas("encurso")}>RESERVAS EN CURSO</button>
+      </Col>
+      <Col xs={12} sm={4}>
         <button className="btn btn-lg btn-outline-light btn-block btn-reserva"
           onClick={() => props.changeReservasActivas("inactivas")}>RESERVAS INACTIVAS</button>
       </Col>

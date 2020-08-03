@@ -42,19 +42,19 @@ class ReservaContainer extends React.Component {
     }
 
     handleCloseComentario = () => {
-        this.setState({...this.state, showComentario: false})
+        this.setState({ ...this.state, showComentario: false })
     }
 
     handleOpenComentario = () => {
-        this.setState({...this.state, showComentario: true})
+        this.setState({ ...this.state, showComentario: true })
     }
 
     handleCloseDejarComentario = () => {
-        this.setState({...this.state, showDejarComentario: false})
+        this.setState({ ...this.state, showDejarComentario: false })
     }
 
     handleOpenDejarComentario = () => {
-        this.setState({...this.state, showDejarComentario: true})
+        this.setState({ ...this.state, showDejarComentario: true })
     }
 
     cancel_reserva = {
@@ -64,6 +64,11 @@ class ReservaContainer extends React.Component {
 
     completar_reserva = {
         reserva_id: this.props.reserva_data.reserva_id, estado: 2,
+        changeReservasActivas: this.props.changeReservasActivas
+    }
+
+    reserva_encurso = {
+        reserva_id: this.props.reserva_data.reserva_id, estado: 4,
         changeReservasActivas: this.props.changeReservasActivas
     }
 
@@ -115,11 +120,16 @@ class ReservaContainer extends React.Component {
                     }
                 </Row>
                 <Row className='mt-3 text-center justify-content-center'>
-                    {parseInt(this.props.reserva_data.estado, 10) === 1 && <Col xs={12} lg={4}>
-                        <button className="btn btn-danger btn-block"
-                            onClick={() => PATCHReserva(this.cancel_reserva)}>CANCELAR RESERVA</button>
-                    </Col>}
+                    {(parseInt(this.props.reserva_data.estado, 10) === 1 || parseInt(this.props.reserva_data.estado, 10) === 4)
+                        && <Col xs={12} lg={4}>
+                            <button className="btn btn-danger btn-block"
+                                onClick={() => PATCHReserva(this.cancel_reserva)}>CANCELAR RESERVA</button>
+                        </Col>}
                     {parseInt(this.props.reserva_data.estado, 10) === 1 && this.props.reserva_data.rol === 2 && <Col xs={12} lg={4}>
+                        <button className="btn btn-success btn-block"
+                            onClick={() => PATCHReserva(this.reserva_encurso)}>MARCAR EN CURSO</button>
+                    </Col>}
+                    {parseInt(this.props.reserva_data.estado, 10) === 4 && this.props.reserva_data.rol === 2 && <Col xs={12} lg={4}>
                         <button className="btn btn-success btn-block"
                             onClick={() => PATCHReserva(this.completar_reserva)}>MARCAR COMPLETA</button>
                     </Col>}

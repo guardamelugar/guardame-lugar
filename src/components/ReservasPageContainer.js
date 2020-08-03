@@ -8,14 +8,13 @@ class ReservasPageContainer extends React.Component {
 
   constructor(props) {
     super(props);
-    this.changeReservasActivas = this.changeReservasActivas.bind(this);
     this.state = {
       ...this.state,
       mostrar_reservas: "activas",
     }
   }
 
-  changeReservasActivas(status) {
+  changeReservasActivas = (status) => {
     this.setState({ ...this.state, mostrar_reservas: status })
   }
 

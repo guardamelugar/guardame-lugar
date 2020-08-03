@@ -121,7 +121,7 @@ class ReservasContainer extends React.Component {
               {
                 reservas.map((reserva) => {
                   const transformed_data = TransformReservaData(reserva, this.cookie.rol);
-                  return (<ReservaContainer  key={transformed_data.reserva_id}
+                  return (<ReservaContainer key={transformed_data.reserva_id}
                     reserva_data={transformed_data} changeReservasActivas={this.props.changeReservasActivas} />)
                 })
               }
@@ -164,6 +164,13 @@ class ReservasContainer extends React.Component {
                     </div>
                   </Row>
                 }
+                {this.props.mostrar_reservas === "encurso" &&
+                  <Row className="mt-3 mx-auto garagecomp lg={5}">
+                    <div>
+                      <h4>No registrás reservas en curso a la fecha.</h4>
+                    </div>
+                  </Row>
+                }
               </Container>
             }
             {
@@ -183,6 +190,13 @@ class ReservasContainer extends React.Component {
                   <Row className="mt-3 mx-auto garagecomp lg={5}">
                     <div>
                       <h4>El garage seleccionado no registra reservas completas o canceladas a la fecha.</h4>
+                    </div>
+                  </Row>
+                }
+                {this.props.mostrar_reservas === "encurso" &&
+                  <Row className="mt-3 mx-auto garagecomp lg={5}">
+                    <div>
+                      <h4>El garage seleccionado no registra reservas en curso a la fecha.</h4>
                     </div>
                   </Row>
                 }
