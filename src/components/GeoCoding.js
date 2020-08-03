@@ -6,6 +6,7 @@ const MapDefault = props => {
   Geocode.setApiKey(`${GMAPS_API_KEY}`);
 
   let getLatLong = new Promise(function (resolve, reject) {
+    Geocode.setRegion("ar");
     let salida = Geocode.fromAddress(props).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location;
