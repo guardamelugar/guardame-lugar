@@ -24,7 +24,7 @@ class Header extends Component {
     return (
       (rol !== undefined &&
       <header>
-        <Navbar bg="secondary" expand="sm" className="padding-nav" variant="dark">
+        <Navbar bg="secondary" expand="md" className="padding-nav" variant="dark">
           <Navbar.Brand href="/">
             <img src={require("../img/guardamelugar-h.png")} className='header-logo' alt="logo"></img>
           </Navbar.Brand>
