@@ -70,7 +70,10 @@ class ReservasContainer extends React.Component {
     }
     else {
       if (parseInt(this.cookie.rol, 10) === 2) {
-
+        if (this.props.garage_id === undefined) {
+          alert("Por favor seleccione un garage")
+          return (window.location = '/clientindex');
+        }
         const data_garage = { "garage_id": this.props.garage_id, "rol": this.cookie.rol };
         let reservas = await GETReservas(data_garage);
         reservas = ReservasFiltradas(reservas, this.props.mostrar_reservas);
