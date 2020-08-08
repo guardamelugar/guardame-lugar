@@ -41,7 +41,7 @@ const GarageContainer = (props) => {
     const promedio = props.garage_data.contador > 0 ?
         (props.garage_data.promedio / props.garage_data.contador).toFixed(2) : 0
 
-    return (<><Col className="mr-md-2 mt-4 garagecomp" xs={11} lg={5} id={props.garage_data.garage_id}
+    return (<><Col className="mr-md-1 mt-4 garagecomp" xs={11} lg={5} id={props.garage_data.garage_id}
         key={props.garage_data.garage_id}>
         <Row className='ml-1'>
             <Col xs={9} className='nombreGarage' id="nombre_garage">
@@ -66,7 +66,7 @@ const GarageContainer = (props) => {
         <hr></hr>
         <Row className='ml-1 mt-3'>
             <Col md={6} id="telefono_garage"><span>Teléfono: </span><span className="valor_campo text-muted">{props.garage_data.telefono_garage}</span></Col>
-            <Col md={6}><span>Localidad: </span><span className="valor_campo text-muted">{props.garage_data.localidad_garage_texto}</span></Col>
+            <Col xs={12} xl={6}><span>Localidad: </span><span className="valor_campo text-muted">{props.garage_data.localidad_garage_texto}</span></Col>
             <Col id="localidad_garage" className="localidad">{props.garage_data.localidad_garage}</Col>
         </Row>
         <Row className='ml-1'>

@@ -81,8 +81,8 @@ class GaragesContainer extends React.Component {
       }
       if (garages.length % 2 !== 0) {
         return (
-          <Container>
-            <Row className="ml-md-5 mr-md-5 justify-content-around">
+          <Container fluid>
+            <Row className="ml-md-0 mr-md-0 justify-content-around">
               <LoadingIndicator />
               {
                 garages.map((garage) => {
@@ -90,14 +90,14 @@ class GaragesContainer extends React.Component {
                   return (<GarageContainer key={garage.garage_id} garage_data={transformed_data} />)
                 })
               }
-              <Col className="mr-md-2 mt-4 garagecomp invisible" lg={5} ></Col>
+              <Col className="mr-md-0 mt-4 garagecomp invisible" lg={6} ></Col>
             </Row>
           </Container>
         )
       } else {
         return (
-          <Container>
-            <Row className="ml-md-5 mr-md-5 justify-content-around">
+          <Container fluid>
+            <Row className="ml-md-0 mr-md-0 justify-content-around">
               <LoadingIndicator />
               {
                 garages.map((garage) => {
@@ -120,14 +120,14 @@ class GaragesContainer extends React.Component {
           <>
             <LoadingIndicator />
             {(parseInt(this.rol, 10) === 1) &&
-              <Row className="mt-3 garagecomp lg={5} mx-auto">
+              <Row className="mt-3 garagecomp lg={6} mx-auto">
                 <div>
                   <h4>El filtro seleccionado no ha arrojado resultados, inténtelo nuevamente.</h4>
                 </div>
               </Row>
             }
             {(parseInt(this.rol, 10) === 2) &&
-              <Row className="mt-3 garagecomp lg={5} mx-auto">
+              <Row className="mt-3 garagecomp lg={6} mx-auto">
                 <div>
                   <h4>Todavía no registraste garages.</h4>
                 </div>
