@@ -2,6 +2,18 @@
 
 **Notas de Versión**
 
+### Versión 1.2 - Release 7
+
+**16/08/2020**
+
+### Cambios:
+- Signup - sistema envia correo electronico de bienvenida
+- Precision mapa
+
+#### Añadido:
+- Estado "en curso" de reservas
+- Reseteo de contraseña
+
 ### Versión 1.1 - Release 6
 
 **02/08/2020**
