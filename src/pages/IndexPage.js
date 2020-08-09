@@ -1,5 +1,5 @@
 import React from 'react'
-import IndexContainer from '../components/IndexContainer'
+import IndexContainer from '../components/ContainersPaginas/IndexContainer'
 
 class Index extends React.Component {
 
