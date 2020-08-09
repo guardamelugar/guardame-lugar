@@ -17,4 +17,8 @@ export const URL_ACTUALIZAR_RESERVA = DOMAIN + '/guardamelugar/Garages'
 export const URL_COMENTARIO_POR_GARAGE = DOMAIN + '/guardamelugar/Garages/Coment/garage/'
 export const URL_COMENTARIO_POR_RESERVA = DOMAIN + '/guardamelugar/Garages/Coment/reservation/'
 export const URL_POST_COMENTARIO = DOMAIN + '/guardamelugar/Garages/Coment'
+export const URL_PASSWORD_RESET = DOMAIN + '/guardamelugar/Garages/Coment'
+export const URL_VALIDAR_TOKEN = DOMAIN + '/guardamelugar/Garages/Coment'
+export const URL_ACTUALIZAR_PASSWORD = DOMAIN + '/guardamelugar/Garages/Coment'
+
 export const GMAPS_API_KEY = 'AIzaSyDS_FuLHGRO_scfhCe15z-mBwlwpZ9IaTQ'
