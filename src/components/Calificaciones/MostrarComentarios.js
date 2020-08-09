@@ -16,6 +16,8 @@ class MostrarComentarios extends Component {
   async componentDidMount() {
     let comentarios = undefined;
 
+    /* al cargar el componente se buscan los comentarios relaciones a ese garage */
+
     if (this.props.comentario === undefined) {
       comentarios = await GETComentariosbyGarage(parseInt(this.props.garage_id, 10));
       this.setState({

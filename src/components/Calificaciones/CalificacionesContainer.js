@@ -14,7 +14,8 @@ class CalificacionesContainer extends React.Component {
       calificacion_media: 0,
     }
   }
-
+  
+/* cuando cambia una de las calificaciones se calcula la media */
   onChangeCal1 = (value) => {
     this.setState({
       ...this.state, "calificacion_1": value,

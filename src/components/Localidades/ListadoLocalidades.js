@@ -8,6 +8,10 @@ class ListadoLocalidades extends React.Component {
   }
 
   async componentDidMount() {
+
+    /* busca la lista de localidades. si la prop filtrado es "filtrado" retorna solo las localidades
+     en las cuales hay espacio para estacionar*/
+
     if (this.state.localidades === null || this.state.localidades === undefined) {
       const localidades = await GETLocalidades(this.props.filtrado);
       this.setState({
@@ -26,7 +30,7 @@ class ListadoLocalidades extends React.Component {
           {
             localidades.map((localidad) => {
 
-              if (localidad.localidad_id !== parseInt(this.props.selected,10)) {
+              if (localidad.localidad_id !== parseInt(this.props.selected, 10)) {
                 return (<option value={localidad.localidad_id}
                   key={localidad.localidad_id}>{localidad.nombre_localidad}</option>)
               }

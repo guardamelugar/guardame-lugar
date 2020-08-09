@@ -4,6 +4,8 @@ import UserNavBar from '../NavBars/UserNavBar'
 import ChequearCookie from '../Cookie/ChequearCookie'
 import ReservasContainer from '../Reservas/ReservasContainer'
 
+/* uso de cookie para redirigir al usuario a la pantalla correcta */
+
 class ReservasPageContainer extends React.Component {
 
   constructor(props) {

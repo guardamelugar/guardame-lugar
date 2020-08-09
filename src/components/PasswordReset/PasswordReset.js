@@ -33,11 +33,11 @@ class PasswordReset extends Component {
     e.preventDefault();
 
     if (this.state.display_pagina === "ingresar_mail") {
-      const data = {mail: this.state.form_data.email, link: window.location.origin + window.location.pathname}
+      const data = { mail: this.state.form_data.email, link: window.location.origin + window.location.pathname }
       POSTPasswordReset(data);
     }
     else {
-      const data = {user_id: this.state.user_id, password: this.state.form_data.password}
+      const data = { user_id: this.state.user_id, password: this.state.form_data.password }
       PATCHCambiarPassword(data);
     }
   }
@@ -47,6 +47,7 @@ class PasswordReset extends Component {
   }
 
   async componentDidMount() {
+    /* busca la URL usada para ser enviada al backend */
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const token = urlParams.get('token');
@@ -74,6 +75,7 @@ class PasswordReset extends Component {
             {this.state.display_pagina === "ingresar_mail" && <h2 className='pt-4'>Resetear contraseña</h2>}
             {this.state.display_pagina === "ingresar_password" && <h2 className='pt-4'>Cambiar contraseña</h2>}
 
+            {/* a ser mostrado si el usuario quiere pedir el resteo --> token inexistente en URL */}
             {this.state.display_pagina === "ingresar_mail" &&
               <ValidationForm onSubmit={this.handleSubmit} className="signupForm">
                 <Form>
@@ -104,8 +106,8 @@ class PasswordReset extends Component {
                   </Row>
                 </Form>
               </ValidationForm>}
-
-
+            {/* ------------------------------------------------------------------------------------------------- */}
+            {/* a ser mostrado si el usuario usa el link enviado por mail --> token en URL */}
             {this.state.display_pagina === "ingresar_password" &&
               <ValidationForm onSubmit={this.handleSubmit} onErrorSubmit={this.handleErrorSubmit} className="signupForm">
                 <Form>
@@ -151,6 +153,7 @@ class PasswordReset extends Component {
                   </Row>
                 </Form>
               </ValidationForm>}
+            {/* ------------------------------------------------------------------------------------------------- */}
           </Col>
         </Row>
       </Container >

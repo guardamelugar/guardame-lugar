@@ -12,6 +12,7 @@ class GarageSearch extends Component {
     this.handleVehicleChange = this.handleVehicleChange.bind(this);
   }
   
+  /* esta informacion se eleva a UserContainer para actualizar los garages mostrados */
   handleLocalidadChange(e) {
     this.props.onLocalidadChange(e.target.value);
   }

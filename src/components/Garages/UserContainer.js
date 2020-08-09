@@ -17,10 +17,12 @@ class UserContainer extends Component {
     }
   }
 
+  /* uso de estado para refrescar el filtro de garages */
   handleVehicleChange(vehicle)  {
     this.setState({vehicle_type: vehicle, filtered: "filtrado"})
   }
 
+  /* uso de estado para refrescar el filtro de garages */
   handleLocalidadChange(localidad) {
     this.setState({localidad: localidad, filtered: "filtrado"})
   }

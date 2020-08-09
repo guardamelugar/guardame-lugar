@@ -56,6 +56,7 @@ class FormGarage extends Component {
     }
   }
 
+  /* va actualizando el state a medida que el cliente tipea */
   handleChange = (e) => {
     this.setState({
       ...this.state, "formGarage": { ...this.state.formGarage, [e.target.name]: e.target.value }

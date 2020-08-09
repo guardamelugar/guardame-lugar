@@ -2,7 +2,10 @@ import React from 'react';
 import { usePromiseTracker } from "react-promise-tracker";
 import Loader from 'react-loader-spinner';
 
-const LoadingIndicator = props => {
+/* usado en la conexion con la base de datos. chequea si hay una promise en curso para mostrar u
+ocultar la animacion de carga */
+
+const LoadingIndicator = () => {
   const { promiseInProgress } = usePromiseTracker();
   return (
     promiseInProgress &&

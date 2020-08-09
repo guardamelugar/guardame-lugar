@@ -1,11 +1,14 @@
 import Geocode from "react-geocode";
 import { GMAPS_API_KEY } from '../../constants/URL'
 
+/* Convierte una direccion en coordenadas */
+
 const MapDefault = props => {
 
   Geocode.setApiKey(`${GMAPS_API_KEY}`);
 
   let getLatLong = new Promise(function (resolve, reject) {
+    /* uso de CABA en la direccion y region AR para aumentar la precision */
     props = props+", CABA"
     Geocode.setRegion("ar");
     

@@ -12,6 +12,8 @@ class Login extends Component {
     password: "",
   }
 
+  /* va actualizando el state a medida que el usuario/cliente tipea */
+
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value

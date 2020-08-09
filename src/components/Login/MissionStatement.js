@@ -14,6 +14,7 @@ const MissionStatement = () => {
           <Login />
           <SignupOptions />
         </Col>
+        {/* formato de escritorio */}
         <Col className='mision'>
           <h2 className='guardameLugar tituloMision'>GUARDAME LUGAR</h2>
           <p>La página que te facilita reservar un lugar para tu vehículo. </p>
@@ -27,6 +28,7 @@ const MissionStatement = () => {
           <p><b>Vos preocupate por manejar, nosotros nos encargamos del resto.</b></p>
         </Col>
       </Row>
+      {/* formato movil */}
       <Row className="missionSmall">
         <Col className='mision'>
           <h2 className='guardameLugar tituloMision'>GUARDAME LUGAR</h2>

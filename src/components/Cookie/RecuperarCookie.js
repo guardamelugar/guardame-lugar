@@ -3,6 +3,8 @@ import Cookies from 'universal-cookie'
 import SimpleCrypto from "simple-crypto-js"
 import { SecretKey } from '../../constants/SecretKey'
 
+/* recupera la cookie encriptada y la desencripta */
+
 const RecuperarCookie = () => {
   const cookies = new Cookies();
   const encryptedCookie = cookies.get(cookieName);

@@ -31,6 +31,7 @@ garage_data: {
 }
 
     localidad_garage_texto Es el valor asociado al ID de localidad. Ej. Almagro. */
+
 const GarageContainer = (props) => {
     const [show, setShow] = useState(false);
     const [showComentario, setShowComentario] = useState(false);
@@ -87,6 +88,7 @@ const GarageContainer = (props) => {
         </Row>
         <Row className='mt-2 justify-content-center'>
 
+            {/* muestra esta porcion solo a los clientes */}
             {parseInt(props.garage_data.rol, 10) === 2 &&
                 <>
                     <Col xs={12} lg={6} className='mt-1'>
@@ -108,7 +110,7 @@ const GarageContainer = (props) => {
                     </Col>
                 </>
             }
-
+            {/* muestra esta porcion solo a los usuarios */}
             {parseInt(props.garage_data.rol, 10) === 1 &&
 
                 <Col xs={12} lg={6} className='mt-1'>

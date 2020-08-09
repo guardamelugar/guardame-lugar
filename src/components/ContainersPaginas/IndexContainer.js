@@ -4,6 +4,8 @@ import ChequearCookie from '../Cookie/ChequearCookie'
 import GaragesContainer from '../Garages/GaragesContainer'
 import UserContainer from '../Garages/UserContainer'
 
+/* uso de cookie para redirigir al usuario a la pantalla correcta */
+
 const IndexContainer = () => {
   const salidaUser =
     <section>

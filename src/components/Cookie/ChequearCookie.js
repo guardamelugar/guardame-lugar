@@ -3,6 +3,12 @@ import POSTLogin from '../DB Connection/POSTLogin'
 import Cookies from 'universal-cookie'
 import RecuperarCookie from './RecuperarCookie'
 
+/* recibe 
+salida: codigo o html a ser mostrado si la validacion es correcta
+user_redirect: si el usuario (rol 1) quiere ingresar a un area no permitida sera redirigido a esa url 
+client_redirect: si el cliente (rol 2) quiere ingresar a un area no permitida sera redirigido a esa url
+landing_redirect: redirige a login si falla el chequeo de la cookie (i.e. no existe/no es valida)*/
+
 const ChequearCookie = (salida, user_redirect, client_redirect, landing_redirect) => {
   const cookies = new Cookies();
 

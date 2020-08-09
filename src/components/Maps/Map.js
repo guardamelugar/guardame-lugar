@@ -4,6 +4,8 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-map
 import MapDefault from './GeoCoding'
 import { GMAPS_API_KEY } from '../../constants/URL'
 
+/* crea un mapa usando una direccion */
+
 class Map extends Component {
 
   constructor(props) {
@@ -20,6 +22,7 @@ class Map extends Component {
 
     let coordenadas = await MapDefault(this.state.address);
 
+    /* si GeoCoding no encontro la direccion se usa el obelisco in marker por defecto */
     if (coordenadas !== undefined && coordenadas.direccion !== 'Buenos Aires, Argentina') {
       this.setState({...this.state, coordenadas: coordenadas})
       this.setState({...this.state, isMarkerShown: true})
