@@ -4,8 +4,11 @@ import { URL_ACTUALIZAR_PASSWORD } from '../../constants/URL'
 /* props contiene user_id y password nuevo */
 
 const PATCHCambiarPassword = props => {
+  console.log(props)
 
-  axios.patch((URL_ACTUALIZAR_PASSWORD), JSON.stringify(props), {
+  const data = {user_id: parseInt(props.user_id, 10), password: props.password}
+
+  axios.patch((URL_ACTUALIZAR_PASSWORD), data, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -20,6 +23,7 @@ const PATCHCambiarPassword = props => {
     .catch(function (err) {
       if (err.response) {
         if (err.response.status !== 500) {
+          console.log(err.response)
           return alert(err.response.data.message);
         } else {
           return alert("No se puede conectar con la base de datos")

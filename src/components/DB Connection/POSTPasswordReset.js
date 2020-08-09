@@ -12,18 +12,12 @@ const POSTPasswordReset = props => {
   })
     .then(function (res) {
       if (res.status === 200) {
-        alert("El usuario se guardó con éxito");
+        alert("Un email fue enviado a esta casilla de correo con instrucciones. Revisar Spam si no lo encontrás.");
         window.location = '/login';
       }
     })
     .catch(function (err) {
-      if (err.response) {
-        if (err.response.status === 400) {
-          alert("El email ya existe en nuestros registros");
-        } else {
-          alert("No se puede conectar con la base de datos")
-        }
-      }
+      alert("El email ingresado no pertenece a un usuario registrado.");
     })
 }
 

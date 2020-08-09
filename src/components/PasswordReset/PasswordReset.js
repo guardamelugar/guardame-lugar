@@ -53,13 +53,13 @@ class PasswordReset extends Component {
     const token = urlParams.get('token');
 
     if (token !== null) {
-      //hacer chequeo si el token es valido
-      /* const return_data = await GETValidarToken(); 
+      const return_data = await GETValidarToken(token);
+      console.log("GETVALIDAR", return_data);
       if (return_data !== undefined) {
         this.setState({...this.state, 
-          form_data: {...this.state.form_data, user_id: return_data.user_id, email: return_data.mail}})
+          user_id: return_data.user_id,form_data: {...this.state.form_data, email: return_data.mail}})
       }
-      */
+
       this.setState({ ...this.state, display_pagina: "ingresar_password" })
     }
   }
