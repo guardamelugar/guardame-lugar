@@ -54,7 +54,12 @@ class PasswordReset extends Component {
 
     if (token !== null) {
       const return_data = await GETValidarToken(token);
-      console.log("GETVALIDAR", return_data);
+      
+      if (return_data.user_id === 0) {
+        alert("El link utilizado ya no es válido. Por favor realizar un nuevo pedido de reseteo de contraseña.")
+        return window.location = '/login';
+      }
+
       if (return_data !== undefined) {
         this.setState({...this.state, 
           user_id: return_data.user_id,form_data: {...this.state.form_data, email: return_data.mail}})

@@ -21,6 +21,7 @@ class SignupContainer extends Component {
       password: "",
       confirmPassword: "",
       soydueno: "",
+      link: "",
     }
   }
 
@@ -38,6 +39,9 @@ class SignupContainer extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+
+    const link = window.location.origin;
+    this.setState({...this.state, signup: {...this.state.signup, link: link}})
 
     const jsonForm = TransformSignup(this.state.signup);
     POSTSignup(jsonForm);

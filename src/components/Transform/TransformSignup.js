@@ -7,7 +7,8 @@ const TransformSignup = formData => {
     "telefono": formData.telefono,
     "mail": formData.email,
     "contraseña": formData.password,
-    "rol": rol
+    "rol": rol,
+    "link": formData.link,
   }
 
   return transformedForm;
