@@ -1,9 +1,9 @@
 import React from 'react'
-import SignupContainer from '../components/SignupContainer'
+import SignupPageContainer from '../components/Registro/SignupContainer'
 
 class Signup extends React.Component {
   render() {
-    return <SignupContainer/>;
+    return <SignupPageContainer/>;
   }
 }
 

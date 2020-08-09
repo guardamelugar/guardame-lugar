@@ -1,5 +1,5 @@
 import React from 'react'
-import ReservasPageContainer from '../components/ReservasPageContainer'
+import ReservasPageContainer from '../components/ContainersPaginas/ReservasPageContainer'
 
 class ReservasPage extends React.Component {
 

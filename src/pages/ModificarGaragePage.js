@@ -1,5 +1,5 @@
 import React from 'react'
-import SignupModGarage from '../components/SignupModGarage'
+import SignupModGarage from '../components/ContainersPaginas/SignupModGarage'
 
 /* 
 garage_id={this.props.garage_id}
