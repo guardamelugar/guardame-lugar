@@ -90,7 +90,7 @@ class GaragesContainer extends React.Component {
                   return (<GarageContainer key={garage.garage_id} garage_data={transformed_data} />)
                 })
               }
-              <Col className="mr-md-0 mt-4 garagecomp invisible" lg={6} ></Col>
+              <Col xs={11} lg={5} className="mr-md-1 mt-4 garagecomp invisible" ></Col>
             </Row>
           </Container>
         )
@@ -102,14 +102,13 @@ class GaragesContainer extends React.Component {
               {
                 garages.map((garage) => {
                   const transformed_data = TransformGarageData(garage, this.cookie.rol);
-                  return (<GarageContainer garage_data={transformed_data} />)
+                  return (<GarageContainer key={garage.garage_id} garage_data={transformed_data} />)
                 })
               }
             </Row>
           </Container>
         )
       }
-
     }
     else {
       if (this.state.loaded === false) {
