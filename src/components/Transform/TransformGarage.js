@@ -1,4 +1,4 @@
-import RecuperarCookie from '../RecuperarCookie'
+import RecuperarCookie from '../Cookie/RecuperarCookie'
 
 const TransformGarage = (formData, type) => {
   const cookie = RecuperarCookie();
