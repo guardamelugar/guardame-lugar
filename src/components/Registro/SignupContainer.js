@@ -74,7 +74,7 @@ class SignupContainer extends Component {
                       pattern="^[^±!@£$%^&*_+§¡€#¢§¶•ªº«\\/<>?:;|=.,0-9]{3,50}$"
                       errorMessage={{
                         required: "El nombre es requerido",
-                        pattern: "El nombre debe tener entre 3 y 50 caracteres"
+                        pattern: "El nombre debe tener entre 3 y 50 caracteres. No admite números ni ^±!@£$%^&*_+§¡€#¢§¶•ªº«\\/<>?:;|=.,"
                       }}
                     />
                   </Form.Group>
@@ -86,7 +86,7 @@ class SignupContainer extends Component {
                       pattern="^[^±!@£$%^&*_+§¡€#¢§¶•ªº«\\/<>?:;|=.,0-9]{3,50}$"
                       errorMessage={{
                         required: "El apellido es requerido",
-                        pattern: "El apellido debe tener entre 3 y 50 caracteres"
+                        pattern: "El apellido debe tener entre 3 y 50 caracteres. No admite números ni ^±!@£$%^&*_+§¡€#¢§¶•ªº«\\/<>?:;|=.,"
                       }}
                     />
                   </Form.Group>
