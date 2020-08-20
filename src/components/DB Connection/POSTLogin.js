@@ -41,12 +41,16 @@ const POSTLogin = props => {
       }
     })
     .catch(function (err) {
+
       if (err.response) {
         if (err.response.status === 404) {
           alert("El usuario/contraseña es inválido");
         } else {
           alert("No se puede conectar con la base de datos")
         }
+      }
+      else {
+        alert("No se puede conectar con la base de datos")
       }
     })
 }
