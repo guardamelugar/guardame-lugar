@@ -93,7 +93,7 @@ class FormGarage extends Component {
                       pattern="^[^±£%^&*§€#¢§¶•ªº«\\/<>|=]{3,40}$"
                       errorMessage={{
                         required: "El nombre del establecimiento es requerido",
-                        pattern: "El nombre del establecimiento debe tener entre 3 y 40 caracteres"
+                        pattern: "El nombre del establecimiento debe tener entre 3 y 40 caracteres, y no puede contener ^±£%^&*§€#¢§¶•ªº«\\/<>|="
                       }}
                     />
                   </Form.Group>
@@ -105,7 +105,7 @@ class FormGarage extends Component {
                       pattern="^[^±£%^&*§€#¢§¶•ªº«\\/<>|=]{3,40}$"
                       errorMessage={{
                         required: "La dirección es requerida",
-                        pattern: "La dirección debe tener entre 3 y 40 caracteres"
+                        pattern: "La dirección debe tener entre 3 y 40 caracteres, y no puede contener ^±£%^&*§€#¢§¶•ªº«\\/<>|="
                       }}
                     />
                   </Form.Group>
@@ -131,7 +131,7 @@ class FormGarage extends Component {
                       pattern="(?=^[0-9]*$).{5,15}"
                       errorMessage={{
                         required: "El campo es requerido",
-                        pattern: "El campo sólo admite números"
+                        pattern: "El campo sólo admite números y requiere más de 5 digitos"
                       }}
                     />
                   </Form.Group>

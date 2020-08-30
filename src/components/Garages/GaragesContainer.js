@@ -111,8 +111,11 @@ class GaragesContainer extends React.Component {
       }
     }
     else {
-      if (this.state.loaded === false) {
-        return (<LoadingIndicator />)
+      if (this.state.loaded === false && this.state.garages === null) {
+        return (
+        <>
+        <LoadingIndicator />
+        </>)
       }
       else {
         return (
