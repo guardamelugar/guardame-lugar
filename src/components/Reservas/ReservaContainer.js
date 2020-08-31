@@ -59,16 +59,22 @@ class ReservaContainer extends React.Component {
 
     cancel_reserva = {
         reserva_id: this.props.reserva_data.reserva_id, estado: 3,
+        tipo_vehiculo: this.props.reserva_data.tipo_vehiculo,
+        garage_id: this.props.reserva_data.garage_id,
         changeReservasActivas: this.props.changeReservasActivas
     }
 
     completar_reserva = {
         reserva_id: this.props.reserva_data.reserva_id, estado: 2,
+        tipo_vehiculo: this.props.reserva_data.tipo_vehiculo,
+        garage_id: this.props.reserva_data.garage_id,
         changeReservasActivas: this.props.changeReservasActivas
     }
 
     reserva_encurso = {
         reserva_id: this.props.reserva_data.reserva_id, estado: 4,
+        tipo_vehiculo: this.props.reserva_data.tipo_vehiculo,
+        garage_id: this.props.reserva_data.garage_id,
         changeReservasActivas: this.props.changeReservasActivas
     }
 

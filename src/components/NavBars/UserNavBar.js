@@ -13,7 +13,7 @@ const UserNavBar = (props) => {
       <Container className="client-nav-wrapper">
         <Row className="justify-content-center">
           <Col xs={12} sm={6} md={4} lg={3} xl={2} className="text-center">
-            <Link to='/index'>
+            <Link to='/index' style={{ textDecoration: 'none' }}>
               <Button className="btn btn-primary btn-block" variant="info">Buscar Garages</Button>
             </Link>
           </Col>
