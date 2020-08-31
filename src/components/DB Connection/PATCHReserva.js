@@ -2,7 +2,10 @@ import axios from 'axios'
 import { URL_ACTUALIZAR_RESERVA } from '../../constants/URL'
 
 const PATCHReserva = props => {
-  const salida = {reserva_id: props.reserva_id, estado: props.estado}
+  const salida = {
+    reserva_id: props.reserva_id, estado: props.estado,
+    tipo_vehiculo: props.tipo_vehiculo, garage_id: props.garage_id
+  }
 
   axios.patch((URL_ACTUALIZAR_RESERVA), salida, {
     method: 'PATCH',
