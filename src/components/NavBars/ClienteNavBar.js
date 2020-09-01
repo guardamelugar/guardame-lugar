@@ -21,7 +21,7 @@ const ClienteNavBar = (props) => {
             <Button className="client-btn btn-block" variant="info" onClick={() => setShow(true)}>Agregar Garage</Button>
           </Col>
           {window.location.pathname !== '/clientindex' && <Col xs={12} sm={6} md={4} lg={3} xl={2} className="text-center">
-            <Link to='/clientindex'>
+            <Link to='/clientindex' style={{ textDecoration: 'none' }}>
               <Button className="client-btn btn-block" variant="info">Ver Garages</Button>
             </Link>
           </Col>}
